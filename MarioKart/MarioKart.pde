@@ -1,6 +1,5 @@
-class MarioKart {
-
 PImage map;
+Kart k;
 
 void setup() {
   size(800,800);
@@ -10,6 +9,6 @@ void setup() {
 
 void draw() {
   image(map, 0, 0, 800, 800);
-}
-
+  k = new Kart(400, 400);
+  k.display();
 }
