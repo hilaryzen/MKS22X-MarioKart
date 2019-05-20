@@ -8,5 +8,4 @@ void setup() {
 
 void draw() {
   image(map, 0, 0, 800, 800);
-  rect(10, 10, 20, 40);
 }
