@@ -1,7 +1,6 @@
 class Kart {
   int x;
   int y;
-  int score;
   float speed;
   float direction;
   int fuel;
@@ -10,7 +9,6 @@ class Kart {
   Kart(int X, int Y) {
     x = X;
     y = Y;
-    score = 0;
     speed = 1.0;
     direction = 0.0;
     fuel = 100;
@@ -54,5 +52,18 @@ class Kart {
   void display() {
     //println(isOnRoad());
     rect(x - 15, y - 15, 30, 30);
+  }
+}
+
+class Player extends Kart {
+  int score;
+  
+  Player(int X, int Y) {
+    super(X, Y);
+    score = 0;
+  }
+  
+  int getScore() {
+    return score;
   }
 }
