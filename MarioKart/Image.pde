@@ -12,15 +12,8 @@ class Image implements Displayable, Moveable{
   }
   
   void move() {
-    //xcor = xcor + 10;
-    //keyPressed();
-  }
-  void draw() {
-    
-  }
-  
-  void keyPressed() {
-    if (key == 'w') {
+    if (keyPressed()) {
+      if (key == 'w') {
       ycor = ycor - 5;
     }
     if (key == 'a') {
@@ -32,6 +25,18 @@ class Image implements Displayable, Moveable{
     if (key == 'd') {
       xcor = xcor + 5;
     }
+      
+    }
+  }
+  void draw() {
+    
+  }
+  
+  boolean keyPressed() {
+    if ((key == 's') || (key == 'w') ||(key == 'a') ||(key == 'd') ) {
+      return true;
+    }
+    return false;
   }
   
 }

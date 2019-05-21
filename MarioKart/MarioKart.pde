@@ -29,7 +29,7 @@ void draw() {
     thing.display();
   }
   for (Moveable thing : thingsToMove) {
-    //thing.move();
-    thing.draw();
+    thing.move();
+    //thing.draw();
   }
 }
