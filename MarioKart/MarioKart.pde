@@ -6,6 +6,7 @@ interface Displayable {
 
 interface Moveable {
   void move();
+  void draw();
 }
 
 ArrayList<Displayable> thingsToDisplay; //from group lab
@@ -28,6 +29,7 @@ void draw() {
     thing.display();
   }
   for (Moveable thing : thingsToMove) {
-    thing.move();
-}
+    //thing.move();
+    thing.draw();
+  }
 }

@@ -1,4 +1,4 @@
-class Image {
+class Image implements Displayable, Moveable{
   float xcor;
   float ycor;
   
@@ -12,7 +12,26 @@ class Image {
   }
   
   void move() {
-    xcor = xcor + 10;
+    //xcor = xcor + 10;
+    //keyPressed();
+  }
+  void draw() {
+    
+  }
+  
+  void keyPressed() {
+    if (key == 'w') {
+      ycor = ycor - 5;
+    }
+    if (key == 'a') {
+      xcor = xcor - 5;
+    }
+    if (key == 's') {
+      ycor = ycor + 5;
+    }
+    if (key == 'd') {
+      xcor = xcor + 5;
+    }
   }
   
 }
