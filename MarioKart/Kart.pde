@@ -1,13 +1,13 @@
 class Kart {
-  float x;
-  float y;
+  int x;
+  int y;
   int score;
   float speed;
   float direction;
   int fuel;
   int health;
   
-  Kart(float X, float Y) {
+  Kart(int X, int Y) {
     x = X;
     y = Y;
     score = 0;
@@ -42,10 +42,17 @@ class Kart {
   }
   
   boolean isOnRoad() {
-    return true;
+    color c = get(x,y);
+    //println(green(c));
+    return (green(c) == 209 || green(c) == 146);
+    /*
+    println(green(c)); //Returned 470896 on brown and 181 on green
+    return c;
+    */
   }
   
   void display() {
-    rect(x, y, 23, 23);
+    //println(isOnRoad());
+    rect(x - 15, y - 15, 30, 30);
   }
 }
