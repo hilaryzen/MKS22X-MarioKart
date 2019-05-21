@@ -41,6 +41,10 @@ class Kart {
     return health;
   }
   
+  boolean isOnRoad() {
+    return true;
+  }
+  
   void display() {
     rect(x, y, 23, 23);
   }
