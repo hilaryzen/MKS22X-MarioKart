@@ -1,10 +1,16 @@
 class Image implements Displayable, Moveable{
   float xcor;
   float ycor;
+  int[] greenValues;
+  PImage map;
   
   Image(float x, float y){
     xcor = x;
     ycor = y;
+    map = loadImage("easy.png");
+    greenValues = new int[2];
+    greenValues[0] = 209;
+    greenValues[1] = 146;
   }
   
   void display() {

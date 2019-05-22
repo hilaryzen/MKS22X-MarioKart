@@ -18,7 +18,7 @@ void setup() {
   //Loading map
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
-  map = loadImage("easy.png");
+  //map = loadImage("easy.png");
   Image b = new Image(0, 0);
   thingsToDisplay.add(b);
   thingsToMove.add(b);
