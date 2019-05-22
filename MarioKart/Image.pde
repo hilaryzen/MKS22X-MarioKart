@@ -3,6 +3,7 @@ class Image implements Displayable, Moveable{
   float ycor;
   int[] greenValues;
   int[] startingPoint;
+  int[] endingPoint;
   PImage map;
   
   Image(float x, float y){
@@ -15,6 +16,9 @@ class Image implements Displayable, Moveable{
     startingPoint = new int[2];
     startingPoint[0] = 680;
     startingPoint[1] = 250;
+    endingPoint = new int[2];
+    endingPoint[0] = 680;
+    endingPoint[1] = 150;
   }
   
   void display() {
