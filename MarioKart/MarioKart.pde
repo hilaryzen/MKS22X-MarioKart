@@ -1,4 +1,5 @@
 PImage map;
+Kart k;
 
 interface Displayable {
   void display();
@@ -24,6 +25,7 @@ void setup() {
 }
 
 void draw() {
+<<<<<<< HEAD
   //image(map, 0, 0, 800, 800);
   for (Displayable thing : thingsToDisplay) { //from group lab
     thing.display();
@@ -33,3 +35,9 @@ void draw() {
     //thing.draw();
   }
 }
+=======
+  image(map, 0, 0, 800, 800);
+  k = new Kart(400, 400);
+  k.display();
+}
+>>>>>>> 886429b3ee55cc51ffd428dbd005da14a57b11a1
