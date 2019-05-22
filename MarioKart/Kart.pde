@@ -1,4 +1,4 @@
-class Kart {
+class Kart implements Displayable{
   int x;
   int y;
   float speed;

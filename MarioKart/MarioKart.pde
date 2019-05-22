@@ -1,4 +1,4 @@
-PImage map;
+Image b;
 Kart k;
 
 interface Displayable {
@@ -22,6 +22,8 @@ void setup() {
   Image b = new Image(0, 0);
   thingsToDisplay.add(b);
   thingsToMove.add(b);
+  Kart k = new Kart(680,250);
+  thingsToDisplay.add(k);
 }
 
 void draw() {
