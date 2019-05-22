@@ -16,3 +16,9 @@ Hilary: Added map
 Kayla: Wrote Kart class and began working on movement
 
 Hilary: Added to Kart class and researched finding the color of an image
+
+5/21
+
+Kayla: I started to experiment with keys.  I got the map moving based on whether the user clicks w, a, s, or d.
+
+Hilary: I started the Player class and wrote isOnRoad for the Kart class.
