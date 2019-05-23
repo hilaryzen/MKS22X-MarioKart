@@ -7,7 +7,7 @@ interface Displayable {
 
 interface Moveable {
   void move();
-  void draw();
+  //void draw();
 }
 
 ArrayList<Displayable> thingsToDisplay; //from group lab
@@ -19,8 +19,10 @@ void setup() {
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   map = loadImage("easy.png");
-  Image b = new Image(0, 0);
+  Kart a = new Kart(70, 70);
+  Image b = new Image(0, 0, a.getSpeed());
   thingsToDisplay.add(b);
+  thingsToDisplay.add(a);
   thingsToMove.add(b);
 }
 

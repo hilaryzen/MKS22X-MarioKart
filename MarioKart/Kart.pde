@@ -1,4 +1,4 @@
-class Kart {
+class Kart implements Displayable{
   int x;
   int y;
   float speed;
@@ -51,7 +51,7 @@ class Kart {
   
   void display() {
     //println(isOnRoad());
-    rect(x - 15, y - 15, 30, 30);
+    rect(x - 15, y - 15, 10, 10);
   }
 }
 

@@ -2,10 +2,12 @@ class Image implements Displayable, Moveable{
   float xcor;
   float ycor;
   float angle = 0;
+  float speed;
   
-  Image(float x, float y){
+  Image(float x, float y, float sp){
     xcor = x;
     ycor = y;
+    speed = sp;
   }
   
   void display() {
@@ -21,22 +23,22 @@ class Image implements Displayable, Moveable{
   void move() {
     if (keyPressed()) {
       if (key == 'w') {
-        ycor = ycor + 2;
+        ycor = ycor + speed;
       }
       if (key == 'a') {
-        xcor = xcor + 2;
+        xcor = xcor + speed;
       }
       if (key == 's') {
-        ycor = ycor - 2;
+        ycor = ycor - speed;
       }
       if (key == 'd') {
-        xcor = xcor - 2;
+        xcor = xcor - speed;
       }
       if (key == 'r') {
-        angle += 0.01;
+        angle += 0.006;
       }
       if (key == 't') {
-        angle -= 0.01;
+        angle -= 0.006;
       }
       
     }
