@@ -1,10 +1,11 @@
-class Kart implements Displayable{
+class Kart implements Displayable, Moveable{
   int x;
   int y;
   float speed;
   float direction;
   int fuel;
   int health;
+  float angle = 0;
   
   Kart(int X, int Y) {
     x = X;
@@ -51,7 +52,30 @@ class Kart implements Displayable{
   
   void display() {
     //println(isOnRoad());
+    pushMatrix();
+    //translate(width/2, height/2);
+    rotate(angle);
     rect(x - 15, y - 15, 10, 10);
+    popMatrix();
+    //rect(x - 15, y - 15, 10, 10);
+  }
+  
+  void move() {
+    if (keyPressed()) {
+      if (key == 'r') {
+        angle += 0.006;
+      }
+      if (key == 't') {
+        angle -= 0.006;
+      }
+    }
+  }
+  
+  boolean keyPressed() {
+    if ((key == 'r')|| (key == 't')) {
+      return true;
+    }
+    return false;
   }
 }
 

@@ -63,12 +63,7 @@ class Image implements Displayable, Moveable{
       if (key == 'd') {
         xcor = xcor - speed;
       }
-      if (key == 'r') {
-        angle += 0.006;
-      }
-      if (key == 't') {
-        angle -= 0.006;
-      }
+      
       
     }
     

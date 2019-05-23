@@ -25,6 +25,7 @@ void setup() {
   thingsToDisplay.add(b);
   thingsToDisplay.add(a);
   thingsToMove.add(b);
+  thingsToMove.add(a);
 }
 
 void draw() {
