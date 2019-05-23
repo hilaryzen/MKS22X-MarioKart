@@ -21,7 +21,7 @@ void setup() {
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   Kart a = new Kart(70, 70);
-  Image b = new Image(0, 0, a.getSpeed());
+  Image b = new Image(0, 0, a.getSpeed(),a);
   thingsToDisplay.add(b);
   thingsToDisplay.add(a);
   thingsToMove.add(b);

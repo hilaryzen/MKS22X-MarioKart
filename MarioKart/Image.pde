@@ -6,9 +6,10 @@ class Image implements Displayable, Moveable{
   int[] greenValues;
   int[] startingPoint;
   int[] endingPoint;
+  Kart kart;
 
   
-  Image(float x, float y, float sp){
+  Image(float x, float y, float sp, Kart k){
     speed = sp;
     greenValues = new int[2];
     greenValues[0] = 209;
@@ -21,6 +22,7 @@ class Image implements Displayable, Moveable{
     endingPoint = new int[2];
     endingPoint[0] = 680;
     endingPoint[1] = 150;
+    kart = k;
   }
   
   int getStartX() {
@@ -43,7 +45,8 @@ class Image implements Displayable, Moveable{
     scale(7);
     pushMatrix();
     translate(xcor, ycor);
-    rotate(angle);
+    //translate(kart.getX(), kart.getY());
+    //rotate(angle);
     image(map, 0, 0, 800, 800);
     popMatrix();
    
@@ -63,7 +66,12 @@ class Image implements Displayable, Moveable{
       if (key == 'd') {
         xcor = xcor - speed;
       }
-      
+      if (key == 'r') {
+        angle += 0.01;
+      }
+      if (key == 't') {
+        angle -= 0.01;
+      }
       
     }
     
