@@ -6,9 +6,19 @@ class Image implements Displayable, Moveable{
   int[] greenValues;
   int[] startingPoint;
   int[] endingPoint;
+<<<<<<< HEAD
   
   Image(float x, float y, float sp){
     speed = sp;
+=======
+  PImage map;
+  
+  Image(float x, float y, float sp){
+    xcor = x;
+    ycor = y;
+    speed = sp;
+    map = loadImage("easy.png");
+>>>>>>> 35d308fafb8ce0940a98c405884fe07011806efb
     greenValues = new int[2];
     greenValues[0] = 209;
     greenValues[1] = 146;
