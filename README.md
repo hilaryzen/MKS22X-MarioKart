@@ -22,3 +22,7 @@ Hilary: Added to Kart class and researched finding the color of an image
 Kayla: I started to experiment with keys.  I got the map moving based on whether the user clicks w, a, s, or d.
 
 Hilary: I started the Player class and wrote isOnRoad for the Kart class.
+
+5/22
+
+Kayla: After the simple movements, I turned to rotations.  The map should now be rotating left or right based on the keys r and t.
