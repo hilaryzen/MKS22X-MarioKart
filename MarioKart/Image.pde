@@ -1,6 +1,7 @@
 class Image implements Displayable, Moveable{
   float xcor;
   float ycor;
+  float angle = 0;
   
   Image(float x, float y){
     xcor = x;
@@ -9,16 +10,12 @@ class Image implements Displayable, Moveable{
   
   void display() {
     scale(7);
-    if (keyPressed()) {
-      if (key == 'r') {
-        rotate(PI/20);
-      }
-      if (key == 't') {
-        rotate(-PI/20);
-      }
-    }
-    image(map, xcor, ycor, 800, 800);
-    
+    pushMatrix();
+    translate(xcor, ycor);
+    rotate(angle);
+    image(map, 0, 0, 800, 800);
+    popMatrix();
+   
   }
   
   void move() {
@@ -34,6 +31,12 @@ class Image implements Displayable, Moveable{
       }
       if (key == 'd') {
         xcor = xcor - 2;
+      }
+      if (key == 'r') {
+        angle += 0.01;
+      }
+      if (key == 't') {
+        angle -= 0.01;
       }
       
     }
