@@ -15,11 +15,11 @@ class Kart implements Displayable{
     health = 100;
   }
   
-  float getX() {
+  int getX() {
     return x;
   }
   
-  float getY() {
+  int getY() {
     return y;
   }
   
