@@ -1,22 +1,17 @@
 class Image implements Displayable, Moveable{
   float xcor;
   float ycor;
-<<<<<<< HEAD
   float angle = 0;
   float speed;
-=======
   int[] greenValues;
   int[] startingPoint;
   int[] endingPoint;
   PImage map;
->>>>>>> 9f59bef90e74cef1260f2923df97a9b3c1018c13
   
   Image(float x, float y, float sp){
     xcor = x;
     ycor = y;
-<<<<<<< HEAD
     speed = sp;
-=======
     map = loadImage("easy.png");
     greenValues = new int[2];
     greenValues[0] = 209;
@@ -43,7 +38,6 @@ class Image implements Displayable, Moveable{
   
   int getEndY() {
     return endingPoint[1];
->>>>>>> 9f59bef90e74cef1260f2923df97a9b3c1018c13
   }
   
   void display() {
