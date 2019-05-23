@@ -25,4 +25,4 @@ Hilary: I started the Player class and wrote isOnRoad for the Kart class.
 
 5/22
 
-Kayla: After the simple movements, I turned to rotations.  The map should now be rotating left or right based on the keys r and t.
+Kayla: After the simple movements, I turned to rotations.  The map should now be rotating left or right based on the keys r and t.  I spawned a kart and adjusted the initial coordinates for the image so that it would zoom in on the starting line.
