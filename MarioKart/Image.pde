@@ -29,6 +29,14 @@ class Image implements Displayable, Moveable{
     return startingPoint[1];
   }
   
+  int getEndX() {
+    return endingPoint[0];
+  }
+  
+  int getEndY() {
+    return endingPoint[1];
+  }
+  
   void display() {
     image(map, xcor, ycor, 800, 800);
   }
