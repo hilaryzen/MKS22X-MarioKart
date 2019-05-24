@@ -30,6 +30,7 @@ void setup() {
 
 void draw() {
   //image(map, 0, 0, 800, 800);
+  
   for (Displayable thing : thingsToDisplay) { //from group lab
     thing.display();
   }

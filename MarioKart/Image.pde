@@ -18,7 +18,7 @@ class Image implements Displayable, Moveable{
     startingPoint[0] = 680;
     startingPoint[1] = 250;
     xcor = x - (startingPoint[0] - 60);
-    ycor = y - (startingPoint[1] / 2.0) - 60;
+    ycor = y - (startingPoint[1] /2.0) - 60;
     endingPoint = new int[2];
     endingPoint[0] = 680;
     endingPoint[1] = 150;
@@ -43,34 +43,27 @@ class Image implements Displayable, Moveable{
   
   void display() {
     scale(7);
+    
     pushMatrix();
-    translate(xcor, ycor);
+    
     //translate(kart.getX(), kart.getY());
-    //rotate(angle);
+    rotate(angle);
+    //translate(xcor, ycor);
+    
     image(map, 0, 0, 800, 800);
     popMatrix();
-   
+ 
+    //translate(xcor, ycor);
   }
   
   void move() {
     if (keyPressed()) {
-      if (key == 'w') {
-        ycor = ycor + speed;
-      }
-      if (key == 'a') {
-        xcor = xcor + speed;
-      }
-      if (key == 's') {
-        ycor = ycor - speed;
-      }
-      if (key == 'd') {
-        xcor = xcor - speed;
-      }
+      
       if (key == 'r') {
-        angle += 0.01;
+        angle += 0.005;
       }
       if (key == 't') {
-        angle -= 0.01;
+        angle -= 0.005;
       }
       
     }
