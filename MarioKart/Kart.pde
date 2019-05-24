@@ -56,7 +56,7 @@ class Kart implements Displayable, Moveable{
     //scale(7);
     //camera();
     pushMatrix();
-    translate(x - 15, y- 15);
+    translate(x, y);
     rotate(angle);
     rect(0, 0, 10, 10);
     popMatrix();
@@ -66,22 +66,22 @@ class Kart implements Displayable, Moveable{
   void move() {
     if (keyPressed()) {
       if (key == 'w') {
-        y = y - speed;
-      }
-      if (key == 'a') {
-        x = x - speed;
-      }
-      if (key == 's') {
         y = y + speed;
       }
-      if (key == 'd') {
+      if (key == 'a') {
         x = x + speed;
       }
+      if (key == 's') {
+        y = y - speed;
+      }
+      if (key == 'd') {
+        x = x - speed;
+      }
       if (key == 'r') {
-        angle += 0.01;
+        angle += 0.006;
       }
       if (key == 't') {
-        angle -= 0.01;
+        angle -= 0.006;
       }
     }
   }
