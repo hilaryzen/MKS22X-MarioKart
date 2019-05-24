@@ -56,9 +56,9 @@ class Kart implements Displayable, Moveable{
     //scale(7);
     //camera();
     pushMatrix();
-    translate(x, y);
-    rotate(angle);
-    rect(0, 0, 10, 10);
+    //translate(x, y);
+    //rotate(angle);
+    rect(50, 50, 10, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
