@@ -8,7 +8,7 @@ class Kart {
   float angle = 0;
   
   Kart(float X, float Y) {
-    x = X;
+    x = X - 5;
     y = Y;
     speed = 1;
     direction = 0.0;
@@ -56,7 +56,7 @@ class Kart {
     //scale(7);
     //camera();
     pushMatrix();
-    //translate(x, y);
+    translate(x, y);
     rotate(radians(360)-radians(direction));
     rect(0, 0, 10, 10);
     popMatrix();

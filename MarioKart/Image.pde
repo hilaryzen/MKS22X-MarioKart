@@ -48,8 +48,8 @@ class Image{
     
     //translate(kart.getX(), kart.getY());
     //rotate(angle);
-    //translate(xcor, ycor);
-    
+    translate(xcor, ycor);
+    //scale(7);
     image(map, 0, 0, 800, 800);
     popMatrix();
  

@@ -21,7 +21,8 @@ void setup() {
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   b = new Image(0, 0);
-  k = new Kart(b.getStartX(), b.getStartY());
+  k = new Kart(60, 60);
+ 
   //thingsToDisplay.add(b);
   //thingsToDisplay.add(a);
   //thingsToMove.add(b);
@@ -31,7 +32,7 @@ void setup() {
 void draw() {
   //scale(7);
   //image(map, 0, 0, 800, 800);
-  b.draw();
+   b.draw();
   //translate(k.getX(), k.getY());
   
   /*for (Displayable thing : thingsToDisplay) { //from group lab
