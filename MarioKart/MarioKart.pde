@@ -2,6 +2,7 @@ PImage map, mario, golden, start, cloud1, cloud2, sun;
 Image b;
 Kart k;
 int screen = 0;
+PFont font;
 
 /*interface Displayable {
   void display();
@@ -27,9 +28,10 @@ void setup() {
   cloud2 = loadImage("cloud2.png");
   sun = loadImage("sun.png");
   startScreen();
+  font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
-  k = new Kart(60, 60);
+  k = new Kart(60, 60, 0, 0, 0, 0, "hey");
   b = new Image(0, 0, k);
   //thingsToDisplay.add(b);
   //thingsToDisplay.add(a);
@@ -40,10 +42,11 @@ void setup() {
 void draw() {
   //scale(7);
   //image(map, 0, 0, 800, 800);
+
   if (screen == 1) {
     kartSelect();
   }
-  if (screen != 0) {
+  else if (screen == 2) {
     b.draw();
     k.draw();
   }
@@ -89,11 +92,27 @@ void startScreen() {
 void mouseClicked() {
   if (screen == 0) {
     if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
-      screen++;
+      screen = 1;
     }
   }
 }
 
 void kartSelect() {
-  
+  int b = 0;
+  for (int a = 0; a < height; a++) {
+    if (b < 255) {
+      stroke(41, 229, b);
+      b += 1;
+    }
+    line(0, a, width, a);
+  }
+  fill(255);
+  circle(600, 400, 350);
+  k.display();
+  textSize(18);
+  textFont(font);
+  text("Choose Your Kart Color", 20, 130);
+  //if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
+  //    screen++;
+  //} next button
 }

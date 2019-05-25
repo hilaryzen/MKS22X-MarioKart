@@ -37,4 +37,4 @@ Kayla: I completely changed my approach to movement.  The keyPressed function is
 
 5/25
 
-Kayla: Today, I started to code the different screens.  I was able to make the start screen
+Kayla: Today, I started to code the different screens.  I was able to make the start screen and started to use mouseClicked and hovering.

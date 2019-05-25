@@ -71,7 +71,7 @@ class Kart {
     */
   }
   
-  public void draw() {
+  void draw() {
     //println(isOnRoad());
     //rect(x- 15, y- 15, 10, 10);
     //scale(7);
@@ -83,6 +83,14 @@ class Kart {
     //rect(x - 15, y - 15, 10, 10);
   }
   
+  void display() {
+    pushMatrix();
+    translate(600, 400);
+    rotate(radians(360)-radians(angle));
+    rect(-25, -25, 50, 50);
+    popMatrix();
+    angle++;
+  }
   /*void move() {
     if (keyPressed()) {
       if (key == 'w') {
@@ -129,7 +137,7 @@ class Player extends Kart {
   int score;
   
   Player(int X, int Y) {
-    super(X, Y);
+    super(X, Y, 0, 0, 0, 0, "hey");
     score = 0;
   }
   
