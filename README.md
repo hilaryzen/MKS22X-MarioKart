@@ -30,3 +30,7 @@ Kayla: After the simple movements, I turned to rotations.  The map should now be
 5/23
 
 Kayla: I tried to fix the rotations as they were not working as I had imagined. Now the world should spin based on the kart's position.
+
+5/24
+
+Kayla: I completely changed my approach to movement.  The keyPressed function is now in the right place.  I removed the left(a), right(d), and turning keys(r and t) and replaced the a and d keys with turnRight and turnLeft instead.  The move back and up commands are now based on rotation angle. 
