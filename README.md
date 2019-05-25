@@ -26,3 +26,7 @@ Hilary: I started the Player class and wrote isOnRoad for the Kart class.
 5/22
 
 Kayla: After the simple movements, I turned to rotations.  The map should now be rotating left or right based on the keys r and t.  I spawned a kart and adjusted the initial coordinates for the image so that it would zoom in on the starting line.
+
+5/23
+
+Kayla: I tried to fix the rotations as they were not working as I had imagined. Now the world should spin based on the kart's position.
