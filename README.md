@@ -36,3 +36,12 @@ Kayla: I tried to fix the rotations as they were not working as I had imagined. 
 5/24
 
 Kayla: I completely changed my approach to movement.  The keyPressed function is now in the right place.  I removed the left(a), right(d), and turning keys(r and t) and replaced the a and d keys with turnRight and turnLeft instead.  The move back and up commands are now based on rotation angle.
+<<<<<<< HEAD
+=======
+
+5/25
+
+Kayla: Today, I started to code the different screens.  I was able to make the start screen and began the kart selection screen as well.  I experimented with mouseClicked, text, stroke, font, etc.  The background for the kart selection screen is a gradient. The player can now enter in their desired username (userinput/can delete as well) and pick the color for their kart (hover over the color you want and the spinning kart to your right would get updated)
+
+
+>>>>>>> screens
