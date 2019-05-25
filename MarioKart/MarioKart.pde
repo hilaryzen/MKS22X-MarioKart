@@ -47,6 +47,7 @@ void draw() {
 void keyPressed() {
   if (key == 'w') {
     b.moveStraight();
+    println(k.isOnRoad());
     if (k.isOnRoad()) {
       k.setScore(1);
     } else {
@@ -58,6 +59,7 @@ void keyPressed() {
   }
   if (key == 's') {
     b.moveBack();
+    println(k.isOnRoad());
     if (k.isOnRoad()) {
       k.setScore(1);
     } else {
@@ -67,5 +69,5 @@ void keyPressed() {
   if (key == 'd') {
     k.turnRight();
   }
-  //println(k.getScore());
+  println(k.getScore());
 }
