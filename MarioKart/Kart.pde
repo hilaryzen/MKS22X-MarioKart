@@ -6,16 +6,37 @@ class Kart {
   int fuel;
   int health;
   float angle = 0;
+  int red, green, blue, shape;
+  String name;
   
-  Kart(float X, float Y) {
+  Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
     y = Y;
     speed = 1;
     direction = 0.0;
     fuel = 100;
     health = 100;
+    red = r;
+    green = g;
+    blue = b;
+    shape = s;
+    name = n;
   }
-  
+  void setR(int r) {
+    red = r;
+  }
+  void setG(int g) {
+    green = g;
+  }
+  void setB(int b) {
+    blue = b;
+  }
+  void setN(String n) {
+    name = n;
+  }
+  void setS(int s) {
+    shape = s;
+  }
   float getX() {
     return x;
   }

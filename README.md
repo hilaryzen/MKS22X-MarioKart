@@ -33,4 +33,8 @@ Kayla: I tried to fix the rotations as they were not working as I had imagined. 
 
 5/24
 
-Kayla: I completely changed my approach to movement.  The keyPressed function is now in the right place.  I removed the left(a), right(d), and turning keys(r and t) and replaced the a and d keys with turnRight and turnLeft instead.  The move back and up commands are now based on rotation angle. 
+Kayla: I completely changed my approach to movement.  The keyPressed function is now in the right place.  I removed the left(a), right(d), and turning keys(r and t) and replaced the a and d keys with turnRight and turnLeft instead.  The move back and up commands are now based on rotation angle.
+
+5/25
+
+Kayla: Today, I started to code the different screens.  I was able to make the start screen

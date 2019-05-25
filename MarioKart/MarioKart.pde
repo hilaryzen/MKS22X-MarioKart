@@ -40,6 +40,9 @@ void setup() {
 void draw() {
   //scale(7);
   //image(map, 0, 0, 800, 800);
+  if (screen == 1) {
+    kartSelect();
+  }
   if (screen != 0) {
     b.draw();
     k.draw();
@@ -81,4 +84,16 @@ void startScreen() {
   image(golden, 95, 230, 620, 470);
   image(mario, 60, 170, 690, 150);
   image(start, 335, 690, 150, 70);
+}
+
+void mouseClicked() {
+  if (screen == 0) {
+    if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
+      screen++;
+    }
+  }
+}
+
+void kartSelect() {
+  
 }
