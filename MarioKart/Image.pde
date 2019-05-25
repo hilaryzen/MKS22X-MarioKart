@@ -9,7 +9,7 @@ class Image{
   Kart kart;
 
   
-  Image(float x, float y){
+  Image(float x, float y, Kart a){
     speed = 1.0;
     greenValues = new int[2];
     greenValues[0] = 209;
@@ -22,7 +22,7 @@ class Image{
     endingPoint = new int[2];
     endingPoint[0] = 680;
     endingPoint[1] = 150;
-    //kart = k;
+    kart = a;
   }
   
   int getStartX() {
@@ -81,5 +81,12 @@ class Image{
     
   }*/
   
-  
+  void moveStraight() {
+    xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
+    ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
+  }
+   void moveBack() {
+    xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
+    ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
+  }
 }

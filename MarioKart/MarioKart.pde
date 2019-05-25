@@ -20,9 +20,9 @@ void setup() {
   map = loadImage("easy.png");
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
-  b = new Image(0, 0);
+  
   k = new Kart(60, 60);
- 
+  b = new Image(0, 0, k);
   //thingsToDisplay.add(b);
   //thingsToDisplay.add(a);
   //thingsToMove.add(b);
@@ -32,7 +32,7 @@ void setup() {
 void draw() {
   //scale(7);
   //image(map, 0, 0, 800, 800);
-   b.draw();
+  b.draw();
   //translate(k.getX(), k.getY());
   
   /*for (Displayable thing : thingsToDisplay) { //from group lab
@@ -46,13 +46,13 @@ void draw() {
 }
 void keyPressed() {
   if (key == 'w') {
-    k.moveStraight();
+    b.moveStraight();
   }
   if (key == 'a') {
     k.turnLeft();
   }
   if (key == 's') {
-    k.moveBack();
+    b.moveBack();
   }
   if (key == 'd') {
     k.turnRight();

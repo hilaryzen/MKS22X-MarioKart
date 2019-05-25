@@ -54,9 +54,8 @@ class Kart {
     //println(isOnRoad());
     //rect(x- 15, y- 15, 10, 10);
     //scale(7);
-    //camera();
     pushMatrix();
-    translate(x, y);
+    translate(55, 55);
     rotate(radians(360)-radians(direction));
     rect(0, 0, 10, 10);
     popMatrix();
@@ -87,10 +86,7 @@ class Kart {
     
   }*/
 
-  void moveStraight() {
-    x = x - (speed * sin(radians(direction)));
-    y = y - (speed * cos(radians(direction)));
-  }
+  
   
   void turnRight() {
     direction = direction - 10/ (4+(speed/3));
@@ -104,10 +100,7 @@ class Kart {
     y = y + (speed/4 * cos(radians(direction-90)));
   }
   
-  void moveBack() {
-    x = x + (speed * sin(radians(direction)));
-    y = y + (speed * cos(radians(direction)));
-  }
+ 
 
 }
 
