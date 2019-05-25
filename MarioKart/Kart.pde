@@ -1,14 +1,14 @@
-class Kart implements Displayable, Moveable{
-  int x;
-  int y;
+class Kart {
+  float x;
+  float y;
   int speed;
   float direction;
   int fuel;
   int health;
   float angle = 0;
   
-  Kart(int X, int Y) {
-    x = X;
+  Kart(float X, float Y) {
+    x = X - 5;
     y = Y;
     speed = 1;
     direction = 0.0;
@@ -16,11 +16,11 @@ class Kart implements Displayable, Moveable{
     health = 100;
   }
   
-  int getX() {
+  float getX() {
     return x;
   }
   
-  int getY() {
+  float getY() {
     return y;
   }
   
@@ -41,7 +41,7 @@ class Kart implements Displayable, Moveable{
   }
   
   boolean isOnRoad() {
-    color c = get(x,y);
+    color c = get((int)x,(int)y);
     //println(green(c));
     return (green(c) == 209 || green(c) == 146);
     /*
@@ -50,20 +50,19 @@ class Kart implements Displayable, Moveable{
     */
   }
   
-  void display() {
+  public void draw() {
     //println(isOnRoad());
     //rect(x- 15, y- 15, 10, 10);
     //scale(7);
-    //camera();
     pushMatrix();
-    //translate(x, y);
-    //rotate(angle);
-    rect(50, 50, 10, 10);
+    translate(55, 55);
+    rotate(radians(360)-radians(direction));
+    rect(0, 0, 10, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
   
-  void move() {
+  /*void move() {
     if (keyPressed()) {
       if (key == 'w') {
         y = y + speed;
@@ -84,14 +83,25 @@ class Kart implements Displayable, Moveable{
         angle -= 0.006;
       }
     }
+    
+  }*/
+
+  
+  
+  void turnRight() {
+    direction = direction - 10/ (4+(speed/3));
+    x = x + (speed/4 * sin(radians(direction+90)));
+    y = y + (speed/4 * cos(radians(direction+90)));
   }
   
-  boolean keyPressed() {
-    if ((key == 's') || (key == 'w') ||(key == 'a') ||(key == 'd')||(key == 'r')|| (key == 't')) {
-      return true;
-    }
-    return false;
+  void turnLeft() {
+    direction = direction + 10/ (4+(speed/3));
+    x = x + (speed/4 * sin(radians(direction-90)));
+    y = y + (speed/4 * cos(radians(direction-90)));
   }
+  
+ 
+
 }
 
 class Player extends Kart {
