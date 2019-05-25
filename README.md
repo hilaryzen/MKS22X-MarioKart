@@ -37,4 +37,9 @@ Kayla: I completely changed my approach to movement.  The keyPressed function is
 
 5/25
 
-Kayla: Today, I started to code the different screens.  I was able to make the start screen and started to use mouseClicked and hovering.
+Kayla: Today, I started to code the different screens.  I was able to make the start screen and started to use mouseClicked and 
+kart select screen - choose color, shape, name and updates the spinning kart to your right
+hovering
+userinput for name
+gradient
+text/font

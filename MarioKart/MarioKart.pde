@@ -1,8 +1,9 @@
-PImage map, mario, golden, start, cloud1, cloud2, sun, star;
+PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow;
 Image b;
 Kart k;
 int screen = 0;
 PFont font;
+String input = "";
 
 /*interface Displayable {
   void display();
@@ -28,6 +29,7 @@ void setup() {
   cloud2 = loadImage("cloud2.png");
   star = loadImage("star.png");
   sun = loadImage("sun.png");
+  arrow = loadImage("arrow.png");
   startScreen();
   font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
@@ -63,18 +65,29 @@ void draw() {
   }*/
 }
 void keyPressed() {
-  if (key == 'w') {
-    b.moveStraight();
+  if (screen == 1) {
+    if (key == BACKSPACE) {
+      input = input.substring(0, input.length() - 1);
+    }
+    else {
+      input += key;
+    }
   }
-  if (key == 'a') {
-    k.turnLeft();
+  if (screen == 2) {
+    if (key == 'w') {
+      b.moveStraight();
+    }
+    if (key == 'a') {
+      k.turnLeft();
+    }
+    if (key == 's') {
+      b.moveBack();
+    }
+    if (key == 'd') {
+      k.turnRight();
+    }
   }
-  if (key == 's') {
-    b.moveBack();
-  }
-  if (key == 'd') {
-    k.turnRight();
-  }
+  
 }
 
 void startScreen() {
@@ -96,6 +109,12 @@ void mouseClicked() {
       screen = 1;
     }
   }
+  if (screen == 1) {
+    if (mouseX > 600 && mouseY> 680 && mouseX < 710 && mouseY < 750) {
+      k.setN(input);
+      screen = 2;
+    }
+  }
 }
 
 void kartSelect() {
@@ -110,9 +129,14 @@ void kartSelect() {
   fill(255);
   circle(600, 400, 350);
   image(star, 550, 30, 150, 150);
+  image(arrow, 600, 680, 110, 70);
   textSize(18);
   textFont(font);
   text("Choose Your Kart Color", 20, 130);
+  text("Choose Your Shape", 20, 400);
+  text("Enter Your Username", 20, 630);
+  fill(0);
+  text(input, 20, 680);
   stroke(0);
   strokeWeight(4);
   fill(255, 18, 62);//red

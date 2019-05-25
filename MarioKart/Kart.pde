@@ -74,6 +74,7 @@ class Kart {
     pushMatrix();
     translate(55, 55);
     rotate(radians(360)-radians(direction));
+    strokeWeight(1);
     rect(0, 0, 10, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
