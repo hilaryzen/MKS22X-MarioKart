@@ -22,13 +22,9 @@ class Kart {
     shape = s;
     name = n;
   }
-  void setR(int r) {
+  void setColor(int r, int g, int b) {
     red = r;
-  }
-  void setG(int g) {
     green = g;
-  }
-  void setB(int b) {
     blue = b;
   }
   void setN(String n) {
@@ -87,9 +83,10 @@ class Kart {
     pushMatrix();
     translate(600, 400);
     rotate(radians(360)-radians(angle));
-    rect(-25, -25, 50, 50);
+    fill(red, green, blue);
+    rect(-40, -40, 80, 80);
     popMatrix();
-    angle++;
+    angle+= 0.5;
   }
   /*void move() {
     if (keyPressed()) {
