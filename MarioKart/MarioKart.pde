@@ -47,14 +47,25 @@ void draw() {
 void keyPressed() {
   if (key == 'w') {
     b.moveStraight();
+    if (k.isOnRoad()) {
+      k.setScore(1);
+    } else {
+      k.setScore(-1);
+    }
   }
   if (key == 'a') {
     k.turnLeft();
   }
   if (key == 's') {
     b.moveBack();
+    if (k.isOnRoad()) {
+      k.setScore(1);
+    } else {
+      k.setScore(-1);
+    }
   }
   if (key == 'd') {
     k.turnRight();
   }
+  //println(k.getScore());
 }

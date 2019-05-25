@@ -6,6 +6,7 @@ class Kart {
   int fuel;
   int health;
   float angle = 0;
+  int score;
   
   Kart(float X, float Y) {
     x = X - 5;
@@ -14,6 +15,7 @@ class Kart {
     direction = 0.0;
     fuel = 100;
     health = 100;
+    score = 0;
   }
   
   float getX() {
@@ -40,14 +42,18 @@ class Kart {
     return health;
   }
   
+  int getScore() {
+    return score;
+  }
+  
+  void setScore(int change) {
+    score = score + change;
+  }
+  
   boolean isOnRoad() {
     color c = get((int)x,(int)y);
     //println(green(c));
     return (green(c) == 209 || green(c) == 146);
-    /*
-    println(green(c)); //Returned 470896 on brown and 181 on green
-    return c;
-    */
   }
   
   public void draw() {
@@ -104,6 +110,7 @@ class Kart {
 
 }
 
+/*
 class Player extends Kart {
   int score;
   
@@ -116,3 +123,4 @@ class Player extends Kart {
     return score;
   }
 }
+*/
