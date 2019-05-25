@@ -136,7 +136,7 @@ void kartSelect() {
   text("Choose Your Shape", 20, 400);
   text("Enter Your Username", 20, 630);
   fill(0);
-  text(input, 20, 680);
+  text(input, 20, 685);
   stroke(0);
   strokeWeight(4);
   fill(255, 18, 62);//red

@@ -37,9 +37,6 @@ Kayla: I completely changed my approach to movement.  The keyPressed function is
 
 5/25
 
-Kayla: Today, I started to code the different screens.  I was able to make the start screen and started to use mouseClicked and 
-kart select screen - choose color, shape, name and updates the spinning kart to your right
-hovering
-userinput for name
-gradient
-text/font
+Kayla: Today, I started to code the different screens.  I was able to make the start screen and began the kart selection screen as well.  I experimented with mouseClicked, text, stroke, font, etc.  The background for the kart selection screen is a gradient. The player can now enter in their desired username (userinput/can delete as well) and pick the color for their kart (hover over the color you want and the spinning kart to your right would get updated)
+
+
