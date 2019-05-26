@@ -52,9 +52,9 @@ class Kart {
   
   boolean isOnRoad() {
     color c = get((int)x,(int)y);
-    println("Red: " + red(c));
-    println("Green: " + green(c));
-    println("Blue: " + blue(c));
+    //println("Red: " + red(c));
+    //println("Green: " + green(c));
+    //println("Blue: " + blue(c));
     //return (green(c) < 200);
     if (red(c) > 150) {
       return false;
