@@ -7,8 +7,10 @@ class Kart {
   int health;
   float angle = 0;
   int score;
+  int red, green, blue, shape;
+  String name;
   
-  Kart(float X, float Y) {
+  Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
     y = Y;
     speed = 1;
@@ -16,8 +18,23 @@ class Kart {
     fuel = 100;
     health = 100;
     score = 0;
+    red = r;
+    green = g;
+    blue = b;
+    shape = s;
+    name = n;
   }
-  
+  void setColor(int r, int g, int b) {
+    red = r;
+    green = g;
+    blue = b;
+  }
+  void setN(String n) {
+    name = n;
+  }
+  void setS(int s) {
+    shape = s;
+  }
   float getX() {
     return x;
   }
@@ -70,18 +87,28 @@ class Kart {
     return true;
   }
   
-  public void draw() {
+  void draw() {
     //println(isOnRoad());
     //rect(x- 15, y- 15, 10, 10);
     //scale(7);
     pushMatrix();
     translate(55, 55);
     rotate(radians(360)-radians(direction));
+    strokeWeight(1);
     rect(0, 0, 10, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
   
+  void display() {
+    pushMatrix();
+    translate(600, 400);
+    rotate(radians(360)-radians(angle));
+    fill(red, green, blue);
+    rect(-40, -40, 80, 80);
+    popMatrix();
+    angle+= 0.5;
+  }
   /*void move() {
     if (keyPressed()) {
       if (key == 'w') {
@@ -129,7 +156,7 @@ class Player extends Kart {
   int score;
   
   Player(int X, int Y) {
-    super(X, Y);
+    super(X, Y, 0, 0, 0, 0, "hey");
     score = 0;
   }
   
