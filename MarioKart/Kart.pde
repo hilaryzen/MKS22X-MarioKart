@@ -51,16 +51,20 @@ class Kart {
   }
   
   boolean isOnRoad() {
+    //Doesn't work because of image shifting?
+    //Road: R = 244, G = 217, B = 149
+    //Water: R = 125, G = 242, B = 249
+    //Light green: R = 69, G = 181, B = 58
+    //Dark green: R = 0, G = 145, B = 1
     color c = get((int)x,(int)y);
-    //println("Red: " + red(c));
-    //println("Green: " + green(c));
-    //println("Blue: " + blue(c));
-    //return (green(c) < 200);
-    if (red(c) > 150) {
+    println("Red: " + red(c));
+    println("Green: " + green(c));
+    println("Blue: " + blue(c));
+    if (red(c) < 220) {
       return false;
-    } else if (green(c) < 200) {
+    } else if (green(c) < 200 || green(c) > 230) {
       return false;
-    } else if (blue(c) < 200) {
+    } else if (blue(c) < 135 || blue(c) > 160) {
       return false;
     }
     return true;
