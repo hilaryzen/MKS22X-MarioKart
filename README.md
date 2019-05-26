@@ -27,7 +27,7 @@ Hilary: I started the Player class and wrote isOnRoad for the Kart class, which 
 
 Kayla: After the simple movements, I turned to rotations.  The map should now be rotating left or right based on the keys r and t.  I spawned a kart and adjusted the initial coordinates for the image so that it would zoom in on the starting line.
 
-Hilary: I added variables and methods to the Image class so that each map could store its starting and ending points for the karts, and the values of the green.
+Hilary: I added variables and methods to the Image class so that each map could store its starting and ending points for the karts, and the values of the green field. I stored coordinates in arrays and tried to generalize our code so that eventually we can use multiple maps.
 
 5/23
 
@@ -40,3 +40,5 @@ Kayla: I completely changed my approach to movement.  The keyPressed function is
 5/25
 
 Kayla: Today, I started to code the different screens.  I was able to make the start screen and began the kart selection screen as well.  I experimented with mouseClicked, text, stroke, font, etc.  The background for the kart selection screen is a gradient. The player can now enter in their desired username (userinput/can delete as well) and pick the color for their kart (hover over the color you want and the spinning kart to your right would get updated)
+
+Hilary: I began adding points for scoring, so that a kart would earn points for driving on the road and lose points for going off of it. I created a simple game in the Experiment folder for testing isOnRoad to figure out a better algorithm. I created the function but need to figure out how to implement it in the game.
