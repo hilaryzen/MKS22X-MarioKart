@@ -67,13 +67,13 @@ class Kart {
     score = score + change;
   }
   
-  boolean isOnRoad() {
+  boolean isOnRoad(int c) {
     //Doesn't work because of image shifting?
     //Road: R = 244, G = 217, B = 149
     //Water: R = 125, G = 242, B = 249
     //Light green: R = 69, G = 181, B = 58
     //Dark green: R = 0, G = 145, B = 1
-    color c = get((int)x,(int)y);
+    //color c = get((int)55,(int)55);
     println("Red: " + red(c));
     println("Green: " + green(c));
     println("Blue: " + blue(c));
@@ -95,6 +95,7 @@ class Kart {
     translate(55, 55);
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
+    fill(red, green, blue);
     rect(0, 0, 10, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);

@@ -1,4 +1,4 @@
-PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow;
+PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy;
 Image b;
 Kart k;
 int screen = 0;
@@ -22,6 +22,7 @@ void setup() {
   
   //Loading map
   map = loadImage("easy.png");
+  copy = loadImage("easy.png");
   mario = loadImage("mario.png");
   golden = loadImage("golden.png");
   start = loadImage("start.png");
@@ -50,8 +51,19 @@ void draw() {
     kartSelect();
   }
   else if (screen == 2) {
+    println(b.getStartX());
+    image(copy, 0, 0, 800, 800);
+    color col = get((int)(680 + b.getChangeX()),(int)(250 + b.getChangeY()));
     b.draw();
+    
     k.draw();
+    
+    if (k.isOnRoad(col)) {
+      k.setColor(0, 255, 0); //Green kart
+    } else {
+      k.setColor(255,0, 0); //Red kart
+    }
+    println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
 
   //translate(k.getX(), k.getY());
@@ -76,7 +88,7 @@ void keyPressed() {
   if (screen == 2) {
     if (key == 'w') {
       b.moveStraight();
-      if (k.isOnRoad()) {
+      if (k.isOnRoad(map.get((int)(680),(int)(250)))) {
         k.setScore(1);
       } else {
         k.setScore(-1);
@@ -87,7 +99,7 @@ void keyPressed() {
     }
     if (key == 's') {
       b.moveBack();
-      if (k.isOnRoad()) {
+      if (k.isOnRoad(map.get((int)(680),(int)(250)))) {
         k.setScore(1);
       } else {
         k.setScore(-1);

@@ -7,6 +7,9 @@ class Image{
   int[] startingPoint;
   int[] endingPoint;
   Kart kart;
+  color c;
+  int changeX = 0;
+  int changeY = 0;
 
   
   Image(float x, float y, Kart a){
@@ -41,19 +44,36 @@ class Image{
     return endingPoint[1];
   }
   
+  float getX() {
+    return xcor;
+  }
+  
+  float getY() {
+    return ycor;
+  }
+  
   void draw() {
+    
     scale(7);
     
     pushMatrix();
     
     //translate(kart.getX(), kart.getY());
     //rotate(angle);
+    
     translate(xcor, ycor);
     //scale(7);
     image(map, 0, 0, 800, 800);
     popMatrix();
- 
+    //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
     //translate(xcor, ycor);
+  }
+  
+  int getChangeX() {
+    return changeX;
+  }
+  int getChangeY() {
+    return changeY;
   }
   
   /*void move() {
@@ -83,10 +103,15 @@ class Image{
   
   void moveStraight() {
     xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
+    //println(kart.getDirection());
+    changeX -= (kart.getSpeed() * cos(radians(kart.getDirection())));
     ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
+    changeY -= (kart.getSpeed() * sin(radians(kart.getDirection())));
   }
    void moveBack() {
     xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
+    changeX += (kart.getSpeed() * cos(radians(kart.getDirection())));
     ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
+    changeY += (kart.getSpeed() * sin(radians(kart.getDirection())));
   }
 }
