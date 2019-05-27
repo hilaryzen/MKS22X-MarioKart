@@ -4,6 +4,7 @@ Kart k;
 int screen = 0;
 PFont font;
 String input = "";
+color col;
 
 /*interface Displayable {
   void display();
@@ -53,7 +54,7 @@ void draw() {
   else if (screen == 2) {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
-    color col = get((int)((b.getX() * -1) + 60),(int)((b.getX() * -1) + 60));
+    col = get((int)((b.getX() * -1) + 60),(int)((b.getX() * -1) + 60));
     b.draw();
     
     k.draw();
@@ -88,7 +89,7 @@ void keyPressed() {
   if (screen == 2) {
     if (key == 'w') {
       b.moveStraight();
-      if (k.isOnRoad(map.get((int)(680),(int)(250)))) {
+      if (k.isOnRoad(col)) {
         k.setScore(1);
       } else {
         k.setScore(-1);
@@ -99,7 +100,7 @@ void keyPressed() {
     }
     if (key == 's') {
       b.moveBack();
-      if (k.isOnRoad(map.get((int)(680),(int)(250)))) {
+      if (k.isOnRoad(col)) {
         k.setScore(1);
       } else {
         k.setScore(-1);

@@ -7,9 +7,6 @@ class Image{
   int[] startingPoint;
   int[] endingPoint;
   Kart kart;
-  color c;
-  int changeX = 0;
-  int changeY = 0;
 
   
   Image(float x, float y, Kart a){
@@ -71,12 +68,6 @@ class Image{
     //translate(xcor, ycor);
   }
   
-  int getChangeX() {
-    return changeX;
-  }
-  int getChangeY() {
-    return changeY;
-  }
   
   /*void move() {
     if (keyPressed()) {
