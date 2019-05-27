@@ -6,7 +6,7 @@ class Image{
   int[] greenValues;
   int[] startingPoint;
   int[] endingPoint;
-  int[] startTime;
+  int startTime;
   Kart kart;
 
   
@@ -42,11 +42,12 @@ class Image{
     return endingPoint[1];
   }
   
-  void setStartTime(int hour, int min, int sec) {
-    startTime = new int[3];
-    startTime[0] = hour;
-    startTime[1] = min;
-    startTime[2] = sec;
+  int getStartTime() {
+    return startTime;
+  }
+  
+  void setStartTime() {
+    startTime = millis();
   }
   
   void draw() {
