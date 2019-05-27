@@ -63,6 +63,7 @@ class Image{
     popMatrix();
  
     //translate(xcor, ycor);
+    displayTime();
   }
   
   /*void move() {
@@ -107,9 +108,22 @@ class Image{
   }
   
   void displayTime() {
-    textSize(18);
+    textSize(10);
     //textFont(font);
     fill(255,0,0);
-    text((millis() - startTime) / 1000, 400, 100);
+    int seconds = (millis() - startTime) / 1000;
+    int min = seconds / 60;
+    String time;
+    if (min < 10) {
+      time = "0" + min + ":";
+    } else {
+      time = "" + min + ":";
+    }
+    if (seconds % 60 < 10) {
+      time = time + "0" + seconds % 60;
+    } else {
+      time += seconds % 60;
+    }
+    text(time, 0, 10);
   }
 }
