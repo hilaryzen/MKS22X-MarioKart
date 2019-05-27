@@ -51,9 +51,9 @@ void draw() {
     kartSelect();
   }
   else if (screen == 2) {
-    println(b.getStartX());
+    //println(b.getY());
     image(copy, 0, 0, 800, 800);
-    color col = get((int)(680 + b.getChangeX()),(int)(250 + b.getChangeY()));
+    color col = get((int)((b.getX() * -1) + 60),(int)((b.getX() * -1) + 60));
     b.draw();
     
     k.draw();
@@ -63,7 +63,7 @@ void draw() {
     } else {
       k.setColor(255,0, 0); //Red kart
     }
-    println(k.isOnRoad(map.get((int)(680),(int)(250))));
+    //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
 
   //translate(k.getX(), k.getY());

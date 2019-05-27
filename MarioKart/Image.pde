@@ -53,7 +53,9 @@ class Image{
   }
   
   void draw() {
-    
+    if (kart.getDirection() > 360) {
+      kart.setDirection(0);
+    }
     scale(7);
     
     pushMatrix();
@@ -103,15 +105,10 @@ class Image{
   
   void moveStraight() {
     xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
-    //println(kart.getDirection());
-    changeX -= (kart.getSpeed() * cos(radians(kart.getDirection())));
     ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
-    changeY -= (kart.getSpeed() * sin(radians(kart.getDirection())));
   }
    void moveBack() {
     xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
-    changeX += (kart.getSpeed() * cos(radians(kart.getDirection())));
     ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
-    changeY += (kart.getSpeed() * sin(radians(kart.getDirection())));
   }
 }

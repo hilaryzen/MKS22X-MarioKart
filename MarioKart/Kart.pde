@@ -51,6 +51,10 @@ class Kart {
     return direction;
   }
   
+  void setDirection(int d) {
+    direction = d;
+  }
+  
   int getFuel() {
     return fuel;
   }
