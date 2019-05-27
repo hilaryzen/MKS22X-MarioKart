@@ -6,6 +6,7 @@ class Image{
   int[] greenValues;
   int[] startingPoint;
   int[] endingPoint;
+  int[] startTime;
   Kart kart;
 
   
@@ -39,6 +40,13 @@ class Image{
   
   int getEndY() {
     return endingPoint[1];
+  }
+  
+  void setStartTime(int hour, int min, int sec) {
+    startTime = new int[3];
+    startTime[0] = hour;
+    startTime[1] = min;
+    startTime[2] = sec;
   }
   
   void draw() {

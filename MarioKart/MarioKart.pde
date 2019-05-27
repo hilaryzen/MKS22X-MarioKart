@@ -122,6 +122,7 @@ void mouseClicked() {
   if (screen == 1) {
     if (mouseX > 600 && mouseY> 680 && mouseX < 710 && mouseY < 750) {
       k.setN(input);
+      b.setStartTime(hour(), minute(), second());
       screen = 2;
     }
   }
