@@ -63,6 +63,7 @@ class Image{
     popMatrix();
  
     //translate(xcor, ycor);
+    displayTime();
   }
   
   /*void move() {
@@ -104,5 +105,12 @@ class Image{
       kart.setEndTime();
       kart.finish();
     }
+  }
+  
+  void displayTime() {
+    textSize(18);
+    //textFont(font);
+    fill(255,0,0);
+    text("" + (millis() - startTime) / 1000, 400, 100);
   }
 }

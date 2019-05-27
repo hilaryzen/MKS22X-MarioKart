@@ -52,6 +52,7 @@ void draw() {
   else if (screen == 2) {
     b.draw();
     k.draw();
+    //b.displayTime();
   }
 
   //translate(k.getX(), k.getY());
@@ -124,6 +125,8 @@ void mouseClicked() {
       k.setN(input);
       image(map,0,0,800,800);
       b.setStartTime();
+      //Tried a 3 2 1 animation
+      /*
       textSize(18);
       textFont(font);
       for (int i = 3; i > 0; i--) {
@@ -132,6 +135,7 @@ void mouseClicked() {
           text("" + i, 400, 400);
         }
       }
+      */
       screen = 2;
     }
   }
