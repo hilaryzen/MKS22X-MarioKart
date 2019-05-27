@@ -98,4 +98,11 @@ class Image{
     xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
     ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
   }
+  
+  void endRace() {
+    if (abs(kart.getX() - endingPoint[0]) < 20 && abs(kart.getY() - endingPoint[1]) < 10) {
+      kart.setEndTime();
+      kart.finish();
+    }
+  }
 }

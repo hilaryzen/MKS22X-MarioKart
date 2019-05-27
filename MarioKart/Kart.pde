@@ -9,6 +9,8 @@ class Kart {
   int score;
   int red, green, blue, shape;
   String name;
+  int endingTime;
+  boolean racing;
   
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
@@ -23,6 +25,7 @@ class Kart {
     blue = b;
     shape = s;
     name = n;
+    racing = false;
   }
   void setColor(int r, int g, int b) {
     red = r;
@@ -63,8 +66,24 @@ class Kart {
     return score;
   }
   
+  int getEndTime() {
+    return endingTime;
+  }
+  
   void setScore(int change) {
     score = score + change;
+  }
+  
+  void setEndTime() {
+    endingTime = millis();
+  }
+  
+  void start() {
+    racing = true;
+  }
+  
+  void finish() {
+    racing = false;
   }
   
   boolean isOnRoad() {
