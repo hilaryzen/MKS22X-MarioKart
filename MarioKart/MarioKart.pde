@@ -51,6 +51,7 @@ void draw() {
   }
   else if (screen == 2) {
     b.draw();
+    b.displayTime();
     k.draw();
     //b.displayTime();
   }
@@ -123,6 +124,7 @@ void mouseClicked() {
   if (screen == 1) {
     if (mouseX > 600 && mouseY> 680 && mouseX < 710 && mouseY < 750) {
       k.setN(input);
+      k.start();
       image(map,0,0,800,800);
       b.setStartTime();
       //Tried a 3 2 1 animation
