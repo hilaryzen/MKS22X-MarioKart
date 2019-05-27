@@ -50,21 +50,34 @@ class Image{
     startTime = millis();
   }
   
+  float getX() {
+    return xcor;
+  }
+  
+  float getY() {
+    return ycor;
+  }
+  
   void draw() {
+    if (kart.getDirection() > 360) {
+      kart.setDirection(0);
+    }
     scale(7);
     
     pushMatrix();
     
     //translate(kart.getX(), kart.getY());
     //rotate(angle);
+    
     translate(xcor, ycor);
     //scale(7);
     image(map, 0, 0, 800, 800);
     popMatrix();
- 
+    //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
     //translate(xcor, ycor);
     displayTime();
   }
+  
   
   /*void move() {
     if (keyPressed()) {
