@@ -131,7 +131,7 @@ class Kart {
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
     fill(red, green, blue);
-    rect(0, 0, 10, 10);
+    rect(-5, -5, 10, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }

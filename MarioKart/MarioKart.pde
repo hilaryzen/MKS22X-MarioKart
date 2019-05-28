@@ -181,7 +181,7 @@ void kartSelect() {
     line(0, a, width, a);
   }
   fill(255);
-  circle(600, 400, 350);
+  ellipse(600, 400, 350, 350);
   image(star, 550, 30, 150, 150);
   image(arrow, 600, 680, 110, 70);
   textSize(18);
