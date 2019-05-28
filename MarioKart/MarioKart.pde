@@ -54,7 +54,7 @@ void draw() {
   else if (screen == 2) {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
-    col = get((int)((b.getX() * -1) + 60),(int)((b.getX() * -1) + 60));
+    col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     b.draw();
     k.draw();
     //b.displayTime();
