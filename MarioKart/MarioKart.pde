@@ -60,6 +60,7 @@ void draw() {
     //b.displayTime();
     
     k.draw();
+    move();
     
     if (k.isOnRoad(col)) {
       k.setColor(0, 255, 0); //Green kart
@@ -79,6 +80,16 @@ void draw() {
     //thing.draw();
   }*/
 }
+
+void move() {
+  b.moveStraight();
+  if (k.isOnRoad(col)) {
+    k.setScore(1);
+  } else {
+    k.setScore(-1);
+  }
+}
+
 void keyPressed() {
   if (screen == 1) {
     if (key == BACKSPACE) {
@@ -90,12 +101,14 @@ void keyPressed() {
   }
   if (screen == 2 && k.isRacing()) {
     if (key == 'w') {
+      /*
       b.moveStraight();
       if (k.isOnRoad(col)) {
         k.setScore(1);
       } else {
         k.setScore(-1);
       }
+      */
     }
     if (key == 'a') {
       k.turnLeft();

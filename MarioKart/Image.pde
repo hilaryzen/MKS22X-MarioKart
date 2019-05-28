@@ -17,12 +17,12 @@ class Image{
     greenValues[1] = 146;
     startingPoint = new int[2];
     startingPoint[0] = 680;
-    startingPoint[1] = 250;
+    startingPoint[1] = 150;
     xcor = x - (startingPoint[0] - 60) ;
     ycor = y - (startingPoint[1]) + 60;
     endingPoint = new int[2];
     endingPoint[0] = 680;
-    endingPoint[1] = 150;
+    endingPoint[1] = 250;
     kart = a;
   }
   
