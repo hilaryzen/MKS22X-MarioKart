@@ -6,6 +6,7 @@ class Image{
   int[] greenValues;
   int[] startingPoint;
   int[] endingPoint;
+  int startTime;
   Kart kart;
 
   
@@ -41,6 +42,14 @@ class Image{
     return endingPoint[1];
   }
   
+  int getStartTime() {
+    return startTime;
+  }
+  
+  void setStartTime() {
+    startTime = millis();
+  }
+  
   float getX() {
     return xcor;
   }
@@ -67,6 +76,7 @@ class Image{
     popMatrix();
     //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
     //translate(xcor, ycor);
+    displayTime();
   }
   
   
@@ -102,5 +112,32 @@ class Image{
    void moveBack() {
     xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
     ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
+  }
+  
+  void endRace() {
+    if (abs(kart.getX() - endingPoint[0]) < 20 && abs(kart.getY() - endingPoint[1]) < 10) {
+      kart.setEndTime();
+      kart.finish();
+    }
+  }
+  
+  void displayTime() {
+    textSize(10);
+    //textFont(font);
+    fill(255,0,0);
+    int seconds = (millis() - startTime) / 1000;
+    int min = seconds / 60;
+    String time;
+    if (min < 10) {
+      time = "0" + min + ":";
+    } else {
+      time = "" + min + ":";
+    }
+    if (seconds % 60 < 10) {
+      time = time + "0" + seconds % 60;
+    } else {
+      time += seconds % 60;
+    }
+    text(time, 0, 10);
   }
 }

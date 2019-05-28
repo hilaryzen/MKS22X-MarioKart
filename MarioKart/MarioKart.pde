@@ -56,6 +56,8 @@ void draw() {
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getX() * -1) + 60));
     b.draw();
+    k.draw();
+    //b.displayTime();
     
     k.draw();
     
@@ -137,6 +139,20 @@ void mouseClicked() {
   if (screen == 1) {
     if (mouseX > 600 && mouseY> 680 && mouseX < 710 && mouseY < 750) {
       k.setN(input);
+      k.start();
+      image(map,0,0,800,800);
+      b.setStartTime();
+      //Tried a 3 2 1 animation
+      /*
+      textSize(18);
+      textFont(font);
+      for (int i = 3; i > 0; i--) {
+        if (millis() > b.getStartTime() + 100000) {
+          b.setStartTime();
+          text("" + i, 400, 400);
+        }
+      }
+      */
       screen = 2;
     }
   }
