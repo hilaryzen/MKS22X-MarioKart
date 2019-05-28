@@ -27,17 +27,21 @@ class Kart {
     name = n;
     racing = false;
   }
+  
   void setColor(int r, int g, int b) {
     red = r;
     green = g;
     blue = b;
   }
+  
   void setN(String n) {
     name = n;
   }
+  
   void setS(int s) {
     shape = s;
   }
+  
   float getX() {
     return x;
   }
@@ -88,6 +92,10 @@ class Kart {
   
   void finish() {
     racing = false;
+  }
+  
+  boolean isRacing() {
+    return racing;
   }
   
   boolean isOnRoad(int c) {

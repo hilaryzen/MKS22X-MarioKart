@@ -76,6 +76,7 @@ class Image{
     //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
     //translate(xcor, ycor);
     displayTime();
+    endRace(); //Tests if kart is at finish line
   }
   
   

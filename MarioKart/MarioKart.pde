@@ -88,7 +88,7 @@ void keyPressed() {
       input += key;
     }
   }
-  if (screen == 2) {
+  if (screen == 2 && k.isRacing()) {
     if (key == 'w') {
       b.moveStraight();
       if (k.isOnRoad(col)) {
