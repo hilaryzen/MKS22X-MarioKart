@@ -71,6 +71,7 @@ class Image{
     
     translate(xcor, ycor);
     //scale(7);
+    
     image(map, 0, 0, 800, 800);
     popMatrix();
     //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
@@ -122,9 +123,9 @@ class Image{
   }
   
   void displayTime() {
-    textSize(10);
+    textSize(7.5);
     //textFont(font);
-    fill(255,0,0);
+    fill(255, 0, 0);
     int seconds = (millis() - startTime) / 1000;
     int min = seconds / 60;
     String time;
@@ -138,6 +139,6 @@ class Image{
     } else {
       time += seconds % 60;
     }
-    text(time, 0, 10);
+    text(time, 2, 10);
   }
 }

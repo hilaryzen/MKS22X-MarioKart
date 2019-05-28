@@ -48,3 +48,7 @@ Hilary: I began adding points for scoring, so that a kart would earn points for 
 Kayla: isOnRoad is now working for the our game (the zoomed in, translated version of the map).  It is a bit off due to the rounding in get() which only accepts ints as its parameters.
 
 Hilary: I working on keeping track of time. I added to the Image class so that it could store the race's start time and display a timer showing how long the race had gone on. I also started developing a way for the kart to finish its race.
+
+5/27
+
+Kayla: If the kart is off the road (touching the green/blue/etc), the speed of the kart would go down.  Once you are back on track, the speed returns to normal.  I also started the Computer class (not much code/mainly thinking).

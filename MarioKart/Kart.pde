@@ -1,7 +1,7 @@
 class Kart {
   float x;
   float y;
-  int speed;
+  float speed;
   float direction;
   int fuel;
   int health;
@@ -52,6 +52,10 @@ class Kart {
   
   float getSpeed() {
     return speed;
+  }
+  
+  void setSpeed(float s) {
+    speed = s;
   }
   
   float getDirection() {
@@ -139,7 +143,7 @@ class Kart {
     fill(red, green, blue);
     rect(-40, -40, 80, 80);
     popMatrix();
-    angle+= 0.5;
+    angle+= 0.63;
   }
   /*void move() {
     if (keyPressed()) {
