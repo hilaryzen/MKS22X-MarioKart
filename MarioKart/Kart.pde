@@ -87,6 +87,7 @@ class Kart {
   }
   
   void setEndTime() {
+    println("setEndTime called");
     endingTime = millis();
   }
   
@@ -109,9 +110,9 @@ class Kart {
     //Light green: R = 69, G = 181, B = 58
     //Dark green: R = 0, G = 145, B = 1
     //color c = get((int)55,(int)55);
-    println("Red: " + red(c));
-    println("Green: " + green(c));
-    println("Blue: " + blue(c));
+    //println("Red: " + red(c));
+    //println("Green: " + green(c));
+    //println("Blue: " + blue(c));
     if (red(c) < 220) {
       return false;
     } else if (green(c) < 200 || green(c) > 230) {
