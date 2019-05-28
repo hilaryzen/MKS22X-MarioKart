@@ -1,7 +1,7 @@
 class Kart {
   float x;
   float y;
-  int speed;
+  float speed;
   float direction;
   int fuel;
   int health;
@@ -45,6 +45,10 @@ class Kart {
   
   float getSpeed() {
     return speed;
+  }
+  
+  void setSpeed(float s) {
+    speed = s;
   }
   
   float getDirection() {

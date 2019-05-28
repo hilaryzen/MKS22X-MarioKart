@@ -62,6 +62,7 @@ class Image{
     
     translate(xcor, ycor);
     //scale(7);
+    
     image(map, 0, 0, 800, 800);
     popMatrix();
     //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
