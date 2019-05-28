@@ -5,8 +5,8 @@ int y;
 void setup() {
   size(800,800);
   map = loadImage("easy copy.png");
-  x = 380;
-  y = 400;
+  x = 695;
+  y = 240;
 }
 
 void draw() {

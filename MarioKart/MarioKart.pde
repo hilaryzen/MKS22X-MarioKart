@@ -84,12 +84,15 @@ void draw() {
 }
 
 void move() {
-  b.moveStraight();
-  if (k.isOnRoad(col)) {
-    k.setScore(1);
-  } else {
-    k.setScore(-1);
+  if (k.isRacing()) {
+    b.moveStraight();
+    if (k.isOnRoad(col)) {
+      k.setScore(1);
+    } else {
+      k.setScore(-1);
+    }
   }
+  b.endRace();
 }
 
 void keyPressed() {

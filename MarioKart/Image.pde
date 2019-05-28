@@ -21,8 +21,8 @@ class Image{
     xcor = x - (startingPoint[0] - 60) ;
     ycor = y - (startingPoint[1]) + 60;
     endingPoint = new int[2];
-    endingPoint[0] = 680;
-    endingPoint[1] = 250;
+    endingPoint[0] = 675;
+    endingPoint[1] = 240;
     kart = a;
   }
   
@@ -77,7 +77,7 @@ class Image{
     //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
     //translate(xcor, ycor);
     displayTime();
-    endRace(); //Tests if kart is at finish line
+    //endRace(); //Tests if kart is at finish line
   }
   
   
@@ -116,7 +116,7 @@ class Image{
   }
   
   void endRace() {
-    if (abs(kart.getX() - endingPoint[0]) < 20 && abs(kart.getY() - endingPoint[1]) < 10) {
+    if (abs(kart.getX() - endingPoint[0]) < 20 && abs(kart.getY() - endingPoint[1]) < 5) {
       kart.setEndTime();
       kart.finish();
     }
