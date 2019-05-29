@@ -68,6 +68,10 @@ void draw() {
     
     //k.draw();
     move();
+    if (b.endRace()) {
+      screen = 6; //ending screen
+    }
+    /*
     if (k.isOnWater(col)) {
       k.setColor(0, 0, 255); //Blue kart
       b.endRace();
@@ -80,10 +84,14 @@ void draw() {
       k.setColor(255,0, 0); //Red kart
       k.setSpeed(0.7);
     }
+    */
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
   else if (screen == 5) {
     lostScreen();
+  }
+  else if (screen == 6) {
+    endingScreen();
   }
 
   //translate(k.getX(), k.getY());
@@ -106,7 +114,11 @@ void move() {
       k.setScore(-1);
     }
   }
-  b.endRace();
+  /*
+  if (b.endRace()) {
+    screen = 6; //ending screen
+  }
+  */
 }
 
 void keyPressed() {
@@ -291,5 +303,11 @@ void lostScreen() {
   textFont(font);
   text("OH NO!!", 320, 340);
   text("YOU DROWNED!!", 260, 400);
-  
+}
+
+void endingScreen() {
+  fill(255,0,0);
+  textSize(30);
+  textFont(font);
+  text("YOU WON!", 320, 340);
 }
