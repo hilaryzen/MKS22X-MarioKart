@@ -91,7 +91,16 @@ void draw() {
     lostScreen();
   }
   else if (screen == 6) {
-    endingScreen();
+    //endingScreen();
+    int currentTime = millis();
+    while (millis() - currentTime < 3000) {
+      //endingScreen();
+      fill(255,0,0);
+      textSize(30);
+      textFont(font);
+      text("YOU WON!", 320, 340);
+    }
+    leaderboard();
   }
 
   //translate(k.getX(), k.getY());
@@ -310,4 +319,9 @@ void endingScreen() {
   textSize(30);
   textFont(font);
   text("YOU WON!", 320, 340);
+}
+
+void leaderboard() {
+  fill(255,255,255);
+  rect(0,0,800,800);
 }
