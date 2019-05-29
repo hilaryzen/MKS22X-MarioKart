@@ -110,9 +110,9 @@ class Kart {
     //Light green: R = 69, G = 181, B = 58
     //Dark green: R = 0, G = 145, B = 1
     //color c = get((int)55,(int)55);
-    //println("Red: " + red(c));
-    //println("Green: " + green(c));
-    //println("Blue: " + blue(c));
+    println("Red: " + red(c));
+    println("Green: " + green(c));
+    println("Blue: " + blue(c));
     if (red(c) < 220) {
       return false;
     } else if (green(c) < 200 || green(c) > 230) {
@@ -121,6 +121,19 @@ class Kart {
       return false;
     }
     return true;
+  }
+  
+  boolean isOnWater(int c) {
+    if (red(c) < 200) {
+      return false;
+    } else if (green(c) < 250 || green(c) > 216) {
+      return false;
+    } else if (blue(c) < 250 || blue(c) > 244) {
+      return false;
+    }
+    return true;
+  
+    
   }
   
   void draw() {
