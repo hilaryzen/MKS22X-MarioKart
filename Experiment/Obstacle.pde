@@ -17,7 +17,7 @@ class Tree extends Obstacle {
   
   Tree(float xcor, float ycor) {
     super(xcor, ycor);
-    tree = loadImage("tree.png");
+    tree = loadImage("tree copy.png");
   }
   
   void draw() {

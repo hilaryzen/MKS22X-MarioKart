@@ -1,16 +1,19 @@
 PImage map;
 int x;
 int y;
+Tree tree;
 
 void setup() {
   size(800,800);
   map = loadImage("easy copy.png");
   x = 695;
   y = 240;
+  tree = new Tree(400,420);
 }
 
 void draw() {
   image(map, 0, 0, 800, 800);
+  tree.draw();
   
   color c = get(x,y);
   if (isOnRoad(c)) {
