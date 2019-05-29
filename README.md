@@ -62,4 +62,5 @@ fixed colordetection
 rotating around center of kart
 start obstacle class
 started mapselect screen
-wrote isonWater
+wrote isonWater - if on water - drown
+lostScreen which connects back to the mapselect

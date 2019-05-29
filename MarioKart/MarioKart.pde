@@ -1,4 +1,4 @@
-PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select;
+PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
 Image b;
 Kart k;
 int screen = 0;
@@ -33,6 +33,7 @@ void setup() {
   sun = loadImage("sun.png");
   arrow = loadImage("arrow.png");
   select = loadImage("select.png");
+  replay = loadImage("replay.png");
   startScreen();
   font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
@@ -54,6 +55,8 @@ void draw() {
   }
   if (screen == 2) {
     mapSelect();
+    b.reset();
+    k.reset();
   }
   else if (screen == 3) {
     //println(b.getY());
@@ -63,10 +66,14 @@ void draw() {
     k.draw();
     //b.displayTime();
     
-    k.draw();
+    //k.draw();
     move();
-    
-    if (k.isOnRoad(col)) {
+    if (k.isOnWater(col)) {
+      k.setColor(0, 0, 255); //Blue kart
+      b.endRace();
+      screen = 5;
+    }
+    else if (k.isOnRoad(col)) {
       k.setColor(0, 255, 0); //Green kart
       k.setSpeed(1.3);
     } else {
@@ -74,6 +81,9 @@ void draw() {
       k.setSpeed(0.7);
     }
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
+  }
+  else if (screen == 5) {
+    lostScreen();
   }
 
   //translate(k.getX(), k.getY());
@@ -184,6 +194,11 @@ void mouseClicked() {
       screen = 3;
     }
   }
+  if (screen == 5) {
+    if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
+      screen = 2;
+    }
+  }
 }
 
 void kartSelect() {
@@ -261,4 +276,20 @@ void mapSelect() {
   stroke(4);
   rect(45, 130, 180, 180);
   image(copy, 50, 135, 170, 170);
+}
+
+void lostScreen() {
+  fill(66, 234, 225);
+  rect(0, 0, 800, 600);
+  fill(53, 224, 20);
+  rect(0, (2*height/3) + 30, 800, 400);
+  image(cloud1, 70, 70, 140, 70);
+  image(cloud2, 630, 130, 130, 120);
+  image(replay, 590, 680, 135, 60);
+  fill(34, 224, 25);
+  textSize(30);
+  textFont(font);
+  text("OH NO!!", 320, 340);
+  text("YOU DROWNED!!", 260, 400);
+  
 }

@@ -124,14 +124,10 @@ class Kart {
   }
   
   boolean isOnWater(int c) {
-    if (red(c) < 200) {
-      return false;
-    } else if (green(c) < 250 || green(c) > 216) {
-      return false;
-    } else if (blue(c) < 250 || blue(c) > 244) {
-      return false;
+    if ((red(c) < 200) && (green(c) < 250 && green(c) > 200) && (blue(c) < 250 && blue(c) > 238)) {
+      return true;
     }
-    return true;
+    return false;
   
     
   }
@@ -158,6 +154,10 @@ class Kart {
     rect(-40, -40, 80, 80);
     popMatrix();
     angle+= 0.63;
+  }
+  
+  void reset() {
+    
   }
   /*void move() {
     if (keyPressed()) {
