@@ -324,4 +324,9 @@ void endingScreen() {
 void leaderboard() {
   fill(255,255,255);
   rect(0,0,800,800);
+  fill(0,0,0);
+  textSize(30);
+  textFont(font);
+  text("#" + k.getPlace(), 390, 0);
+  text("LEADERBOARD", 320, 50);
 }

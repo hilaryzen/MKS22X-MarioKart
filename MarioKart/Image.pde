@@ -8,6 +8,7 @@ class Image{
   int[] endingPoint;
   int startTime;
   Kart kart;
+  int kartsFinished;
 
   
   Image(float x, float y, Kart a){
@@ -118,7 +119,8 @@ class Image{
   boolean endRace() {
     if (abs((-xcor + 60) - endingPoint[0]) < 30 && abs((-ycor + 60) - endingPoint[1]) < 5) {
       kart.setEndTime();
-      kart.finish();
+      kart.finish(kartsFinished);
+      kartsFinished++;
       return true;
     }
     return false;

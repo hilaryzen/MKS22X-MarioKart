@@ -11,6 +11,7 @@ class Kart {
   String name;
   int endingTime;
   boolean racing;
+  int place;
   
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
@@ -82,6 +83,10 @@ class Kart {
     return endingTime;
   }
   
+  int getPlace() {
+    return place;
+  }
+  
   void setScore(int change) {
     score = score + change;
   }
@@ -95,7 +100,8 @@ class Kart {
     racing = true;
   }
   
-  void finish() {
+  void finish(int placeNum) {
+    place = placeNum + 1;
     racing = false;
   }
   
