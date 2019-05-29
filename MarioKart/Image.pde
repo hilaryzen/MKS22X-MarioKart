@@ -116,7 +116,7 @@ class Image{
   }
   
   boolean endRace() {
-    if (abs(kart.getX() - endingPoint[0]) < 20 && abs(kart.getY() - endingPoint[1]) < 5) {
+    if (abs((-xcor + 60) - endingPoint[0]) < 30 && abs((-ycor + 60) - endingPoint[1]) < 5) {
       kart.setEndTime();
       kart.finish();
       return true;
