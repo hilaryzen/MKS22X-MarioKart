@@ -57,11 +57,4 @@ Hilary: I added to the Kart class so that it could only move while in a race, an
 
 5/28
 
-Kayla:
-fixed colordetection
-rotating around center of kart
-start obstacle class
-started mapselect screen
-wrote isonWater - if on water - drown
-lostScreen which connects back to the mapselect
-wrote reset
+Kayla: I managed to fix the color detection (It was an extremely small error).  The kart is rotating about its center for the game now as well.  I started the Obstacle class and the mapSelect screen (only one map right now).  I wrote isOnWater and thus if the kart lands on the blue pixels, the kart would drown and transfer to the lostScreen().  Once you reach the lost screen, you can replay.  It would transfer you back to the mapSelect screen.  The game would be reset.
