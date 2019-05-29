@@ -78,10 +78,10 @@ void draw() {
     }
     else if (k.isOnRoad(col)) {
       k.setColor(0, 255, 0); //Green kart
-      k.setSpeed(1.3);
+      k.setSpeed(1.6);
     } else {
       k.setColor(255,0, 0); //Red kart
-      k.setSpeed(0.7);
+      k.setSpeed(0.9);
     }
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
