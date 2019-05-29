@@ -1,4 +1,4 @@
-PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy;
+PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select;
 Image b;
 Kart k;
 int screen = 0;
@@ -32,6 +32,7 @@ void setup() {
   star = loadImage("star.png");
   sun = loadImage("sun.png");
   arrow = loadImage("arrow.png");
+  select = loadImage("select.png");
   startScreen();
   font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
@@ -51,7 +52,10 @@ void draw() {
   if (screen == 1) {
     kartSelect();
   }
-  else if (screen == 2) {
+  if (screen == 2) {
+    mapSelect();
+  }
+  else if (screen == 3) {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
@@ -104,7 +108,7 @@ void keyPressed() {
       input += key;
     }
   }
-  if (screen == 2 && k.isRacing()) {
+  if (screen == 3 && k.isRacing()) {
     if (key == 'w') {
       /*
       b.moveStraight();
@@ -155,9 +159,9 @@ void mouseClicked() {
   if (screen == 1) {
     if (mouseX > 600 && mouseY> 680 && mouseX < 710 && mouseY < 750) {
       k.setN(input);
-      k.start();
-      image(map,0,0,800,800);
-      b.setStartTime();
+      //k.start();
+      //image(map,0,0,800,800);
+      //b.setStartTime();
       //Tried a 3 2 1 animation
       /*
       textSize(18);
@@ -170,6 +174,14 @@ void mouseClicked() {
       }
       */
       screen = 2;
+    }
+  }
+  if (screen == 2) {
+    if (mouseX > 50 && mouseY> 135 && mouseX < 220 && mouseY < 305) {
+      k.start();
+      image(map,0,0,800,800);
+      b.setStartTime();
+      screen = 3;
     }
   }
 }
@@ -230,4 +242,23 @@ void kartSelect() {
   //if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
   //    screen++;
   //} next button
+}
+
+void mapSelect() {
+  int b = 0;
+  for (int a = 0; a < height; a++) {
+    if (b < 255) {
+      stroke(b, 229, 66);
+      b += 1;
+    }
+    line(0, a, width, a);
+  }
+  fill(255);
+  //image(select, 335, 690, 150, 70);
+  textSize(18);
+  textFont(font);
+  text("Select A Map", 280, 68);
+  stroke(4);
+  rect(45, 130, 180, 180);
+  image(copy, 50, 135, 170, 170);
 }

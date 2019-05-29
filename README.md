@@ -54,3 +54,11 @@ Hilary: I working on keeping track of time. I added to the Image class so that i
 Kayla: If the kart is off the road (touching the green/blue/etc), the speed of the kart would go down.  Once you are back on track, the speed returns to normal.  I also started the Computer class (not much code/mainly thinking).
 
 Hilary: I added to the Kart class so that it could only move while in a race, and wrote a move function so that the kart moved forward automatically. The player only needs to turn left or right.
+
+5/28
+
+Kayla:
+fixed colordetection
+rotating around center of kart
+start obstacle class
+started mapselect screen
