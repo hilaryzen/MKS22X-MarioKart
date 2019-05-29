@@ -47,7 +47,7 @@ Hilary: I began adding points for scoring, so that a kart would earn points for 
 
 Kayla: isOnRoad is now working for the our game (the zoomed in, translated version of the map).  It is a bit off due to the rounding in get() which only accepts ints as its parameters.
 
-Hilary: I working on keeping track of time. I added to the Image class so that it could store the race's start time and display a timer showing how long the race had gone on. I also started developing a way for the kart to finish its race.
+Hilary: I worked on keeping track of time. I added to the Image class so that it could store the race's start time and display a timer showing how long the race had gone on. I also started developing a way for the kart to finish its race.
 
 5/27
 
@@ -58,3 +58,5 @@ Hilary: I added to the Kart class so that it could only move while in a race, an
 5/28
 
 Kayla: I managed to fix the color detection (It was an extremely small error).  The kart is rotating about its center for the game now as well.  I started the Obstacle class and the mapSelect screen (only one map right now).  I wrote isOnWater and thus if the kart lands on the blue pixels, the kart would drown and transfer to the lostScreen().  Once you reach the lost screen, you can replay.  It would transfer you back to the mapSelect screen.  The game would be reset.
+
+Hilary: I continued working on what happens when the kart finishes the race, and started adding a new screen at the end. I also added the Tree class, which inherits from the Obstacle class, and wrote some basic methods"
