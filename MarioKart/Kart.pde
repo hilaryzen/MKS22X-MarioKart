@@ -157,7 +157,15 @@ class Kart {
   }
   
   void reset() {
-    
+    x = 55;
+    y = 60;
+    speed = 1.3;
+    direction = 0.0;
+    fuel = 100;
+    health = 100;
+    score = 0;
+    racing = false;
+    angle = 0;
   }
   /*void move() {
     if (keyPressed()) {

@@ -141,4 +141,9 @@ class Image{
     }
     text(time, 2, 10);
   }
+  
+  void reset() {
+    xcor = 0 - (startingPoint[0] - 60);
+    ycor = 0 - (startingPoint[1]) + 60;
+  }
 }

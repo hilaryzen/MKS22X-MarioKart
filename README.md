@@ -64,3 +64,4 @@ start obstacle class
 started mapselect screen
 wrote isonWater - if on water - drown
 lostScreen which connects back to the mapselect
+wrote reset
