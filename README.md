@@ -59,4 +59,8 @@ Hilary: I added to the Kart class so that it could only move while in a race, an
 
 Kayla: I managed to fix the color detection (It was an extremely small error).  The kart is rotating about its center for the game now as well.  I started the Obstacle class and the mapSelect screen (only one map right now).  I wrote isOnWater and thus if the kart lands on the blue pixels, the kart would drown and transfer to the lostScreen().  Once you reach the lost screen, you can replay.  It would transfer you back to the mapSelect screen.  The game would be reset.
 
-Hilary: I continued working on what happens when the kart finishes the race, and started adding a new screen at the end. I also added the Tree class, which inherits from the Obstacle class, and wrote some basic methods"
+Hilary: I continued working on what happens when the kart finishes the race, and started adding a new screen at the end. I also added the Tree class, which inherits from the Obstacle class, and wrote some basic methods for it.
+
+5/29
+
+Hilary: I fixed the game so that when the kart reaches the finish line a ending screen and leaderboard is displayed, with the kart's place, name, time, and score.

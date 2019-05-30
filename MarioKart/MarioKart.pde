@@ -1,7 +1,7 @@
 PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
 Image b;
 Kart k;
-int screen = 6;
+int screen = 0;
 PFont font;
 String input = "";
 color col;
@@ -338,9 +338,9 @@ void leaderboard() {
     text("You got " + place + "th place!", 250, 80);
   }
   text("LEADERBOARD", 260, 200);
-  String name = k.getName(); // + " " + (k.getEndTime() - b.getStartTime()) / 1000 + " " + k.getScore();
+  String name = k.getName(); 
   text("1 ", 150, 250);
   text(name, 250, 250);
-  text((k.getEndTime() - b.getStartTime()) / 1000 + " ", 350, 250);
+  text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
   text(k.getScore(), 450, 250);
 }
