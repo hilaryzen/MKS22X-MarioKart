@@ -1,5 +1,5 @@
 class Player extends Kart {
-  Player(int X, int Y) {
-    super(X, Y, 0, 0, 0, 0, "hey");
+  Player(int X, int Y, int r, int g, int b, int s, String n) {
+    super(X, Y, r, g, b, s, n);
   }
 }

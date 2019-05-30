@@ -1,22 +1,26 @@
 PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
 Image b;
-Kart k;
+Player k;
+//Computer c1;
 int screen = 0;
 PFont font;
 String input = "";
 color col;
 
-/*interface Displayable {
+interface Displayable {
   void display();
+  void draw();
 }
 
+/*
 interface Moveable {
   void move();
   //void draw();
 }
+*/
 
-ArrayList<Displayable> thingsToDisplay; //from group lab
-ArrayList<Moveable> thingsToMove;*/
+ArrayList<Displayable> thingsToDisplay = new ArrayList<Displayable>(); //from group lab
+//ArrayList<Moveable> thingsToMove;
 
 void setup() {
   size(800,800);
@@ -38,10 +42,11 @@ void setup() {
   font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
-  k = new Kart(60, 60, 255, 255, 255, 0, "hey");
+  k = new Player(60, 60, 255, 255, 255, 0, "hey");
+  //c1 = new Computer(1);
   b = new Image(0, 0, k);
-  //thingsToDisplay.add(b);
-  //thingsToDisplay.add(a);
+  thingsToDisplay.add(k);
+  //thingsToDisplay.add(c1);
   //thingsToMove.add(b);
   //thingsToMove.add(a);
 }
@@ -63,8 +68,10 @@ void draw() {
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     b.draw();
-    k.draw();
-    //b.displayTime();
+    //k.draw();
+    for (Displayable d : thingsToDisplay) {
+      d.draw();
+    }
     
     //k.draw();
     move();
