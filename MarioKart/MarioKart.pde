@@ -327,6 +327,15 @@ void leaderboard() {
   fill(0,0,0);
   textSize(30);
   textFont(font);
-  text("#" + k.getPlace(), 390, 0);
-  text("LEADERBOARD", 320, 50);
+  int place = k.getPlace();
+  if (place == 1) {
+    text("You got 1st place!", 250, 80);
+  } else if (place == 2) {
+    text("You got 2nd place!", 250, 80);
+  } else if (place == 3) {
+    text("You got 3rd place!", 250, 80);
+  } else {
+    text("You got " + place + "th place!", 250, 80);
+  }
+  text("LEADERBOARD", 260, 200);
 }
