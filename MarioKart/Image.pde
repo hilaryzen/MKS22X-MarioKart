@@ -1,3 +1,5 @@
+import java.util.ArrayList; 
+
 class Image{
   float xcor;
   float ycor;
@@ -9,6 +11,7 @@ class Image{
   int startTime;
   Kart kart;
   int kartsFinished;
+  ArrayList<Float> roadPixels;
 
   
   Image(float x, float y, Kart a){
@@ -149,5 +152,15 @@ class Image{
   void reset() {
     xcor = 0 - (startingPoint[0] - 60);
     ycor = 0 - (startingPoint[1]) + 60;
+  }
+  
+  float[] getRoadPixels() {
+    loadPixels();
+    for (int i = 0; i < (width*height); i++) {
+      if (isOnRoad(pixels[i]) {
+        roadPixels.add(pixels[i]);
+      }
+    }
+    //updatePixels();
   }
 }
