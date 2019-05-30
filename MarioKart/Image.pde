@@ -154,7 +154,7 @@ class Image{
     ycor = 0 - (startingPoint[1]) + 60;
   }
   
-  float[] getRoadPixels() {
+  ArrayList<Float> getRoadPixels() {
     loadPixels();
     for (int i = 0; i < (width*height); i++) {
       if (isOnRoad(pixels[i]) {
@@ -162,5 +162,9 @@ class Image{
       }
     }
     //updatePixels();
+  }
+  
+  void displayObstacles() {
+    
   }
 }
