@@ -1,7 +1,7 @@
 PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
 Image b;
 Player k;
-//Computer c1;
+Computer c1;
 int screen = 0;
 PFont font;
 String input = "";
@@ -43,10 +43,10 @@ void setup() {
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
   k = new Player(60, 60, 255, 255, 255, 0, "hey");
-  //c1 = new Computer(1);
+  c1 = new Computer(1);
   b = new Image(0, 0, k);
   thingsToDisplay.add(k);
-  //thingsToDisplay.add(c1);
+  thingsToDisplay.add(c1);
   //thingsToMove.add(b);
   //thingsToMove.add(a);
 }
