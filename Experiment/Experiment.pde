@@ -1,16 +1,23 @@
 PImage map;
+PFont font;
 int x;
 int y;
 Tree tree;
 
 void setup() {
+  /*
   size(800,800);
   map = loadImage("easy copy.png");
   x = 695;
   y = 240;
   tree = new Tree(400,420);
+  */
+  size(800,800);
+  font = loadFont("ARCHRISTY-48.vlw");
+  leaderboard();
 }
 
+/*
 void draw() {
   image(map, 0, 0, 800, 800);
   tree.draw();
@@ -27,6 +34,7 @@ void draw() {
   
   rect(x, y, 10, 10);
 }
+*/
 
 void keyPressed() {
   if (key == 'w') {
@@ -53,4 +61,14 @@ boolean isOnRoad(color c) {
     return false;
   }
   return true;
+}
+
+void leaderboard() {
+  fill(255,255,255);
+  rect(0,0,800,800);
+  fill(0,0,0);
+  textSize(30);
+  textFont(font);
+  text("#1", 390, 50);
+  text("LEADERBOARD", 300, 100);
 }

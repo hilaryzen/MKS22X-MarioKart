@@ -71,6 +71,7 @@ void draw() {
     if (b.endRace()) {
       screen = 6; //ending screen
     }
+    /*
     if (k.isOnWater(col)) {
       k.setColor(0, 0, 255); //Blue kart
       b.endRace();
@@ -83,13 +84,23 @@ void draw() {
       k.setColor(255,0, 0); //Red kart
       k.setSpeed(0.9);
     }
+    */
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
   else if (screen == 5) {
     lostScreen();
   }
   else if (screen == 6) {
-    endingScreen();
+    //endingScreen();
+    int currentTime = millis();
+    while (millis() - currentTime < 3000) {
+      //endingScreen();
+      fill(255,0,0);
+      textSize(30);
+      textFont(font);
+      text("YOU WON!", 320, 340);
+    }
+    leaderboard();
   }
 
   //translate(k.getX(), k.getY());
@@ -308,4 +319,28 @@ void endingScreen() {
   textSize(30);
   textFont(font);
   text("YOU WON!", 320, 340);
+}
+
+void leaderboard() {
+  fill(255,255,255);
+  rect(0,0,800,800);
+  fill(0,0,0);
+  textSize(30);
+  textFont(font);
+  int place = k.getPlace();
+  if (place == 1) {
+    text("You got 1st place!", 250, 80);
+  } else if (place == 2) {
+    text("You got 2nd place!", 250, 80);
+  } else if (place == 3) {
+    text("You got 3rd place!", 250, 80);
+  } else {
+    text("You got " + place + "th place!", 250, 80);
+  }
+  text("LEADERBOARD", 260, 200);
+  String name = k.getName(); 
+  text("1 ", 150, 250);
+  text(name, 250, 250);
+  text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
+  text(k.getScore(), 450, 250);
 }
