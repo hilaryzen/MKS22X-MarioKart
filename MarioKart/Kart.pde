@@ -11,6 +11,7 @@ class Kart {
   String name;
   int endingTime;
   boolean racing;
+  int place;
   
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
@@ -32,6 +33,10 @@ class Kart {
     red = r;
     green = g;
     blue = b;
+  }
+  
+  String getName() {
+    return name;
   }
   
   void setN(String n) {
@@ -82,12 +87,16 @@ class Kart {
     return endingTime;
   }
   
+  int getPlace() {
+    return place;
+  }
+  
   void setScore(int change) {
     score = score + change;
   }
   
   void setEndTime() {
-    println("setEndTime called");
+    //println("setEndTime called");
     endingTime = millis();
   }
   
@@ -95,7 +104,8 @@ class Kart {
     racing = true;
   }
   
-  void finish() {
+  void finish(int placeNum) {
+    place = placeNum + 1;
     racing = false;
   }
   
@@ -110,9 +120,11 @@ class Kart {
     //Light green: R = 69, G = 181, B = 58
     //Dark green: R = 0, G = 145, B = 1
     //color c = get((int)55,(int)55);
+    /*
     println("Red: " + red(c));
     println("Green: " + green(c));
     println("Blue: " + blue(c));
+    */
     if (red(c) < 220) {
       return false;
     } else if (green(c) < 200 || green(c) > 230) {
