@@ -338,4 +338,6 @@ void leaderboard() {
     text("You got " + place + "th place!", 250, 80);
   }
   text("LEADERBOARD", 260, 200);
+  String entry = "1 " + k.getName() + " " + (k.getEndTime() - b.getStartTime()) / 1000 + " " + k.getScore();
+  text(entry, 100, 250);
 }
