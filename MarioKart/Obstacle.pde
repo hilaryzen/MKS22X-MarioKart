@@ -1,4 +1,4 @@
-class Obstacle {
+class Obstacle implements Collideable{
   float x;
   float y;
   
@@ -9,6 +9,10 @@ class Obstacle {
   
   void draw() {
     
+  }
+  
+  boolean isTouching(Object b) {
+    return true;
   }
 }
 
@@ -45,8 +49,9 @@ class Rock extends Obstacle {
     pushMatrix();
     translate(x, y);
     translate(-680 + 60, -150 + 60);
-    image(rock, -10, -10, 20, 20);
+    image(rock, -5, -5, 10, 10);
     popMatrix();
     
   }
+  
 }

@@ -1,4 +1,4 @@
-class Kart {
+class Kart implements Collideable{
   float x;
   float y;
   float speed;
@@ -153,7 +153,7 @@ class Kart {
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
     fill(red, green, blue);
-    rect(-5, -5, 10, 10);
+    rect(-4, -5, 8, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
@@ -217,6 +217,9 @@ class Kart {
     y = y + (speed/4 * cos(radians(direction-90)));
   }
   
+  boolean isTouching(Object b) {
+    return true;
+  }
  
 
 }

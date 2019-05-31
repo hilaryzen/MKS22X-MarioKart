@@ -18,6 +18,10 @@ interface Moveable {
 ArrayList<Displayable> thingsToDisplay; //from group lab
 ArrayList<Moveable> thingsToMove;*/
 
+interface Collideable {
+  boolean isTouching(Object o);
+}
+
 void setup() {
   size(800,800);
   

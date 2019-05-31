@@ -68,7 +68,7 @@ class Image{
     if (kart.getDirection() > 360) {
       kart.setDirection(0);
     }
-    //scale(7);
+    scale(7);
     
     pushMatrix();
     
