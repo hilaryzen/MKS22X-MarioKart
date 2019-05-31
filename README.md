@@ -63,6 +63,8 @@ Hilary: I continued working on what happens when the kart finishes the race, and
 
 5/29
 
+Kayla: I changed the speed for the kart to make it less tedious to play and to make testing easier.  We also discussed together how to end the game.
+
 Hilary: I fixed the game so that when the kart reaches the finish line a ending screen and leaderboard is displayed, with the kart's place, name, time, and score.
 
 5/30
