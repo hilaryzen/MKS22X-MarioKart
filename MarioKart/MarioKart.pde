@@ -21,6 +21,10 @@ interface Moveable {
 ArrayList<Displayable> thingsToDisplay = new ArrayList<Displayable>(); //from group lab
 //ArrayList<Moveable> thingsToMove;
 
+interface Collideable {
+  boolean isTouching(Object o);
+}
+
 void setup() {
   size(800,800);
   
@@ -67,17 +71,22 @@ void draw() {
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     b.draw();
+<<<<<<< HEAD
     //k.draw();
     for (Displayable d : thingsToDisplay) {
       d.draw();
     }
+=======
+    k.draw();
+    b.displayObstacles();
+    //b.displayTime();
+>>>>>>> rock
     
     //k.draw();
     move();
     if (b.endRace()) {
       screen = 6; //ending screen
     }
-    /*
     if (k.isOnWater(col)) {
       k.setColor(0, 0, 255); //Blue kart
       b.endRace();
@@ -90,7 +99,6 @@ void draw() {
       k.setColor(255,0, 0); //Red kart
       k.setSpeed(0.9);
     }
-    */
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
   else if (screen == 5) {
@@ -161,6 +169,7 @@ void keyPressed() {
     }
     if (key == 's') {
       b.moveBack();
+      b.moveBackObs();
       if (k.isOnRoad(col)) {
         k.setScore(1);
       } else {
@@ -215,6 +224,9 @@ void mouseClicked() {
   }
   if (screen == 2) {
     if (mouseX > 50 && mouseY> 135 && mouseX < 220 && mouseY < 305) {
+      b.roadPixels();
+      b.rockCoor();
+      
       k.start();
       image(map,0,0,800,800);
       b.setStartTime();

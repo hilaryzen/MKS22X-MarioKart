@@ -1,3 +1,5 @@
+import java.util.ArrayList; 
+
 class Image{
   float xcor;
   float ycor;
@@ -9,6 +11,9 @@ class Image{
   int startTime;
   Kart kart;
   int kartsFinished;
+  ArrayList<Integer> roadPixelsX = new ArrayList<Integer>();
+  ArrayList<Integer> roadPixelsY = new ArrayList<Integer>();
+  ArrayList<Rock> rocks = new ArrayList<Rock>(10);
 
   
   Image(float x, float y, Kart a){
@@ -149,5 +154,41 @@ class Image{
   void reset() {
     xcor = 0 - (startingPoint[0] - 60);
     ycor = 0 - (startingPoint[1]) + 60;
+  }
+  
+  void roadPixels() {
+    image(copy, 0, 0, 800, 800);
+    for (int r = 0; r < 800; r++) {
+      for (int c = 0; c < 800; c++) {
+        if (k.isOnRoad(get(c, r))) {
+          roadPixelsX.add(c);
+          roadPixelsY.add(r);
+        }
+      }
+    }
+  }
+  
+  void rockCoor() {
+    //rocks.clear();
+    for (int count = 0; count < 10; count++) {
+      int rand = int(random(roadPixelsX.size()));
+      rocks.add(count, new Rock(roadPixelsX.get(rand), roadPixelsY.get(rand)));
+    }
+  }
+  
+  void moveBackObs() {
+    for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).changeX(-(kart.getSpeed() * sin(radians(kart.getDirection()))));
+      rocks.get(i).changeY(-(kart.getSpeed() * cos(radians(kart.getDirection()))));
+      //rocks.get(i).draw();
+    }
+  }
+  
+  void displayObstacles() {
+    for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).changeX((kart.getSpeed() * sin(radians(kart.getDirection()))));
+      rocks.get(i).changeY((kart.getSpeed() * cos(radians(kart.getDirection()))));
+      rocks.get(i).draw();
+    }
   }
 }
