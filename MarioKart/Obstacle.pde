@@ -33,11 +33,19 @@ class Rock extends Obstacle {
     rock = loadImage("rock.png");
   }
   
+  void changeX(float change) {
+    x += change;
+  }
+  
+  void changeY(float change) {
+    y += change;
+  }
+  
   void draw() {
     pushMatrix();
     translate(x, y);
-
-    image(rock, -25, -25, 50, 50);
+    translate(-680, -150);
+    image(rock, -10, -10, 20, 20);
     popMatrix();
     
   }

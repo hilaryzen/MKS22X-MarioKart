@@ -154,6 +154,7 @@ void keyPressed() {
     }
     if (key == 's') {
       b.moveBack();
+      b.moveBackObs();
       if (k.isOnRoad(col)) {
         k.setScore(1);
       } else {

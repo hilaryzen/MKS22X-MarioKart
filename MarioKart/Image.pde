@@ -176,8 +176,18 @@ class Image{
     }
   }
   
+  void moveBackObs() {
+    for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).changeX(-(kart.getSpeed() * sin(radians(kart.getDirection()))));
+      rocks.get(i).changeY(-(kart.getSpeed() * cos(radians(kart.getDirection()))));
+      //rocks.get(i).draw();
+    }
+  }
+  
   void displayObstacles() {
     for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).changeX((kart.getSpeed() * sin(radians(kart.getDirection()))));
+      rocks.get(i).changeY((kart.getSpeed() * cos(radians(kart.getDirection()))));
       rocks.get(i).draw();
     }
   }
