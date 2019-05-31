@@ -64,3 +64,7 @@ Hilary: I continued working on what happens when the kart finishes the race, and
 5/29
 
 Hilary: I fixed the game so that when the kart reaches the finish line a ending screen and leaderboard is displayed, with the kart's place, name, time, and score.
+
+5/30
+
+Hilary: I started working on implementing the Player class and expanding the Computer class by writing a draw method for it. 
