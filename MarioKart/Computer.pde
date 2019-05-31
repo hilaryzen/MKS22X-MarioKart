@@ -45,11 +45,11 @@ class Computer extends Kart {
   
   void move() {
     if (getDirection() >= 0) {
-      x += 2 * sin(radians(getDirection() + 90));
-      y += 2 * cos(radians(getDirection() + 90));
+      x += (speed/4) * sin(radians(getDirection() + 90));
+      y += (speed/4) * cos(radians(getDirection() + 90));
     } else {
-      x += 2 * sin(radians(getDirection() - 90));
-      y += 2 * cos(radians(getDirection() - 90));
+      x += (speed/4) * sin(radians(getDirection() - 90));
+      y += (speed/4) * cos(radians(getDirection() - 90));
     }
   }
 }
