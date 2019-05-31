@@ -44,7 +44,7 @@ class Rock extends Obstacle {
   void draw() {
     pushMatrix();
     translate(x, y);
-    translate(-680, -150);
+    translate(-680 + 60, -150 + 60);
     image(rock, -10, -10, 20, 20);
     popMatrix();
     
