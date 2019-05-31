@@ -11,7 +11,9 @@ class Image{
   int startTime;
   Kart kart;
   int kartsFinished;
-  ArrayList<Float> roadPixels;
+  ArrayList<Float> roadPixelsX;
+  ArrayList<Float> roadPixelsY;
+  ArrayList<Rock> rocks;
 
   
   Image(float x, float y, Kart a){
@@ -155,16 +157,22 @@ class Image{
   }
   
   ArrayList<Float> getRoadPixels() {
-    loadPixels();
-    for (int i = 0; i < (width*height); i++) {
-      if (isOnRoad(pixels[i]) {
-        roadPixels.add(pixels[i]);
+    image(copy, 0, 0, 800, 800);
+    for (int r = 0; r < 800; r++) {
+      for (int c = 0; c < 800; c++) {
+        if (k.isOnRoad(get(c, r))) {
+          roadPixelsX.add(c);
+          roadPixelsY.add(r);
+        }
       }
     }
-    //updatePixels();
   }
   
   void displayObstacles() {
-    
+    rocks.clear();
+    for (int count = 0; count < 10; count++) {
+      int rand = int(random(roadPixelsX.size()));
+      rocks.set(count, new Rock(roadPixelsX.get(rand), roadPixelsY.get(rand)));
+    }
   }
 }
