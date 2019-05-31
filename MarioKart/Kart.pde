@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-class Kart implements Displayable {
-=======
-class Kart implements Collideable{
->>>>>>> rock
+class Kart implements Collideable, Displayable {
   float x;
   float y;
   float speed;

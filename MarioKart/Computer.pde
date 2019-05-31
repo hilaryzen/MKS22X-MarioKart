@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-class Computer extends Kart {
-=======
-class Computer implements Collideable{
->>>>>>> rock
+class Computer extends Kart{
   float[] xValues, yValues;
   int mapNum;
   Player p;
@@ -18,7 +14,4 @@ class Computer implements Collideable{
     rect(-5, -5, 10, 10);
   }
   
-  boolean isTouching(Object b) {
-    return true;
-  }
 }
