@@ -22,13 +22,13 @@ class Computer extends Kart {
   
   void randomDirection() {
     directionValues.clear();
-    rightBound = getDirection() + 45.0;
-    leftBound = getDirection() - 45.0;
+    rightBound = (getDirection() + 45.0) + 360.0;
+    leftBound = (getDirection() - 45.0) + 360.0;
     for (float angle = rightBound; angle >= leftBound; angle -= 5.0) {
       //println(angle);
       int newX = (int) (mapX - 10 * sin(radians(angle)));
       int newY = (int) (mapY - 10 * cos(radians(angle)));
-      //println("X: " + newX + "  Y: " + newY);
+      println("X: " + newX + "  Y: " + newY);
       int c = get(newX, newY);
       //println(c);
       //println(isOnRoad(c));
@@ -45,11 +45,11 @@ class Computer extends Kart {
   
   void move() {
     if (getDirection() >= 0) {
-      x += (speed/4) * sin(radians(getDirection() + 90));
-      y += (speed/4) * cos(radians(getDirection() + 90));
+      x += (speed/4) * sin(radians(90 - getDirection()));
+      y += (speed/4) * cos(radians(90 - getDirection()));
     } else {
-      x += (speed/4) * sin(radians(getDirection() - 90));
-      y += (speed/4) * cos(radians(getDirection() - 90));
+      x += (speed/4) * sin(radians(90 - getDirection()));
+      y += (speed/4) * cos(radians(90 - getDirection()));
     }
   }
 }

@@ -11,7 +11,7 @@ void setup() {
   map = loadImage("easy copy.png");
   x = 650;
   y = 154;
-  direction = -15.0;
+  direction = 450.0;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
   int newY = (int) (y + 50 * cos(radians(90.0)));
