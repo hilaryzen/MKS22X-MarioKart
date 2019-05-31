@@ -11,8 +11,8 @@ class Image{
   int startTime;
   Kart kart;
   int kartsFinished;
-  ArrayList<Float> roadPixelsX;
-  ArrayList<Float> roadPixelsY;
+  ArrayList<Integer> roadPixelsX;
+  ArrayList<Integer> roadPixelsY;
   ArrayList<Rock> rocks;
 
   
@@ -156,7 +156,7 @@ class Image{
     ycor = 0 - (startingPoint[1]) + 60;
   }
   
-  ArrayList<Float> getRoadPixels() {
+  void roadPixels() {
     image(copy, 0, 0, 800, 800);
     for (int r = 0; r < 800; r++) {
       for (int c = 0; c < 800; c++) {
@@ -168,11 +168,17 @@ class Image{
     }
   }
   
-  void displayObstacles() {
+  void rockCoor() {
     rocks.clear();
     for (int count = 0; count < 10; count++) {
       int rand = int(random(roadPixelsX.size()));
       rocks.set(count, new Rock(roadPixelsX.get(rand), roadPixelsY.get(rand)));
+    }
+  }
+  
+  void displayObstacles() {
+    for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).draw();
     }
   }
 }

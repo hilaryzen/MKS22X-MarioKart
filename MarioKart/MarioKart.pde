@@ -209,6 +209,9 @@ void mouseClicked() {
   }
   if (screen == 2) {
     if (mouseX > 50 && mouseY> 135 && mouseX < 220 && mouseY < 305) {
+      b.roadPixels();
+      b.rockCoor();
+      b.displayObstacles();
       k.start();
       image(map,0,0,800,800);
       b.setStartTime();
