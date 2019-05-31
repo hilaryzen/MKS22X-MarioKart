@@ -64,6 +64,7 @@ void draw() {
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     b.draw();
     k.draw();
+    b.displayObstacles();
     //b.displayTime();
     
     //k.draw();
@@ -71,7 +72,6 @@ void draw() {
     if (b.endRace()) {
       screen = 6; //ending screen
     }
-    /*
     if (k.isOnWater(col)) {
       k.setColor(0, 0, 255); //Blue kart
       b.endRace();
@@ -84,7 +84,6 @@ void draw() {
       k.setColor(255,0, 0); //Red kart
       k.setSpeed(0.9);
     }
-    */
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
   else if (screen == 5) {
@@ -211,7 +210,7 @@ void mouseClicked() {
     if (mouseX > 50 && mouseY> 135 && mouseX < 220 && mouseY < 305) {
       b.roadPixels();
       b.rockCoor();
-      b.displayObstacles();
+      
       k.start();
       image(map,0,0,800,800);
       b.setStartTime();

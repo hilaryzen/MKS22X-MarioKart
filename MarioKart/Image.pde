@@ -11,9 +11,9 @@ class Image{
   int startTime;
   Kart kart;
   int kartsFinished;
-  ArrayList<Integer> roadPixelsX;
-  ArrayList<Integer> roadPixelsY;
-  ArrayList<Rock> rocks;
+  ArrayList<Integer> roadPixelsX = new ArrayList<Integer>();
+  ArrayList<Integer> roadPixelsY = new ArrayList<Integer>();
+  ArrayList<Rock> rocks = new ArrayList<Rock>(10);
 
   
   Image(float x, float y, Kart a){
@@ -68,7 +68,7 @@ class Image{
     if (kart.getDirection() > 360) {
       kart.setDirection(0);
     }
-    scale(7);
+    //scale(7);
     
     pushMatrix();
     
@@ -169,10 +169,10 @@ class Image{
   }
   
   void rockCoor() {
-    rocks.clear();
+    //rocks.clear();
     for (int count = 0; count < 10; count++) {
       int rand = int(random(roadPixelsX.size()));
-      rocks.set(count, new Rock(roadPixelsX.get(rand), roadPixelsY.get(rand)));
+      rocks.add(count, new Rock(roadPixelsX.get(rand), roadPixelsY.get(rand)));
     }
   }
   
