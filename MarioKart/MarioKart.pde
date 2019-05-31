@@ -8,7 +8,6 @@ String input = "";
 color col;
 
 interface Displayable {
-  void display();
   void draw();
 }
 
