@@ -42,7 +42,7 @@ void setup() {
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
   k = new Player(60, 60, 255, 255, 255, 0, "hey");
-  c1 = new Computer(1);
+  c1 = new Computer(1, k);
   b = new Image(0, 0, k);
   thingsToDisplay.add(k);
   thingsToDisplay.add(c1);

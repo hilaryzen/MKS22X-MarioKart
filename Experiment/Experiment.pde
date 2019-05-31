@@ -5,16 +5,21 @@ int y;
 Tree tree;
 
 void setup() {
-  /*
+  
   size(800,800);
   map = loadImage("easy copy.png");
   x = 695;
   y = 240;
-  tree = new Tree(400,420);
-  */
+  
+  int newX = (int) (x + 50 * sin(radians(90.0)));
+  int newY = (int) (y + 50 * cos(radians(90.0)));
+  println("newX: " + newX);
+  println("newY: " + newY);
+  /*
   size(800,800);
   font = loadFont("ARCHRISTY-48.vlw");
   leaderboard();
+  */
 }
 
 /*
