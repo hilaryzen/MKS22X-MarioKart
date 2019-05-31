@@ -8,13 +8,13 @@ void setup() {
   
   size(800,800);
   map = loadImage("easy copy.png");
-  x = 695;
-  y = 240;
+  x = 661;
+  y = 148;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
   int newY = (int) (y + 50 * cos(radians(90.0)));
-  println("newX: " + newX);
-  println("newY: " + newY);
+  //println("newX: " + newX);
+  //println("newY: " + newY);
   /*
   size(800,800);
   font = loadFont("ARCHRISTY-48.vlw");
@@ -22,10 +22,8 @@ void setup() {
   */
 }
 
-/*
 void draw() {
   image(map, 0, 0, 800, 800);
-  tree.draw();
   
   color c = get(x,y);
   if (isOnRoad(c)) {
@@ -33,13 +31,14 @@ void draw() {
   } else {
     fill (255, 0, 0); //Red kart
   }
+  /*
   println("Red: " + red(c));
   println("Green: " + green(c));
   println("Blue: " + blue(c));
+  */
   
   rect(x, y, 10, 10);
 }
-*/
 
 void keyPressed() {
   if (key == 'w') {

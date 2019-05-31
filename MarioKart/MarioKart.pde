@@ -66,6 +66,7 @@ void draw() {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
+    c1.randomDirection();
     b.draw();
     //k.draw();
     for (Displayable d : thingsToDisplay) {
@@ -129,11 +130,7 @@ void move() {
       k.setScore(-1);
     }
   }
-  /*
-  if (b.endRace()) {
-    screen = 6; //ending screen
-  }
-  */
+  c1.move();
 }
 
 void keyPressed() {
