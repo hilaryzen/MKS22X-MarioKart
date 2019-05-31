@@ -1,5 +1,5 @@
 class Computer extends Kart {
-  ArrayList<Float> xValues, yValues;
+  ArrayList<Float> directionValues;
   int mapNum;
   Player p;
   float rightBound = 45.0;
@@ -9,8 +9,7 @@ class Computer extends Kart {
     super(80, 60, 0, 0, 0, 0, "Computer1");
     mapNum = map;
     p = user;
-    xValues = new ArrayList<Float>();
-    yValues = new ArrayList<Float>();
+    directionValues = new ArrayList<Float>();
   }
   
   void draw() {
@@ -24,9 +23,10 @@ class Computer extends Kart {
       int newY = (int) (y + 10 * cos(radians(angle)));
       int c = get(newX, newY);
       if (isOnRoad(c)) {
-        xValues.add((float) newX);
-        yValues.add((float) newY);
+        directionValues.add((float) angle);
       }
     }
+    int index = (int) Math.random() * directionValues.size();
+    setDirection(directionValues.get(index));
   }
 }

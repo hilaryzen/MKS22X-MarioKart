@@ -67,7 +67,7 @@ class Kart implements Displayable {
     return direction;
   }
   
-  void setDirection(int d) {
+  void setDirection(float d) {
     direction = d;
   }
   
