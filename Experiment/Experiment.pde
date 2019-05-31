@@ -8,8 +8,8 @@ void setup() {
   
   size(800,800);
   map = loadImage("easy copy.png");
-  x = 661;
-  y = 148;
+  x = 650;
+  y = 154;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
   int newY = (int) (y + 50 * cos(radians(90.0)));
