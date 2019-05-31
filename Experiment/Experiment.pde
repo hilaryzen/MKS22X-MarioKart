@@ -3,6 +3,7 @@ PFont font;
 int x;
 int y;
 Tree tree;
+float direction;
 
 void setup() {
   
@@ -10,6 +11,7 @@ void setup() {
   map = loadImage("easy copy.png");
   x = 650;
   y = 154;
+  direction = -45.0;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
   int newY = (int) (y + 50 * cos(radians(90.0)));
@@ -24,6 +26,8 @@ void setup() {
 
 void draw() {
   image(map, 0, 0, 800, 800);
+  
+  move();
   
   color c = get(x,y);
   if (isOnRoad(c)) {
@@ -65,6 +69,16 @@ boolean isOnRoad(color c) {
     return false;
   }
   return true;
+}
+
+void move() {
+  if (direction >= 0) {
+    x += 2 * sin(radians(direction + 90));
+    y += 2 * cos(radians(direction + 90));
+  } else {
+    x += 2 * sin(radians(direction - 90));
+    y += 2 * cos(radians(direction - 90));
+  }
 }
 
 void leaderboard() {

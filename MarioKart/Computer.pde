@@ -25,10 +25,10 @@ class Computer extends Kart {
     rightBound = getDirection() + 45.0;
     leftBound = getDirection() - 45.0;
     for (float angle = rightBound; angle >= leftBound; angle -= 5.0) {
-      println(angle);
+      //println(angle);
       int newX = (int) (mapX - 10 * sin(radians(angle)));
       int newY = (int) (mapY - 10 * cos(radians(angle)));
-      println("X: " + newX + "  Y: " + newY);
+      //println("X: " + newX + "  Y: " + newY);
       int c = get(newX, newY);
       //println(c);
       //println(isOnRoad(c));
