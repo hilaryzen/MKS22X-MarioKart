@@ -7,7 +7,7 @@ class Computer extends Kart {
   float leftBound;
   
   Computer(int map, Player user) {
-    super(80, 60, 0, 0, 0, 0, "Computer1");
+    super(70, 60, 0, 0, 0, 0, "Computer1");
     mapNum = map;
     p = user;
     directionValues = new ArrayList<Float>();
@@ -22,8 +22,8 @@ class Computer extends Kart {
   
   void randomDirection() {
     directionValues.clear();
-    rightBound = convertAngle(getDirection() + 45.0);
-    leftBound = convertAngle(getDirection() - 45.0);
+    rightBound = convertAngle(getDirection() + 90.0);
+    leftBound = convertAngle(getDirection() - 90.0);
     if (rightBound < leftBound) {
       rightBound += 360.0;
     }
@@ -50,9 +50,13 @@ class Computer extends Kart {
     if (getDirection() >= 0) {
       x += (speed/4) * sin(radians(90 - getDirection()));
       y += (speed/4) * cos(radians(90 - getDirection()));
+      mapX += (speed/4) * sin(radians(90 - getDirection()));
+      mapY += (speed/4) * cos(radians(90 - getDirection()));
     } else {
       x += (speed/4) * sin(radians(90 - getDirection()));
       y += (speed/4) * cos(radians(90 - getDirection()));
+      mapX += (speed/4) * sin(radians(90 - getDirection()));
+      mapY += (speed/4) * cos(radians(90 - getDirection()));
     }
   }
 }
