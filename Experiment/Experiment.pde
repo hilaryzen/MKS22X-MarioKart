@@ -11,7 +11,7 @@ void setup() {
   map = loadImage("easy copy.png");
   x = 650;
   y = 154;
-  direction = 450.0;
+  direction = 45.0;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
   int newY = (int) (y + 50 * cos(radians(90.0)));
@@ -72,6 +72,7 @@ boolean isOnRoad(color c) {
 }
 
 void move() {
+  /*
   if (direction >= 0) {
     x += 2 * sin(radians(direction + 90));
     y += 2 * cos(radians(direction + 90));
@@ -79,6 +80,9 @@ void move() {
     x += 2 * sin(radians(180 - direction));
     y += 2 * cos(radians(180 - direction));
   }
+  */
+  x += 2 * cos(radians(direction));
+  y += 2 * sin(radians(direction));
 }
 
 void leaderboard() {

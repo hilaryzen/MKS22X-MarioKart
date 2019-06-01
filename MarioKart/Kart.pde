@@ -217,7 +217,17 @@ class Kart implements Displayable {
     y = y + (speed/4 * cos(radians(direction-90)));
   }
   
- 
+  float convertAngle(float angle) {
+    if (angle >= 0 && angle < 360.0) {
+      return angle;
+    } else if (angle >= 360) {
+      return angle % 360.0;
+    } else if (angle < 0) {
+      return angle + 360.0;
+    } else {
+      return angle;
+    }
+  }
 
 }
 
