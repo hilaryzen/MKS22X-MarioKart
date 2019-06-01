@@ -176,6 +176,10 @@ class Image{
     }
   }
   
+  ArrayList<Rock> getRockCoor() {
+    return rocks;
+  }
+  
   void moveBackObs() {
     for (int i = 0; i < rocks.size(); i ++) {
       rocks.get(i).changeX(-(kart.getSpeed() * sin(radians(kart.getDirection()))));

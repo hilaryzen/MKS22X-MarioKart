@@ -22,7 +22,7 @@ ArrayList<Displayable> thingsToDisplay = new ArrayList<Displayable>(); //from gr
 //ArrayList<Moveable> thingsToMove;
 
 interface Collideable {
-  boolean isTouching(Object o);
+  boolean isTouching(Obstacle o);
 }
 
 void setup() {
@@ -93,10 +93,15 @@ void draw() {
     }
     else if (k.isOnRoad(col)) {
       k.setColor(0, 255, 0); //Green kart
-      k.setSpeed(1.6);
+      k.setSpeed(1.8);
     } else {
       k.setColor(255,0, 0); //Red kart
-      k.setSpeed(0.9);
+      k.setSpeed(1);
+    }
+    for (Rock d : b.getRockCoor()) {
+      if (k.isTouching(d)) {
+        k.setSpeed(0);
+      }
     }
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
@@ -171,8 +176,10 @@ void keyPressed() {
       b.moveBackObs();
       if (k.isOnRoad(col)) {
         k.setScore(1);
+        k.setSpeed(1.8);
       } else {
         k.setScore(-1);
+        k.setSpeed(1);
       }
     }
     if (key == 'd') {

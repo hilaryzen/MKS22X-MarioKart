@@ -19,7 +19,7 @@ class Obstacle implements Collideable{
     return y;
   }
   
-  boolean isTouching(Object b) {
+  boolean isTouching(Obstacle b) {
     return true;
   }
 }
@@ -49,19 +49,19 @@ class Rock extends Obstacle {
   }
   
   float getStartX() {
-    return x;
+    return xcor;
   }
   
   float getStartY() {
-    return y;
+    return ycor;
   }
   
   void changeX(float change) {
-    xcor += change;
+    x += change;
   }
   
   void changeY(float change) {
-    ycor += change;
+    y += change;
   }
   
   void draw() {

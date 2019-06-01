@@ -224,11 +224,12 @@ class Kart implements Collideable, Displayable {
   void placeOnMapY(float y) {
     mapY = y;
   }
+  
   boolean isTouching(Obstacle b) {
-    if (abs(mapX - b.getStartX()) < && ()) {
-      
+    if ((abs(mapX - b.getStartX()) < 9) && (abs(mapY - b.getStartY()) < 8)) {
+      return true;
     }
-    return true;
+    return false;
   }
  
 
