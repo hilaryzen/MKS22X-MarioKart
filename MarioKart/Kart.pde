@@ -1,6 +1,6 @@
 class Kart implements Collideable, Displayable {
-  float x;
-  float y;
+  float x, mapX;
+  float y, mapY;
   float speed;
   float direction;
   int fuel;
@@ -217,7 +217,17 @@ class Kart implements Collideable, Displayable {
     y = y + (speed/4 * cos(radians(direction-90)));
   }
   
-  boolean isTouching(Object b) {
+  void placeOnMapX(float x) {
+    mapX = x;
+  }
+  
+  void placeOnMapY(float y) {
+    mapY = y;
+  }
+  boolean isTouching(Obstacle b) {
+    if (abs(mapX - b.getStartX()) < && ()) {
+      
+    }
     return true;
   }
  

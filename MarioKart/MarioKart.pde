@@ -70,6 +70,8 @@ void draw() {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
+    k.placeOnMapX(((b.getX() * -1) + 60));
+    k.placeOnMapY(((b.getY() * -1) + 60));
     b.draw();
     //k.draw();
     for (Displayable d : thingsToDisplay) {

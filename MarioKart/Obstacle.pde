@@ -11,6 +11,14 @@ class Obstacle implements Collideable{
     
   }
   
+  float getStartX() {
+    return x;
+  }
+  
+  float getStartY() {
+    return y;
+  }
+  
   boolean isTouching(Object b) {
     return true;
   }
@@ -31,18 +39,29 @@ class Tree extends Obstacle {
 
 class Rock extends Obstacle {
   PImage rock;
+  float xcor, ycor;
   
   Rock(float x, float y) {
     super(x, y);
+    xcor = x;
+    ycor = y;
     rock = loadImage("rock.png");
   }
   
+  float getStartX() {
+    return x;
+  }
+  
+  float getStartY() {
+    return y;
+  }
+  
   void changeX(float change) {
-    x += change;
+    xcor += change;
   }
   
   void changeY(float change) {
-    y += change;
+    ycor += change;
   }
   
   void draw() {
