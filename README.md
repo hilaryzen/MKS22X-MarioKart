@@ -69,4 +69,6 @@ Hilary: I fixed the game so that when the kart reaches the finish line a ending 
 
 5/30
 
+Kayla: I started to get working on the obstacles.  In order to make displaying objects in the right places easier, I created a roadPixels() method that as its name suggests, saves the x and y coordinates for all the pixels on the road.  To start the obstacles, I chose to start with rocks.  I wrote rockCoor, displayObstacles and moveBackObs in order to get the rocks to display correctly in the right location regardless of the translations and rotations.
+
 Hilary: I started working on implementing the Player class and expanding the Computer class by writing a draw method for it. 
