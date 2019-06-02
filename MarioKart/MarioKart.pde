@@ -93,7 +93,7 @@ void draw() {
     }
     else if (k.isOnRoad(col)) {
       k.setColor(0, 255, 0); //Green kart
-      k.setSpeed(1.8);
+      k.setSpeed(2);
     } else {
       k.setColor(255,0, 0); //Red kart
       k.setSpeed(1);
@@ -172,15 +172,16 @@ void keyPressed() {
       k.turnLeft();
     }
     if (key == 's') {
-      b.moveBack();
-      b.moveBackObs();
+      
       if (k.isOnRoad(col)) {
         k.setScore(1);
-        k.setSpeed(1.8);
+        k.setSpeed(1.6);
       } else {
         k.setScore(-1);
         k.setSpeed(1);
       }
+      b.moveBack();
+      b.moveBackObs();
     }
     if (key == 'd') {
       k.turnRight();
