@@ -226,7 +226,8 @@ class Kart implements Collideable, Displayable {
   }
   
   boolean isTouching(Obstacle b) {
-    if ((abs(mapX - b.getStartX()) < 9.5) && ((abs(mapY - b.getStartY()) < 9.5) || (abs(mapY - b.getStartY()) < 9.5))) {
+    if (dist(mapX, mapY - 5, b.getStartX(), b.getStartY()) < 9.5) {
+    //if ((abs(mapX - b.getStartX()) < 9.5) && (((mapY - b.getStartY()) < 9.5) || (mapY - b.getStartY()) > -9.5)) {
       return true;
     }
     return false;
