@@ -72,6 +72,7 @@ void draw() {
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     k.placeOnMapX(((b.getX() * -1) + 60));
     k.placeOnMapY(((b.getY() * -1) + 60));
+    //println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
     b.draw();
     //k.draw();
     for (Displayable d : thingsToDisplay) {
@@ -93,10 +94,10 @@ void draw() {
     }
     else if (k.isOnRoad(col)) {
       k.setColor(0, 255, 0); //Green kart
-      k.setSpeed(2);
+      k.setSpeed(2.8);
     } else {
       k.setColor(255,0, 0); //Red kart
-      k.setSpeed(1);
+      k.setSpeed(1.2);
     }
     for (Rock d : b.getRockCoor()) {
       if (k.isTouching(d)) {
