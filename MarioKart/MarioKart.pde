@@ -6,6 +6,7 @@ int screen = 0;
 PFont font;
 String input = "";
 color col;
+int[][] colors = {{255, 18, 62}, {255, 126, 5}, {255, 243, 5}, {46, 255, 5}, {5, 255, 207}, {255, 93, 171}};
 
 interface Displayable {
   void draw();
@@ -261,27 +262,43 @@ void kartSelect() {
   rect(220, 250, 70, 70);
   k.display();
   if (mouseX > 40 && mouseY> 160 && mouseX < 110 && mouseY < 230) {
-      k.setColor(255, 18, 62);
+      k.setColor(255, 18, 62); //red
+      computerColor(0);
   }
   if (mouseX > 130 && mouseY> 160 && mouseX < 200 && mouseY < 230) {
-      k.setColor(255, 126, 5);
+      k.setColor(255, 126, 5); //orange
+      computerColor(1);
   }
   if (mouseX > 220 && mouseY> 160 && mouseX < 290 && mouseY < 230) {
-      k.setColor(255, 243, 5);
+      k.setColor(255, 243, 5); //yellow
+      computerColor(2);
   }
   if (mouseX > 40 && mouseY> 250 && mouseX < 110 && mouseY < 320) {
-      k.setColor(46, 255, 5);
+      k.setColor(46, 255, 5); //green
+      computerColor(3);
   }
   if (mouseX > 130 && mouseY> 250 && mouseX < 200 && mouseY < 320) {
-      k.setColor(5, 255, 207);
+      k.setColor(5, 255, 207); //turquoise
+      computerColor(4);
   }
   if (mouseX > 220 && mouseY> 250 && mouseX < 290 && mouseY < 320) {
-      k.setColor(255, 93, 171);
+      k.setColor(255, 93, 171); //pink
+      computerColor(5);
   }
   //if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
   //    screen++;
   //} next button
 }
+
+void computerColor(int c) {
+  int index = (int) (Math.random() * 5);
+  if (index < c) {
+    c1.setColor(colors[index][0], colors[index][1], colors[index][2]);
+  } else {
+    c1.setColor(colors[index + 1][0], colors[index + 1][1], colors[index + 1][2]);
+  }
+}
+    
 
 void mapSelect() {
   int b = 0;
