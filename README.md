@@ -77,8 +77,15 @@ Hilary: I started working on implementing the Player class and expanding the Com
 
 Kayla: I added the Collideable interface and wrote the isTouching method.  If your kart touches a rock, the speed should be set to zero.  You can gain back your speed by clicking the "s" key.
 
+<<<<<<< HEAD
+6/1
+
+Kayla: reset
+kart stopping at rock using radius
+=======
 Hilary: I started working on random direction for the computer. To choose its path, the computer will test many different angles to find which directions keep them on the road. Out of those angle, the computer will then pick a random spot and move to it. I decided to add a left bound and a right bound, which limit the computer to only testing angles in front of it.
 
 6/1
 
 Hilary: I continued trying to improve the randomDirection method by adding the mapX and mapY variables to Computer, which would track the kart's position on a normal map, without the translations. I aimed to use that to figure out the direction of the kart before translating it onto the screen, and used the Experiment folder to test it, but the method is still buggy. I also added methods to randomly pick a color for the computer, that is different from the Player.
+>>>>>>> cff51b0243e4a1d26bcaba1b5329bf7708e8e116
