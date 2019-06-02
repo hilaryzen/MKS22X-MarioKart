@@ -53,24 +53,26 @@ class Computer{
   }
   
   void randomDirection2() {
-    for (float i = 0.0; i < 90.0; i += 5.0) {
-      int newX = (int) (mapX - 5 * cos(radians(direction + i)));
+    for (float i = 0.0; i < 180.0; i += 5.0) {
+      int newX = (int) (mapX + 5 * cos(radians(direction + i)));
       int newY = (int) (mapY - 5 * sin(radians(direction + i)));
       int c = get(newX, newY);
       if (isOnRoad(c)) {
         direction += i;
-        i = 100;
+        direction = convertAngle(direction);
+        println(direction);
+        return;
       } 
-      newX = (int) (mapX - 5 * cos(radians(direction - i)));
+      newX = (int) (mapX + 5 * cos(radians(direction - i)));
       newY = (int) (mapY - 5 * sin(radians(direction - i)));
       c = get(newX, newY);
       if (isOnRoad(c)) {
         direction -= i;
-        i = 100;
+        direction = convertAngle(direction);
+        println(direction);
+        return;
       } 
     }
-    println(direction);
-    convertAngle(direction);
   }
   
   float convertAngle(float angle) {
@@ -79,7 +81,7 @@ class Computer{
     } else if (angle >= 360) {
       return angle % 360.0;
     } else if (angle < 0) {
-      return angle + 360.0;
+      return (angle % 360.0) + 360.0;
     } else {
       return angle;
     }
