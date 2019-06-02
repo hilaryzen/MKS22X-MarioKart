@@ -3,24 +3,22 @@ PFont font;
 int x;
 int y;
 Tree tree;
+Computer c1;
 
 void setup() {
-  /*
+  
   size(800,800);
   map = loadImage("easy copy.png");
   x = 695;
   y = 240;
-  tree = new Tree(400,420);
-  */
-  size(800,800);
-  font = loadFont("ARCHRISTY-48.vlw");
-  leaderboard();
+  c1 = new Computer(1);
 }
 
-/*
+
 void draw() {
   image(map, 0, 0, 800, 800);
-  tree.draw();
+  c1.draw();
+  //tree.draw();
   
   color c = get(x,y);
   if (isOnRoad(c)) {
@@ -28,13 +26,15 @@ void draw() {
   } else {
     fill (255, 0, 0); //Red kart
   }
+  /*
   println("Red: " + red(c));
   println("Green: " + green(c));
   println("Blue: " + blue(c));
+  */
   
-  rect(x, y, 10, 10);
+  //rect(x, y, 10, 10);
 }
-*/
+
 
 void keyPressed() {
   if (key == 'w') {
@@ -63,6 +63,7 @@ boolean isOnRoad(color c) {
   return true;
 }
 
+/*
 void leaderboard() {
   fill(255,255,255);
   rect(0,0,800,800);
@@ -72,3 +73,4 @@ void leaderboard() {
   text("#1", 390, 50);
   text("LEADERBOARD", 300, 100);
 }
+*/

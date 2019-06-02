@@ -52,6 +52,27 @@ class Computer{
     }
   }
   
+  void randomDirection2() {
+    for (float i = 0.0; i < 90.0; i += 5.0) {
+      int newX = (int) (mapX - 5 * cos(radians(direction + i)));
+      int newY = (int) (mapY - 5 * sin(radians(direction + i)));
+      int c = get(newX, newY);
+      if (isOnRoad(c)) {
+        direction += i;
+        i = 100;
+      } 
+      newX = (int) (mapX - 5 * cos(radians(direction - i)));
+      newY = (int) (mapY - 5 * sin(radians(direction - i)));
+      c = get(newX, newY);
+      if (isOnRoad(c)) {
+        direction -= i;
+        i = 100;
+      } 
+    }
+    println(direction);
+    convertAngle(direction);
+  }
+  
   float convertAngle(float angle) {
     if (angle >= 0 && angle < 360.0) {
       return angle;
@@ -65,7 +86,8 @@ class Computer{
   }
   
   void move() {
-    randomDirection();
+    randomDirection2();
+    /*
     if (direction >= 0) {
       //x += (1/4) * sin(radians(direction));
       //y += (1/4) * cos(radians(direction));
@@ -77,5 +99,8 @@ class Computer{
       mapX += (2) * cos(radians(direction));
       mapY += (2) * sin(radians(direction));
     }
+    */
+    mapX += (2) * cos(radians(direction));
+    mapY -= (2) * sin(radians(direction));
   }
 }
