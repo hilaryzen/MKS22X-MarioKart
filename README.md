@@ -75,4 +75,4 @@ Hilary: I started working on implementing the Player class and expanding the Com
 
 5/31
 
-Kayla: I added the Collideable interface and wrote the isTouching method.  If your kart touches a rock, the speed should be set to zero.  You can gain back your speed by clicking the s key.
+Kayla: I added the Collideable interface and wrote the isTouching method.  If your kart touches a rock, the speed should be set to zero.  You can gain back your speed by clicking the "s" key.

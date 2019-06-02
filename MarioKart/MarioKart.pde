@@ -231,6 +231,7 @@ void mouseClicked() {
   }
   if (screen == 2) {
     if (mouseX > 50 && mouseY> 135 && mouseX < 220 && mouseY < 305) {
+      b.resetRock();
       b.roadPixels();
       b.rockCoor();
       
@@ -242,8 +243,8 @@ void mouseClicked() {
   }
   if (screen == 5) {
     if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
-      b.roadPixels();
-      b.rockCoor();
+      //b.roadPixels();
+      //b.rockCoor();
       screen = 2;
     }
   }

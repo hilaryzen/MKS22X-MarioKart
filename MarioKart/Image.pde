@@ -180,6 +180,12 @@ class Image{
     return rocks;
   }
   
+  void resetRock() {
+    rocks.clear();
+    roadPixelsX.clear();
+    roadPixelsY.clear();
+  }
+  
   void moveBackObs() {
     for (int i = 0; i < rocks.size(); i ++) {
       rocks.get(i).changeX(-(kart.getSpeed() * sin(radians(kart.getDirection()))));
