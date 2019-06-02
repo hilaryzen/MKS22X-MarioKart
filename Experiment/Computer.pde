@@ -7,7 +7,7 @@ class Computer{
   float leftBound;
   
   Computer(int map) {
-    direction = 0.0;
+    direction = 90.0;
     mapNum = map;
     directionValues = new ArrayList<Float>();
     mapX = 660;
@@ -24,7 +24,7 @@ class Computer{
     directionValues.clear();
     rightBound = convertAngle(direction + 45.0);
     leftBound = convertAngle(direction - 45.0);
-    println(rightBound + " " + leftBound);
+    //println(rightBound + " " + leftBound);
     if (rightBound < leftBound) {
       rightBound += 360.0;
     }
@@ -43,12 +43,12 @@ class Computer{
       }
     }
     if (directionValues.size() == 0) {
-      direction += 20.0;
+      direction += 10.0;
       //println("Can't find road");
     } else {
       int index = (int) (Math.random() * directionValues.size());
       direction = directionValues.get(index);
-      //println("Direction: " + direction);
+      println("Direction: " + direction);
     }
   }
   
