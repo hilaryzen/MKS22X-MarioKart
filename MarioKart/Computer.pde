@@ -24,13 +24,14 @@ class Computer extends Kart {
     directionValues.clear();
     rightBound = convertAngle(getDirection() + 90.0);
     leftBound = convertAngle(getDirection() - 90.0);
+    println(rightBound + " " + leftBound);
     if (rightBound < leftBound) {
       rightBound += 360.0;
     }
     for (float angle = rightBound; angle >= leftBound; angle -= 5.0) {
       //println(angle);
-      int newX = (int) (mapX - 100 * sin(radians(angle)));
-      int newY = (int) (mapY - 100 * cos(radians(angle)));
+      int newX = (int) (mapX - 5 * sin(radians(angle)));
+      int newY = (int) (mapY - 5 * cos(radians(angle)));
       //println("X: " + newX + "  Y: " + newY);
       int c = get(newX, newY);
       //println(c);
@@ -43,11 +44,11 @@ class Computer extends Kart {
     }
     if (directionValues.size() == 0) {
       direction += 20.0;
-      println("Can't find road");
+      //println("Can't find road");
     } else {
       int index = (int) (Math.random() * directionValues.size());
       setDirection(directionValues.get(index));
-      println("Direction: " + getDirection());
+      //println("Direction: " + getDirection());
     }
   }
   

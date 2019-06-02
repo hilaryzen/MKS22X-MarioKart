@@ -4,14 +4,16 @@ int x;
 int y;
 Tree tree;
 float direction;
+Computer c;
 
 void setup() {
   
   size(800,800);
   map = loadImage("easy copy.png");
+  c = new Computer(1);
   x = 650;
   y = 154;
-  direction = 60.0;
+  //direction = 60.0;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
   int newY = (int) (y + 50 * cos(radians(90.0)));
@@ -26,22 +28,23 @@ void setup() {
 
 void draw() {
   image(map, 0, 0, 800, 800);
+  c.draw();
   
-  move();
-  
+  //move();
+  /*
   color c = get(x,y);
   if (isOnRoad(c)) {
     fill(0,255,0); //Green kart
   } else {
     fill (255, 0, 0); //Red kart
   }
-  /*
+  
   println("Red: " + red(c));
   println("Green: " + green(c));
   println("Blue: " + blue(c));
   */
   
-  rect(x, y, 10, 10);
+  //rect(x, y, 10, 10);
 }
 
 void keyPressed() {
