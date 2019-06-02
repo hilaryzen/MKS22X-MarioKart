@@ -12,7 +12,7 @@ class Kart implements Collideable, Displayable {
   int endingTime;
   boolean racing;
   int place;
-  int opacity = 100;
+  
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
     y = Y;
@@ -157,7 +157,12 @@ class Kart implements Collideable, Displayable {
     translate(55, 55);
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
-    fill(red, green, blue, opacity);
+    if (isOnBottom()) {
+      fill(red, green, blue, 0);
+    }
+    else {
+      fill(red, green, blue);
+    }
     //tint(255, 127);
     rect(-4, -5, 8, 10);
     popMatrix();
@@ -232,7 +237,7 @@ class Kart implements Collideable, Displayable {
   }
   
   boolean isTouching(Obstacle b) {
-    if (dist(mapX, mapY - 5, b.getStartX(), b.getStartY()) < 9.6) {
+    if (dist(mapX - 5, mapY - 5, b.getStartX(), b.getStartY()) < 9.6) {
     //if ((abs(mapX - b.getStartX()) < 9.5) && (((mapY - b.getStartY()) < 9.5) || (mapY - b.getStartY()) > -9.5)) {
       return true;
     }
