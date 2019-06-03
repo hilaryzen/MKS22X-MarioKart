@@ -1,6 +1,7 @@
 class Kart implements Displayable {
   float x;
   float y;
+  float mapX, mapY;
   float speed;
   float direction;
   int fuel;
@@ -27,6 +28,8 @@ class Kart implements Displayable {
     shape = s;
     name = n;
     racing = false;
+    mapX = 665.0;
+    mapY = 150.0;
   }
   
   void setColor(int r, int g, int b) {
@@ -53,6 +56,22 @@ class Kart implements Displayable {
   
   float getY() {
     return y;
+  }
+  
+  float getMapX() {
+    return mapX;
+  }
+  
+  float getMapY() {
+    return mapY;
+  }
+  
+  void setMapX(float newMap) {
+    mapX = newMap;
+  }
+  
+  void setMapY(float newMap) {
+    mapY = newMap;
   }
   
   float getSpeed() {

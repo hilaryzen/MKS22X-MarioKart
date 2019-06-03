@@ -11,7 +11,7 @@ void setup() {
   size(800,800);
   map = loadImage("easy copy.png");
   //c = new Computer(1);
-  x = 660;
+  x = 670;
   y = 150;
   //direction = 60.0;
   
