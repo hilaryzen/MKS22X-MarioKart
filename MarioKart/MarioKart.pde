@@ -1,6 +1,6 @@
 PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
-Image b;
-Player k;
+Image b, miniB;
+Player k, miniK;
 Computer c1;
 int screen = 0;
 PFont font;
@@ -46,8 +46,10 @@ void setup() {
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
   k = new Player(60, 60, 255, 255, 255, 0, "hey");
+  miniK = new Player(60, 60, 255, 255, 255, 0, "hey");
   c1 = new Computer(1, k);
   b = new Image(0, 0, k);
+  miniB = new Image(0, 0, k);
   thingsToDisplay.add(k);
   thingsToDisplay.add(c1);
   //thingsToMove.add(b);
@@ -74,12 +76,15 @@ void draw() {
     k.placeOnMapY(((b.getY() * -1) + 60));
     println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
     b.draw();
+    
     //k.draw();
     for (Displayable d : thingsToDisplay) {
       d.draw();
     }
     //k.draw();
     b.displayObstacles();
+    miniB.displayMini();
+    miniK.displayMini();
     //b.displayTime();
     
     //k.draw();

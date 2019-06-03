@@ -86,7 +86,18 @@ class Image{
     //endRace(); //Tests if kart is at finish line
   }
   
-  
+  void displayMini() {
+    if (kart.getDirection() > 360) {
+      kart.setDirection(0);
+    }
+    pushMatrix();
+    translate(91, 3);
+    fill(255);
+    rect(-1, -1, 23, 23);
+    image(map, 0.5, 0.5, 21, 21);
+    popMatrix();
+
+  }
   /*void move() {
     if (keyPressed()) {
       if (key == 'w') {

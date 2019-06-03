@@ -196,6 +196,15 @@ class Kart implements Collideable, Displayable {
     angle+= 0.63;
   }
   
+  void displayMini() {
+    pushMatrix();
+    translate(x, y);
+    rotate(radians(360)-radians(direction));
+    strokeWeight(1);
+    rect(-4, -5, 10, 10);
+    popMatrix();
+  }
+  
   void reset() {
     x = 55;
     y = 60;
