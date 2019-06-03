@@ -100,13 +100,16 @@ void draw() {
     else if (k.isOnRoad(col)) {
       //k.setColor(0, 255, 0); //Green kart
       k.setSpeed(2.8);
+      miniK.setSpeed(2.8);
     } else {
       ///k.setColor(255,0, 0); //Red kart
       k.setSpeed(1.2);
+      miniK.setSpeed(1.2);
     }
     for (Rock d : b.getRockCoor()) {
       if (k.isTouching(d)) {
         k.setSpeed(0);
+        miniK.setSpeed(0);
       }
     }
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
@@ -147,6 +150,7 @@ void draw() {
 void move() {
   if (k.isRacing()) {
     b.moveStraight();
+    miniK.moveStraight();
     if (k.isOnRoad(col)) {
       k.setScore(1);
     } else {
@@ -188,11 +192,14 @@ void keyPressed() {
       if (k.isOnRoad(col)) {
         k.setScore(1);
         k.setSpeed(1.6);
+        miniK.setSpeed(1.6);
       } else {
         k.setScore(-1);
         k.setSpeed(1);
+        miniK.setSpeed(1);
       }
       b.moveBack();
+      miniK.moveBackMini();
       b.moveBackObs();
     }
     if (key == 'd') {

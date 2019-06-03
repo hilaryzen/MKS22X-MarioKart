@@ -201,8 +201,18 @@ class Kart implements Collideable, Displayable {
     translate(x, y);
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
-    rect(-4, -5, 10, 10);
+    rect(-4, -5, 1, 1);
     popMatrix();
+  }
+  
+  void moveBackMini() {
+    x = x + (speed * sin(radians(direction)));
+    y = y + (speed * cos(radians(direction)));
+  }
+  
+  void moveStraight() {
+    x = x - (speed * sin(radians(direction)));
+    y = y - (speed * cos(radians(direction)));
   }
   
   void reset() {
@@ -244,14 +254,14 @@ class Kart implements Collideable, Displayable {
   
   void turnRight() {
     direction = direction - 10/ (4+(speed/3));
-    x = x + (speed/4 * sin(radians(direction+90)));
-    y = y + (speed/4 * cos(radians(direction+90)));
+    //xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
+    //ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
+    
   }
   
   void turnLeft() {
     direction = direction + 10/ (4+(speed/3));
-    x = x + (speed/4 * sin(radians(direction-90)));
-    y = y + (speed/4 * cos(radians(direction-90)));
+    
   }
   
   void placeOnMapX(float x) {
