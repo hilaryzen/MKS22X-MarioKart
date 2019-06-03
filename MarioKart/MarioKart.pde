@@ -89,8 +89,8 @@ void draw() {
     }
     if (k.isOnWater(col)) {
       ////k.setColor(0, 0, 255); //Blue kart
-      //b.endRace();
-      //screen = 5;
+      b.endRace();
+      screen = 5;
     }
     else if (k.isOnRoad(col)) {
       //k.setColor(0, 255, 0); //Green kart
@@ -112,14 +112,15 @@ void draw() {
   else if (screen == 6) {
     //endingScreen();
     int currentTime = millis();
+    
+    while (millis() - currentTime < 3000) {
+      //endingScreen();
+      
+    }
     fill(255,0,0);
     textSize(30);
     textFont(font);
     text("YOU WON!", 320, 340);
-    while (millis() - currentTime < 3000) {
-      endingScreen();
-      
-    }
     screen = 7;
     
   }
@@ -134,7 +135,7 @@ void draw() {
   }
   for (Moveable thing : thingsToMove) {
     thing.move();
-    //thing.draw();
+    //thing.draw();is
   }*/
 }
 
@@ -388,9 +389,9 @@ void leaderboard() {
   textSize(35);
   text("LEADERBOARD", 300, 170);
   String name = k.getName(); 
-  text("1 ", 150, 250);
-  text(name, 210, 250);
-  text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
-  text(k.getScore(), 520, 250);
+  text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
+  //text(name, 190, 250);
+  //text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
+  //text(k.getScore(), 520, 250);
   image(replay, 590, 680, 135, 60);
 }
