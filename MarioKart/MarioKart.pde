@@ -72,7 +72,7 @@ void draw() {
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     k.placeOnMapX(((b.getX() * -1) + 60));
     k.placeOnMapY(((b.getY() * -1) + 60));
-    //println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
+    println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
     b.draw();
     //k.draw();
     for (Displayable d : thingsToDisplay) {
@@ -249,6 +249,11 @@ void mouseClicked() {
       screen = 2;
     }
   }
+  if (screen == 6) {
+    if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
+      screen = 2;
+    }
+  }
 }
 
 void kartSelect() {
@@ -354,7 +359,7 @@ void leaderboard() {
   int c = 0;
   for (int a = 0; a < height; a++) {
     if (c < 255) {
-      stroke(c, 229, 66);
+      stroke(c, 39, 255);
       c += 1;
     }
     line(0, a, width, a);
@@ -375,11 +380,12 @@ void leaderboard() {
   } else {
     text("You got " + place + "th place!", 250, 80);
   }
-  textSize(33);
-  text("LEADERBOARD", 290, 190);
+  textSize(35);
+  text("LEADERBOARD", 290, 170);
   String name = k.getName(); 
   text("1 ", 150, 250);
   text(name, 250, 250);
   text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
   text(k.getScore(), 520, 250);
+  image(replay, 590, 680, 135, 60);
 }
