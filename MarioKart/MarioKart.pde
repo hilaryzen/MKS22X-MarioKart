@@ -88,9 +88,9 @@ void draw() {
       screen = 6; //ending screen
     }
     if (k.isOnWater(col)) {
-      //k.setColor(0, 0, 255); //Blue kart
-      b.endRace();
-      screen = 5;
+      ////k.setColor(0, 0, 255); //Blue kart
+      //b.endRace();
+      //screen = 5;
     }
     else if (k.isOnRoad(col)) {
       //k.setColor(0, 255, 0); //Green kart
@@ -112,13 +112,18 @@ void draw() {
   else if (screen == 6) {
     //endingScreen();
     int currentTime = millis();
+    fill(255,0,0);
+    textSize(30);
+    textFont(font);
+    text("YOU WON!", 320, 340);
     while (millis() - currentTime < 3000) {
-      //endingScreen();
-      fill(255,0,0);
-      textSize(30);
-      textFont(font);
-      text("YOU WON!", 320, 340);
+      endingScreen();
+      
     }
+    screen = 7;
+    
+  }
+  else if (screen == 7) {
     leaderboard();
   }
 
@@ -249,7 +254,7 @@ void mouseClicked() {
       screen = 2;
     }
   }
-  if (screen == 6) {
+  if (screen == 7) {
     if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
       screen = 2;
     }
@@ -359,7 +364,7 @@ void leaderboard() {
   int c = 0;
   for (int a = 0; a < height; a++) {
     if (c < 255) {
-      stroke(c, 39, 255);
+      stroke(c, 110, 255, 50);
       c += 1;
     }
     line(0, a, width, a);
@@ -372,19 +377,19 @@ void leaderboard() {
   textFont(font);
   int place = k.getPlace();
   if (place == 1) {
-    text("You got 1st place!", 250, 80);
+    text("You got 1st place!", 235, 80);
   } else if (place == 2) {
-    text("You got 2nd place!", 250, 80);
+    text("You got 2nd place!", 235, 80);
   } else if (place == 3) {
-    text("You got 3rd place!", 250, 80);
+    text("You got 3rd place!", 235, 80);
   } else {
-    text("You got " + place + "th place!", 250, 80);
+    text("You got " + place + "th place!", 235, 80);
   }
   textSize(35);
-  text("LEADERBOARD", 290, 170);
+  text("LEADERBOARD", 300, 170);
   String name = k.getName(); 
   text("1 ", 150, 250);
-  text(name, 250, 250);
+  text(name, 210, 250);
   text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
   text(k.getScore(), 520, 250);
   image(replay, 590, 680, 135, 60);
