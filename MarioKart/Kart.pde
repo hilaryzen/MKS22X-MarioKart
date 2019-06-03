@@ -143,6 +143,13 @@ class Kart implements Collideable, Displayable {
   }
   
   boolean isOnBottom() {
+    if ((mapX > 214 && mapX < 254) && (mapY > 529 && mapY < 531)) {
+      return true;
+    }
+    return false;
+  }
+  
+  boolean isOut() {
     if ((mapX > 172 && mapX < 214) && (mapY > 460 && mapY < 529)) {
       return true;
     }

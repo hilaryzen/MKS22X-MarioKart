@@ -351,8 +351,17 @@ void endingScreen() {
 }
 
 void leaderboard() {
-  fill(255,255,255);
-  rect(0,0,800,800);
+  int c = 0;
+  for (int a = 0; a < height; a++) {
+    if (c < 255) {
+      stroke(c, 229, 66);
+      c += 1;
+    }
+    line(0, a, width, a);
+  }
+  fill(255);
+  //fill(255,255,255);
+  //rect(0,0,800,800);
   fill(0,0,0);
   textSize(30);
   textFont(font);
@@ -366,10 +375,11 @@ void leaderboard() {
   } else {
     text("You got " + place + "th place!", 250, 80);
   }
-  text("LEADERBOARD", 260, 200);
+  textSize(33);
+  text("LEADERBOARD", 290, 190);
   String name = k.getName(); 
   text("1 ", 150, 250);
   text(name, 250, 250);
   text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
-  text(k.getScore(), 450, 250);
+  text(k.getScore(), 520, 250);
 }
