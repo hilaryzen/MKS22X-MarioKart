@@ -11,7 +11,8 @@ class Kart implements Collideable, Displayable {
   String name;
   int endingTime;
   boolean racing;
-  int place;
+  boolean bottom = false;
+  int place; 
   
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
@@ -143,14 +144,14 @@ class Kart implements Collideable, Displayable {
   }
   
   boolean isOnBottom() {
-    if ((mapX > 192 && mapX < 278) && (mapY > 510 && mapY < 528)) {
+    if ((mapX > 192 && mapX < 279) && (mapY > 510 && mapY < 528)) {
       return true;
     }
     return false;
   }
   
   boolean isOut() {
-    if ((mapX > 172 && mapX < 214) && (mapY > 460 && mapY < 529)) {
+    if ((mapX > 192 && mapX < 279) && (mapY > 561 && mapY < 569)) {
       return true;
     }
     return false;
@@ -164,12 +165,21 @@ class Kart implements Collideable, Displayable {
     translate(55, 55);
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
-    if (isOnBottom()) {
-      fill(red, green, blue, 0);
-    }
-    if (isOut()) {
+    if (bottom == false) {
       fill(red, green, blue);
+      if (isOnBottom()) {
+        bottom = true;
+       }
     }
+    else {
+      fill(red, green, blue, 0);
+      if (isOut()) {
+        bottom = false;
+        //fill(red, green, blue);
+      }
+    }
+    
+    
     //tint(255, 127);
     rect(-4, -5, 8, 10);
     popMatrix();
