@@ -1,13 +1,13 @@
 class Computer extends Kart {
   ArrayList<Float> directionValues;
   int mapNum;
-  int mapX, mapY;
+  float mapX, mapY;
   Player p;
   float rightBound;
   float leftBound;
   
   Computer(int map, Player user) {
-    super(70, 60, 0, 0, 0, 0, "Computer1");
+    super(65, 60, 0, 0, 0, 0, "Computer1");
     mapNum = map;
     p = user;
     directionValues = new ArrayList<Float>();
@@ -54,28 +54,29 @@ class Computer extends Kart {
   
   void randomDirection2() {
     for (float i = 0.0; i < 180.0; i += 5.0) {
-      int newX = (int) (mapX + 5 * cos(radians(direction + i)));
-      int newY = (int) (mapY - 5 * sin(radians(direction + i)));
+      int newX = (int) (mapX + 5 * cos(radians(getDirection() + i)));
+      int newY = (int) (mapY - 5 * sin(radians(getDirection() + i)));
       int c = get(newX, newY);
       if (isOnRoad(c)) {
-        direction += i;
-        direction = convertAngle(direction);
-        println(direction);
+        setDirection(convertAngle(getDirection() + i));
+        println("Change:" + i);
+        println("Direction: " + getDirection());
         return;
       } 
-      newX = (int) (mapX + 5 * cos(radians(direction - i)));
-      newY = (int) (mapY - 5 * sin(radians(direction - i)));
+      newX = (int) (mapX + 5 * cos(radians(getDirection() - i)));
+      newY = (int) (mapY - 5 * sin(radians(getDirection() - i)));
       c = get(newX, newY);
       if (isOnRoad(c)) {
-        direction -= i;
-        direction = convertAngle(direction);
-        println(direction);
+        setDirection(convertAngle(getDirection() - i));
+        println("Change: " + i);
+        println("Direction: " + getDirection());
         return;
       } 
     }
   }
   
   void move() {
+    randomDirection2();
     /*
     if (getDirection() >= 0) {
       x += (speed/4) * sin(radians(getDirection()));
@@ -89,9 +90,11 @@ class Computer extends Kart {
       mapY += (speed/28) * cos(radians(getDirection()));
     }
     */
-    //x += (speed / 4) * cos(radians(direction));
-    //y -= (speed / 4) * sin(radians(direction));
-    mapX += (speed / 28) * cos(radians(direction));
-    mapY -= (speed / 28) * sin(radians(direction));
+    x += (speed) * cos(radians(getDirection()));
+    y -= (speed) * sin(radians(getDirection()));
+    println("X: " + x + " Y: " + y);
+    mapX += (speed) * cos(radians(getDirection()));
+    mapY -= (speed) * sin(radians(getDirection()));
+    println("mapX: " + mapX + " mapY: " + mapY);
   }
 }

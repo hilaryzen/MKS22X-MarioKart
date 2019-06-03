@@ -17,7 +17,7 @@ class Kart implements Displayable {
     x = X - 5;
     y = Y;
     speed = 1;
-    direction = 0.0;
+    direction = 90.0;
     fuel = 100;
     health = 100;
     score = 0;
@@ -244,18 +244,3 @@ class Kart implements Displayable {
   }
 
 }
-
-/*
-class Player extends Kart {
-  int score;
-  
-  Player(int X, int Y) {
-    super(X, Y, 0, 0, 0, 0, "hey");
-    score = 0;
-  }
-  
-  int getScore() {
-    return score;
-  }
-}
-*/

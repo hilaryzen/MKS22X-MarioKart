@@ -11,8 +11,8 @@ void setup() {
   size(800,800);
   map = loadImage("easy copy.png");
   //c = new Computer(1);
-  x = 230;
-  y = 350;
+  x = 660;
+  y = 150;
   //direction = 60.0;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
