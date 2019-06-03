@@ -1,6 +1,6 @@
 class Kart implements Collideable, Displayable {
-  float x, mapX;
-  float y, mapY;
+  float x, mapX, miniX;
+  float y, mapY, miniY;
   float speed;
   float direction;
   int fuel;
@@ -28,6 +28,8 @@ class Kart implements Collideable, Displayable {
     shape = s;
     name = n;
     racing = false;
+    miniX = 108.7;
+    miniY = 7;
   }
   
   void setColor(int r, int g, int b) {
@@ -198,21 +200,21 @@ class Kart implements Collideable, Displayable {
   
   void displayMini() {
     pushMatrix();
-    translate(x, y);
-    rotate(radians(360)-radians(direction));
-    strokeWeight(1);
-    rect(-4, -5, 1, 1);
+    translate(miniX, miniY);
+    //rotate(radians(360)-radians(direction));
+    strokeWeight(0.5);
+    rect(-0.1, -0.1, 0.2, 0.2);
     popMatrix();
   }
   
   void moveBackMini() {
-    x = x + (speed * sin(radians(direction)));
-    y = y + (speed * cos(radians(direction)));
+    miniX = miniX + ((speed/(800/21)) * sin(radians(direction)));
+    miniY = miniY + ((speed/(800/21)) * cos(radians(direction)));
   }
   
   void moveStraight() {
-    x = x - (speed * sin(radians(direction)));
-    y = y - (speed * cos(radians(direction)));
+    miniX = miniX - ((speed/(800/21)) * sin(radians(direction)));
+    miniY = miniY - ((speed/(800/21)) * cos(radians(direction)));
   }
   
   void reset() {
@@ -225,6 +227,8 @@ class Kart implements Collideable, Displayable {
     score = 0;
     racing = false;
     angle = 0;
+    miniX = 108.7;
+    miniY = 7;
   }
   /*void move() {
     if (keyPressed()) {

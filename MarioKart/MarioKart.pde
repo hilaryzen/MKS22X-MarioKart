@@ -67,6 +67,7 @@ void draw() {
     mapSelect();
     b.reset();
     k.reset();
+    miniK.reset();
   }
   else if (screen == 3) {
     //println(b.getY());
@@ -186,6 +187,7 @@ void keyPressed() {
     }
     if (key == 'a') {
       k.turnLeft();
+      miniK.turnLeft();
     }
     if (key == 's') {
       
@@ -204,6 +206,7 @@ void keyPressed() {
     }
     if (key == 'd') {
       k.turnRight();
+      miniK.turnRight();
     }
   }
   
