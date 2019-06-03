@@ -119,12 +119,16 @@ class Kart implements Displayable {
     //Water: R = 125, G = 242, B = 249
     //Light green: R = 69, G = 181, B = 58
     //Dark green: R = 0, G = 145, B = 1
+    //Bridge: R = 184, G = 132, B = 21
+    
     //color c = get((int)55,(int)55);
     /*
     println("Red: " + red(c));
     println("Green: " + green(c));
     println("Blue: " + blue(c));
     */
+    
+    /*
     if (red(c) < 220) {
       return false;
     } else if (green(c) < 200 || green(c) > 230) {
@@ -133,6 +137,16 @@ class Kart implements Displayable {
       return false;
     }
     return true;
+    */
+    
+    //Includes the bridges
+    if (red(c) > 230 && red(c) < 250 && green(c) > 200 && green(c) < 230 && blue(c) > 135 && blue(c) < 160) {
+      return true;
+    } 
+    if (red(c) > 160 && red(c) < 195 && green(c) > 110 && green(c) < 150 && blue(c) > 0 && blue(c) < 30) {
+      return true;
+    } 
+    return false;
   }
   
   boolean isOnWater(int c) {
@@ -223,7 +237,7 @@ class Kart implements Displayable {
     } else if (angle >= 360) {
       return angle % 360.0;
     } else if (angle < 0) {
-      return angle + 360.0;
+      return (angle % 360.0) + 360.0;
     } else {
       return angle;
     }

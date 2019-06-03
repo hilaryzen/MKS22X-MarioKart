@@ -10,9 +10,9 @@ void setup() {
   
   size(800,800);
   map = loadImage("easy copy.png");
-  c = new Computer(1);
-  x = 650;
-  y = 154;
+  //c = new Computer(1);
+  x = 230;
+  y = 350;
   //direction = 60.0;
   
   int newX = (int) (x + 50 * sin(radians(90.0)));
@@ -28,12 +28,12 @@ void setup() {
 
 void draw() {
   image(map, 0, 0, 800, 800);
-  c.draw();
+  //c.draw();
   
   //move();
-  /*
+  
   color c = get(x,y);
-  if (isOnRoad(c)) {
+  if (isOnRoad2(c)) {
     fill(0,255,0); //Green kart
   } else {
     fill (255, 0, 0); //Red kart
@@ -42,9 +42,9 @@ void draw() {
   println("Red: " + red(c));
   println("Green: " + green(c));
   println("Blue: " + blue(c));
-  */
   
-  //rect(x, y, 10, 10);
+  
+  rect(x, y, 10, 10);
 }
 
 void keyPressed() {
@@ -72,6 +72,18 @@ boolean isOnRoad(color c) {
     return false;
   }
   return true;
+}
+
+boolean isOnRoad2(color c) {
+  //Road: R = 244, G = 217, B = 149
+  //Bridge: R = 184, G = 132, B = 21
+  if (red(c) > 230 && red(c) < 250 && green(c) > 200 && green(c) < 230 && blue(c) > 135 && blue(c) < 160) {
+    return true;
+  } 
+  if (red(c) > 160 && red(c) < 195 && green(c) > 110 && green(c) < 150 && blue(c) > 0 && blue(c) < 30) {
+    return true;
+  } 
+  return false;
 }
 
 void move() {

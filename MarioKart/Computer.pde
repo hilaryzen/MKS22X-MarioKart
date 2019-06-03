@@ -52,7 +52,31 @@ class Computer extends Kart {
     }
   }
   
+  void randomDirection2() {
+    for (float i = 0.0; i < 180.0; i += 5.0) {
+      int newX = (int) (mapX + 5 * cos(radians(direction + i)));
+      int newY = (int) (mapY - 5 * sin(radians(direction + i)));
+      int c = get(newX, newY);
+      if (isOnRoad(c)) {
+        direction += i;
+        direction = convertAngle(direction);
+        println(direction);
+        return;
+      } 
+      newX = (int) (mapX + 5 * cos(radians(direction - i)));
+      newY = (int) (mapY - 5 * sin(radians(direction - i)));
+      c = get(newX, newY);
+      if (isOnRoad(c)) {
+        direction -= i;
+        direction = convertAngle(direction);
+        println(direction);
+        return;
+      } 
+    }
+  }
+  
   void move() {
+    /*
     if (getDirection() >= 0) {
       x += (speed/4) * sin(radians(getDirection()));
       y += (speed/4) * cos(radians(getDirection()));
@@ -64,5 +88,8 @@ class Computer extends Kart {
       mapX += (speed/28) * sin(radians(getDirection()));
       mapY += (speed/28) * cos(radians(getDirection()));
     }
+    */
+    mapX += (2) * cos(radians(direction));
+    mapY -= (2) * sin(radians(direction));
   }
 }
