@@ -24,7 +24,7 @@ class Computer extends Kart {
     directionValues.clear();
     rightBound = convertAngle(getDirection() + 90.0);
     leftBound = convertAngle(getDirection() - 90.0);
-    println(rightBound + " " + leftBound);
+    //println(rightBound + " " + leftBound);
     if (rightBound < leftBound) {
       rightBound += 360.0;
     }
@@ -89,7 +89,9 @@ class Computer extends Kart {
       mapY += (speed/28) * cos(radians(getDirection()));
     }
     */
-    mapX += (2) * cos(radians(direction));
-    mapY -= (2) * sin(radians(direction));
+    //x += (speed / 4) * cos(radians(direction));
+    //y -= (speed / 4) * sin(radians(direction));
+    mapX += (speed / 28) * cos(radians(direction));
+    mapY -= (speed / 28) * sin(radians(direction));
   }
 }

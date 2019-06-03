@@ -67,7 +67,7 @@ void draw() {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
-    c1.randomDirection();
+    c1.randomDirection2();
     b.draw();
     //k.draw();
     for (Displayable d : thingsToDisplay) {
