@@ -53,6 +53,7 @@ void keyPressed() {
 }
 
 boolean isOnRoad(color c) {
+  /*
   if (red(c) < 220) {
     return false;
   } else if (green(c) < 200 || green(c) > 230) {
@@ -61,6 +62,14 @@ boolean isOnRoad(color c) {
     return false;
   }
   return true;
+  */
+  if (red(c) > 230 && red(c) < 250 && green(c) > 200 && green(c) < 230 && blue(c) > 135 && blue(c) < 160) {
+    return true;
+  } 
+  if (red(c) > 160 && red(c) < 195 && green(c) > 110 && green(c) < 150 && blue(c) > 0 && blue(c) < 30) {
+    return true;
+  } 
+  return false;
 }
 
 /*
