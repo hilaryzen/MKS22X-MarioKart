@@ -1,4 +1,4 @@
-PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay, racecar;
+PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay, racecar, kart;
 Image b, miniB;
 Player k, miniK;
 Computer c1;
@@ -45,6 +45,7 @@ void setup() {
   select = loadImage("select.png");
   replay = loadImage("replay.png");
   racecar = loadImage("racecar.png");
+  kart = loadImage("kart.png");
   startScreen();
   font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
@@ -339,6 +340,7 @@ void kartSelect() {
   fill(255, 93, 171);//pink/purple
   rect(220, 250, 70, 70);
   image(racecar, 26, 429, 90, 120);
+  image(kart, 132, 429, 90, 120);
   k.display();
   if (mouseX > 40 && mouseY> 160 && mouseX < 110 && mouseY < 230) {
       k.setColor(255, 18, 62);
@@ -360,6 +362,9 @@ void kartSelect() {
   }
   if (mouseX > 26 && mouseY> 429 && mouseX < 116 && mouseY < 549) {
       k.setS(0);
+  }
+  if (mouseX > 132 && mouseY> 429 && mouseX < 222 && mouseY < 549) {
+      k.setS(1);
   }
   //if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
   //    screen++;
