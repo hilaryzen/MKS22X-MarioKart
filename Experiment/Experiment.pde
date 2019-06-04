@@ -2,15 +2,13 @@ PImage map;
 PFont font;
 int x;
 int y;
-Tree tree;
-float direction;
 Computer c;
 
 void setup() {
   
   size(800,800);
   map = loadImage("easy copy.png");
-  //c = new Computer(1);
+  c = new Computer(1);
   x = 670;
   y = 150;
   //direction = 60.0;
@@ -27,11 +25,16 @@ void setup() {
 }
 
 void draw() {
+  //scale(7);
+  //pushMatrix();
+  //translate(-650, -140);
   image(map, 0, 0, 800, 800);
-  //c.draw();
+  //popMatrix();
+  c.draw();
   
   //move();
   
+  /*
   color c = get(x,y);
   if (isOnRoad2(c)) {
     fill(0,255,0); //Green kart
@@ -45,6 +48,7 @@ void draw() {
   
   
   rect(x, y, 10, 10);
+  */
 }
 
 void keyPressed() {
@@ -96,8 +100,9 @@ void move() {
     y += 2 * cos(radians(180 - direction));
   }
   */
-  x -= 2 * cos(radians(direction));
-  y -= 2 * sin(radians(direction));
+  //x -= 2 * cos(radians(direction));
+  //y -= 2 * sin(radians(direction));
+  c.move();
 }
 
 void leaderboard() {

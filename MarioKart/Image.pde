@@ -8,10 +8,11 @@ class Image{
   int[] endingPoint;
   int startTime;
   Kart kart;
+  Computer computer;
   int kartsFinished;
 
   
-  Image(float x, float y, Kart a){
+  Image(float x, float y, Kart a, Computer c){
     speed = 1.0;
     greenValues = new int[2];
     greenValues[0] = 209;
@@ -25,6 +26,7 @@ class Image{
     endingPoint[0] = 675;
     endingPoint[1] = 240;
     kart = a;
+    computer = c;
   }
   
   int getStartX() {
@@ -110,14 +112,14 @@ class Image{
   void moveStraight() {
     xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
     ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
-    kart.setMapX(kart.getMapX() + (kart.getSpeed() * sin(radians(kart.getDirection()))) / 7);
-    kart.setMapY(kart.getMapY() + (kart.getSpeed() * cos(radians(kart.getDirection()))) / 7);
+    kart.setMapX(kart.getMapX() - (kart.getSpeed() * sin(radians(kart.getDirection()))) / 7);
+    kart.setMapY(kart.getMapY() - (kart.getSpeed() * cos(radians(kart.getDirection()))) / 7);
   }
    void moveBack() {
     xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
     ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
-    kart.setMapX(kart.getMapX() - (kart.getSpeed() * sin(radians(kart.getDirection()))) / 7);
-    kart.setMapY(kart.getMapY() - (kart.getSpeed() * cos(radians(kart.getDirection()))) / 7);
+    kart.setMapX(kart.getMapX() + (kart.getSpeed() * sin(radians(kart.getDirection()))) / 7);
+    kart.setMapY(kart.getMapY() + (kart.getSpeed() * cos(radians(kart.getDirection()))) / 7);
   }
   
   boolean endRace() {

@@ -44,7 +44,7 @@ void setup() {
   //thingsToMove = new ArrayList<Moveable>();
   k = new Player(60, 60, 255, 255, 255, 0, "hey");
   c1 = new Computer(1, k);
-  b = new Image(0, 0, k);
+  b = new Image(0, 0, k, c1);
   thingsToDisplay.add(k);
   thingsToDisplay.add(c1);
   //thingsToMove.add(b);
@@ -67,6 +67,7 @@ void draw() {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
     c1.randomDirection2();
+    c1.move();
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     move();
     //c1.randomDirection2();
@@ -133,7 +134,7 @@ void move() {
       k.setScore(-1);
     }
   }
-  c1.move();
+  //c1.move();
 }
 
 void keyPressed() {

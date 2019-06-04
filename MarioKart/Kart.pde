@@ -187,6 +187,7 @@ class Kart implements Displayable {
     strokeWeight(1);
     fill(red, green, blue);
     rect(-5, -5, 10, 10);
+    println("Kart  mapX: " + mapX + " mapY: " + mapY);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
