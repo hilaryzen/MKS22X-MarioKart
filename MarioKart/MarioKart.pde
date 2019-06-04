@@ -7,6 +7,8 @@ PFont font;
 String input = "";
 color col;
 ArrayList<Integer[]> leaderboard = new ArrayList<Integer[]>();
+int holdY;
+Integer[] score;
 
 interface Displayable {
   void draw();
@@ -96,8 +98,8 @@ void draw() {
     }
     if (k.isOnWater(col)) {
       ////k.setColor(0, 0, 255); //Blue kart
-      b.endRace();
-      screen = 5;
+      //b.endRace();
+      //screen = 5;
     }
     else if (k.isOnRoad(col)) {
       //k.setColor(0, 255, 0); //Green kart
@@ -416,8 +418,12 @@ void leaderboard() {
   }
   textSize(35);
   text("LEADERBOARD", 300, 170);
+  holdY = 250;
   String name = k.getName(); 
-  text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
+  for (int a = 0; a < leaderboard.size(); a++) {
+    text(a + 1 + "      " + name + "        " + leaderboard.get(a)[0] + " sec" + "        " + leaderboard.get(a)[1], 130, holdY + (a * 42));
+  }
+  //text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
   //text(name, 190, 250);
   //text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
   //text(k.getScore(), 520, 250);

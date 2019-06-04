@@ -93,3 +93,4 @@ Hilary: I wrote a second version of randomDirection, where the computer tries to
 6/3
 
 Kayla: mini map
+leaderboard - can compete against self - improve time - scores displayed but organized by times only
