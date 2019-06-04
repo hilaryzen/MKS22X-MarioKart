@@ -6,6 +6,7 @@ int screen = 0;
 PFont font;
 String input = "";
 color col;
+ArrayList<Integer[]> leaderboard = new ArrayList<Integer[]>();
 
 interface Displayable {
   void draw();
@@ -130,6 +131,18 @@ void draw() {
     textSize(30);
     textFont(font);
     text("YOU WON!", 320, 340);
+    Integer[] score = {(k.getEndTime() - b.getStartTime()) / 1000, k.getScore()};
+    if (leaderboard.size() != 0) {
+      for (int a = 0; a < leaderboard.size(); a++) {
+        if (leaderboard.get(a)[0] >= score[0]) {
+          leaderboard.add(a, score);
+        }
+      }
+      leaderboard.add(score);
+    }
+    else {
+      leaderboard.add(score);
+    }
     screen = 7;
     
   }
