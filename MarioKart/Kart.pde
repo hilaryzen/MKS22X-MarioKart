@@ -181,15 +181,18 @@ class Kart implements Collideable, Displayable {
       }
     }
     //tint(255, 127);
-    
-    
+      
     if (shape == 0) {
       rect(-2.5, -7, 5, 14);
       image(racecar, -7, -8, 14, 16);
     }
     if (shape == 1) {
-      rect(-2.5, -8, 5, 16);
+      rect(-4, -8, 8, 16);
       image(kart, -7, -8, 14, 16);
+    }
+    if (shape == 2) {
+      rect(-3, -8, 6, 16);
+      image(car, -7, -8, 14, 16);
     }
     strokeWeight(1);
     popMatrix();
@@ -208,8 +211,12 @@ class Kart implements Collideable, Displayable {
       image(racecar, -45, -60, 90, 120);
     }
     if (shape == 1) {
-      rect(-19, -57, 38, 114);
+      rect(-22, -57, 44, 114);
       image(kart, -45, -60, 90, 120);
+    }
+    if (shape == 2) {
+      rect(-20, -57, 40, 114);
+      image(car, -45, -60, 90, 120);
     }
     popMatrix();
     angle+= 0.63;
