@@ -242,12 +242,16 @@ class Kart implements Displayable {
     direction = direction - 10/ (4+(speed/3));
     x = x + (speed/4 * sin(radians(direction+90)));
     y = y + (speed/4 * cos(radians(direction+90)));
+    mapX += (speed/4 * sin(radians(direction + 90))) / 7;
+    mapY += (speed/4 * cos(radians(direction+90))) / 7;
   }
   
   void turnLeft() {
     direction = direction + 10/ (4+(speed/3));
     x = x + (speed/4 * sin(radians(direction-90)));
     y = y + (speed/4 * cos(radians(direction-90)));
+    mapX += (speed/4 * sin(radians(direction - 90))) / 7;
+    mapY += (speed/4 * cos(radians(direction-90))) / 7;
   }
   
   float convertAngle(float angle) {
