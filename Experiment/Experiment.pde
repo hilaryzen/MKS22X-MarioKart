@@ -32,7 +32,7 @@ void draw() {
   //popMatrix();
   c.draw();
   
-  //move();
+  //c.move();
   
   /*
   color c = get(x,y);
@@ -45,10 +45,10 @@ void draw() {
   println("Red: " + red(c));
   println("Green: " + green(c));
   println("Blue: " + blue(c));
-  
-  
-  rect(x, y, 10, 10);
   */
+  
+  //rect(x, y, 10, 10);
+  println("X: " + x + " Y: " + y);
 }
 
 void keyPressed() {

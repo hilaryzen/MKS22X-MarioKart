@@ -1,7 +1,6 @@
 class Computer extends Kart {
-  ArrayList<Float> directionValues;
   int mapNum;
-  float mapX, mapY;
+  int mapX, mapY;
   Player p;
   float rightBound;
   float leftBound;
@@ -10,9 +9,9 @@ class Computer extends Kart {
     super(65, 60, 0, 0, 0, 0, "Computer1");
     mapNum = map;
     p = user;
-    directionValues = new ArrayList<Float>();
-    mapX = 670;
+    mapX = 660;
     mapY = 150;
+    direction = 90.0;
   }
   
   void draw() {
@@ -24,7 +23,6 @@ class Computer extends Kart {
   }
   
   void randomDirection() {
-    directionValues.clear();
     rightBound = convertAngle(getDirection() + 90.0);
     leftBound = convertAngle(getDirection() - 90.0);
     //println(rightBound + " " + leftBound);
@@ -40,11 +38,12 @@ class Computer extends Kart {
       //println(c);
       //println(isOnRoad(c));
       if (isOnRoad(c)) {
-        directionValues.add((float) angle);
+        //directionValues.add((float) angle);
         //println(directionValues);
         //println(angle);
       }
     }
+    /*
     if (directionValues.size() == 0) {
       direction += 20.0;
       //println("Can't find road");
@@ -53,13 +52,14 @@ class Computer extends Kart {
       setDirection(directionValues.get(index));
       //println("Direction: " + getDirection());
     }
+    */
   }
   
   void randomDirection2() {
     //println("randomDirection called");
     for (float i = 0.0; i < 180.0; i += 5.0) {
-      int newX = (int) (mapX + 5 * cos(radians(getDirection() + i)));
-      int newY = (int) (mapY - 5 * sin(radians(getDirection() + i)));
+      int newX = (int) (mapX + 10 * cos(radians(getDirection() + i)));
+      int newY = (int) (mapY - 10 * sin(radians(getDirection() + i)));
       int c = get(newX, newY);
       //println("Direction: " + getDirection() + " " + isOnRoad(c));
       if (isOnRoad(c)) {
@@ -67,8 +67,8 @@ class Computer extends Kart {
         //println("Direction: " + direction);
         return;
       } 
-      newX = (int) (mapX + 5 * cos(radians(getDirection() - i)));
-      newY = (int) (mapY - 5 * sin(radians(getDirection() - i)));
+      newX = (int) (mapX + 10 * cos(radians(getDirection() - i)));
+      newY = (int) (mapY - 10 * sin(radians(getDirection() - i)));
       c = get(newX, newY);
       if (isOnRoad(c)) {
         setDirection(convertAngle(getDirection() - i));
