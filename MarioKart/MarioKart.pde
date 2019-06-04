@@ -8,7 +8,7 @@ String input = "";
 color col;
 ArrayList<Integer[]> leaderboard = new ArrayList<Integer[]>();
 int holdY;
-Integer[] score;
+//Integer[] score; //= new Integer[2];
 
 interface Displayable {
   void draw();
@@ -78,7 +78,7 @@ void draw() {
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     k.placeOnMapX(((b.getX() * -1) + 60));
     k.placeOnMapY(((b.getY() * -1) + 60));
-    println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
+    //println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
     b.draw();
     
     //k.draw();
@@ -133,19 +133,8 @@ void draw() {
     textSize(30);
     textFont(font);
     text("YOU WON!", 320, 340);
-    Integer[] score = {(k.getEndTime() - b.getStartTime()) / 1000, k.getScore()};
-    if (leaderboard.size() != 0) {
-      for (int a = 0; a < leaderboard.size(); a++) {
-        if (leaderboard.get(a)[0] >= score[0]) {
-          leaderboard.add(a, score);
-        }
-      }
-      leaderboard.add(score);
-    }
-    else {
-      leaderboard.add(score);
-    }
-    screen = 7;
+    //fill(0);
+    text("Click l to view the leaderboard", 110, 670);
     
   }
   else if (screen == 7) {
@@ -224,7 +213,29 @@ void keyPressed() {
       miniK.turnRight();
     }
   }
-  
+  if (screen == 6) {
+    if (key == 'l') {
+      Integer[] score = {(k.getEndTime() - b.getStartTime()) / 1000, k.getScore()};
+      //score[0] = (k.getEndTime() - b.getStartTime()) / 1000;
+      //score[1] = k.getScore();
+      if ((leaderboard.size() != 0) && !(leaderboard.get(leaderboard.size() - 1)[0] < score[0])) {
+        for (int a = 0; a < leaderboard.size(); a++) {
+          if (leaderboard.get(a)[0] >= score[0]) {
+            leaderboard.add(a, score);
+            break;
+          }
+        }
+        //leaderboard.add(score);
+      }
+      else {
+        leaderboard.add(score);
+      }
+      /*for (int a = 0; a < leaderboard.size(); a++) {
+        println(leaderboard.get(a)[0]);
+      }*/
+      screen = 7;
+    }
+  }
 }
 
 void startScreen() {
@@ -421,7 +432,8 @@ void leaderboard() {
   holdY = 250;
   String name = k.getName(); 
   for (int a = 0; a < leaderboard.size(); a++) {
-    text(a + 1 + "      " + name + "        " + leaderboard.get(a)[0] + " sec" + "        " + leaderboard.get(a)[1], 130, holdY + (a * 42));
+    //println(leaderboard.get(a)[0]);
+    text(a + 1 + "      " + name + "        " + leaderboard.get(a)[0] + " sec" + "        " + leaderboard.get(a)[1], 130, holdY + (a * 45));
   }
   //text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
   //text(name, 190, 250);
