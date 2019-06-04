@@ -86,6 +86,7 @@ Kayla: I wrote the reset method so that when players die, the rocks would still 
 Hilary: I continued trying to improve the randomDirection method by adding the mapX and mapY variables to Computer, which would track the kart's position on a normal map, without the translations. I aimed to use that to figure out the direction of the kart before translating it onto the screen, and used the Experiment folder to test it, but the method is still buggy. I also added methods to randomly pick a color for the computer, that is different from the Player.
 
 6/2
+
 Kayla: I added more details to the leaderboard screen and added the replay button there as well.  For the odd overlapping intersection, I got the transparency working.  I also got started on a little mini map that would help you keep track of your progress as you play.
 
 Hilary: I wrote a second version of randomDirection, where the computer tries to go as straight as possible. The method works in Experiment, without the transformations, and I'm still working on getting the method to work and the kart to display correctly in the actual game.
@@ -94,3 +95,8 @@ Hilary: I wrote a second version of randomDirection, where the computer tries to
 
 Kayla: mini map
 leaderboard - can compete against self - improve time - scores displayed but organized by times only
+
+6/4 
+
+Kayla: fixed faulty leaderboard - fixed out of memory error
+did shapes
