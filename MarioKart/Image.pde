@@ -112,14 +112,14 @@ class Image{
   void moveStraight() {
     xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
     ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
-    kart.setMapX(kart.getMapX() - (kart.getSpeed() * sin(radians(kart.getDirection()))) / 7);
-    kart.setMapY(kart.getMapY() - (kart.getSpeed() * cos(radians(kart.getDirection()))) / 7);
+    kart.setMapX(kart.getMapX() - (kart.getSpeed() * sin(radians(kart.getDirection()))));
+    kart.setMapY(kart.getMapY() - (kart.getSpeed() * cos(radians(kart.getDirection()))));
   }
    void moveBack() {
     xcor = xcor - (kart.getSpeed() * sin(radians(kart.getDirection())));
     ycor = ycor - (kart.getSpeed() * cos(radians(kart.getDirection())));
-    kart.setMapX(kart.getMapX() + (kart.getSpeed() * sin(radians(kart.getDirection()))) / 7);
-    kart.setMapY(kart.getMapY() + (kart.getSpeed() * cos(radians(kart.getDirection()))) / 7);
+    kart.setMapX(kart.getMapX() + (kart.getSpeed() * sin(radians(kart.getDirection()))));
+    kart.setMapY(kart.getMapY() + (kart.getSpeed() * cos(radians(kart.getDirection()))));
   }
   
   boolean endRace() {

@@ -1,6 +1,6 @@
 class Computer extends Kart {
   int mapNum;
-  int mapX, mapY;
+  float mapX, mapY;
   Player p;
   float rightBound;
   float leftBound;
@@ -9,15 +9,15 @@ class Computer extends Kart {
     super(65, 60, 0, 0, 0, 0, "Computer1");
     mapNum = map;
     p = user;
-    mapX = 660;
-    mapY = 150;
+    mapX = 670.0;
+    mapY = 150.0;
     direction = 90.0;
   }
   
   void draw() {
     //rotate(radians(360)-radians(direction));
-    x = p.getX() + (mapX - p.getMapX()) * 2;
-    y = p.getY() + (mapY - p.getMapY()) * 2;
+    x = p.getX() + (mapX - p.getMapX());
+    y = p.getY() + (mapY - p.getMapY());
     fill(red, green, blue);
     rect(x, y, 10, 10);
   }
@@ -78,8 +78,70 @@ class Computer extends Kart {
     }
   }
   
+  void path() {
+    if (mapX == 670 && mapY == 90) {
+      direction = 150;
+    } else if ((int) mapX == 636 && (int) mapY == 70) {
+      direction = 180;
+    } else if ((int) mapX == 570 && (int) mapY == 70) {
+      direction = 225;
+    } else if ((int) mapX == 528 && (int) mapY == 112) {
+      direction = 240;
+    } else if ((int) mapX == 480 && (int) mapY == 196) {
+      direction = 200;
+    } else if ((int) mapX == 399 && (int) mapY == 225) {
+      direction = 135;
+    } else if ((int) mapX == 233 && (int) mapY == 60) {
+      direction = 180;
+    } else if ((int) mapX == 171 && (int) mapY == 60) {
+      direction = 225;
+    } else if ((int) mapX == 138 && (int) mapY == 93) {
+      direction = 270;
+    } else if ((int) mapX == 138 && (int) mapY == 141) {
+      direction = 315;
+    } else if ((int) mapX == 237 && (int) mapY == 240) {
+      direction = 270;
+    } else if ((int) mapX == 237 && (int) mapY == 619) {
+      direction = 225;
+    } else if ((int) mapX == 204 && (int) mapY == 652) {
+      direction = 180;
+    } else if ((int) mapX == 138 && (int) mapY == 652) {
+      direction = 135;
+    } else if ((int) mapX == 113 && (int) mapY == 627) {
+      direction = 90;
+    } else if ((int) mapX == 113 && (int) mapY == 569) {
+      direction = 45;
+    } else if ((int) mapX == 152 && (int) mapY == 530) {
+      direction = 0;
+    } else if ((int) mapX == 353 && (int) mapY == 530) {
+      direction = 315;
+    } else if ((int) mapX == 388 && (int) mapY == 565) {
+      direction = 0;
+    } else if ((int) mapX == 419 && (int) mapY == 565) {
+      direction = 315;
+    } else if ((int) mapX == 604 && (int) mapY == 750) {
+      direction = 45;
+    } else if ((int) mapX == 728 && (int) mapY == 626) {
+      direction = 90;
+    } else if ((int) mapX == 728 && (int) mapY == 601) {
+      direction = 180;
+    } else if ((int) mapX == 593 && (int) mapY == 601) {
+      direction = 135;
+    } else if ((int) mapX == 458 && (int) mapY == 467) {
+      direction = 150;
+    } else if ((int) mapX == 381 && (int) mapY == 423) {
+      direction = 90;
+    } else if ((int) mapX == 381 && (int) mapY == 388) {
+      direction = 30;
+    } else if ((int) mapX == 502 && (int) mapY == 318) {
+      direction = 330;
+    } else if ((int) mapX == 669 && (int) mapY == 415) {
+      direction = 90;
+    }
+  }
+  
   void move() {
-    //randomDirection2();
+    path();
     /*
     if (getDirection() >= 0) {
       x += (speed/4) * sin(radians(getDirection()));
@@ -96,8 +158,8 @@ class Computer extends Kart {
     //x += (speed) * sin(radians(getDirection()));
     //y -= (speed) * cos(radians(getDirection()));
     //println("X: " + x + " Y: " + y);
-    mapX += (0.25) * cos(radians(getDirection()));
-    mapY -= (0.25) * sin(radians(getDirection()));
+    mapX += (1) * cos(radians(getDirection()));
+    mapY -= (1) * sin(radians(getDirection()));
     println("Direction: " + direction);
     println("mapX: " + mapX + " mapY: " + mapY);
   }

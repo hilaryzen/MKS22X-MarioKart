@@ -66,7 +66,7 @@ void draw() {
   else if (screen == 3) {
     //println(b.getY());
     image(copy, 0, 0, 800, 800);
-    c1.randomDirection2();
+    //c1.randomDirection2();
     c1.move();
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     move();

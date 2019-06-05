@@ -10,8 +10,8 @@ class Computer{
     direction = 90.0;
     mapNum = map;
     directionValues = new ArrayList<Float>();
-    mapX = 381.6244; //Original = 670
-    mapY = 388.02332; //Original = 150
+    mapX = 670.0; //Original = 670
+    mapY = 150.0; //Original = 150
   }
   
   void draw() {
@@ -167,7 +167,7 @@ class Computer{
       mapY += (2) * sin(radians(direction));
     }
     */
-    mapX += (1) * cos(radians(direction));
-    mapY -= (1) * sin(radians(direction));
+    mapX += (0.25) * cos(radians(direction));
+    mapY -= (0.25) * sin(radians(direction));
   }
 }
