@@ -7,7 +7,7 @@ Our game is a 2D racing game based off of MarioKart. Through an aerial view, you
 
 # How to Run
 
-Run one of the Processing files in the MarioKart folder. You will be able to choose your kart's color, shape, and name before being thrown into the race.
+Run one of the Processing files in the MarioKart folder. You will be able to choose your kart's color, shape, and name before being thrown into the race. Remember that you cannot change your choices after you click the next arrow!
 
 # Development Log
 
