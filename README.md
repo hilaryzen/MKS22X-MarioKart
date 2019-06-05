@@ -93,10 +93,9 @@ Hilary: I wrote a second version of randomDirection, where the computer tries to
 
 6/3
 
-Kayla: mini map
-leaderboard - can compete against self - improve time - scores displayed but organized by times only
+Kayla: I finished the mini map and now users can track their position on the map whenever during the game.  I also altered the leaderboard so that users can compete against themselves even when there are currently no enemies.  Players can focus on improving their times. (scores are displayed but the rankings are organized by times only).
 
 6/4 
 
 Kayla: fixed faulty leaderboard - fixed out of memory error
-did shapes
+did shapes - racecar, kart, car
