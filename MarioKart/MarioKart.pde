@@ -8,12 +8,14 @@ String input = "";
 color col;
 ArrayList<Integer[]> leaderboard = new ArrayList<Integer[]>();
 int holdY;
-//Integer[] score; //= new Integer[2];
 
 interface Displayable {
   void draw();
 }
 
+interface Collideable {
+  boolean isTouching(Obstacle o);
+}
 /*
 interface Moveable {
   void move();
@@ -24,9 +26,7 @@ interface Moveable {
 ArrayList<Displayable> thingsToDisplay = new ArrayList<Displayable>(); //from group lab
 //ArrayList<Moveable> thingsToMove;
 
-interface Collideable {
-  boolean isTouching(Obstacle o);
-}
+
 
 void setup() {
   size(800,800);
@@ -63,8 +63,6 @@ void setup() {
 }
 
 void draw() {
-  //scale(7);
-  //image(map, 0, 0, 800, 800);
 
   if (screen == 1) {
     kartSelect();
@@ -76,25 +74,19 @@ void draw() {
     miniK.reset();
   }
   else if (screen == 3) {
-    //println(b.getY());
     image(copy, 0, 0, 800, 800);
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
     k.placeOnMapX(((b.getX() * -1) + 60));
     k.placeOnMapY(((b.getY() * -1) + 60));
-    //println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
     b.draw();
     
-    //k.draw();
     for (Displayable d : thingsToDisplay) {
       d.draw();
     }
-    //k.draw();
     b.displayObstacles();
     miniB.displayMini();
     miniK.displayMini();
-    //b.displayTime();
-    
-    //k.draw();
+
     move();
     if (b.endRace()) {
       screen = 6; //ending screen
@@ -119,7 +111,6 @@ void draw() {
         miniK.setSpeed(0);
       }
     }
-    //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
   else if (screen == 5) {
     lostScreen();
@@ -144,15 +135,6 @@ void draw() {
     leaderboard();
   }
 
-  //translate(k.getX(), k.getY());
-  
-  /*for (Displayable thing : thingsToDisplay) { //from group lab
-    thing.display();
-  }
-  for (Moveable thing : thingsToMove) {
-    thing.move();
-    //thing.draw();is
-  }*/
 }
 
 void move() {
@@ -165,11 +147,7 @@ void move() {
       k.setScore(-1);
     }
   }
-  /*
-  if (b.endRace()) {
-    screen = 6; //ending screen
-  }
-  */
+
 }
 
 void keyPressed() {
@@ -183,14 +161,7 @@ void keyPressed() {
   }
   if (screen == 3 && k.isRacing()) {
     if (key == 'w') {
-      /*
-      b.moveStraight();
-      if (k.isOnRoad(col)) {
-        k.setScore(1);
-      } else {
-        k.setScore(-1);
-      }
-      */
+
     }
     if (key == 'a') {
       k.turnLeft();
@@ -219,8 +190,6 @@ void keyPressed() {
   if (screen == 6) {
     if (key == 'l') {
       Integer[] score = {(k.getEndTime() - b.getStartTime()) / 1000, k.getScore()};
-      //score[0] = (k.getEndTime() - b.getStartTime()) / 1000;
-      //score[1] = k.getScore();
       if ((leaderboard.size() != 0) && !(leaderboard.get(leaderboard.size() - 1)[0] < score[0])) {
         for (int a = 0; a < leaderboard.size(); a++) {
           if (leaderboard.get(a)[0] >= score[0]) {
@@ -228,7 +197,6 @@ void keyPressed() {
             break;
           }
         }
-        //leaderboard.add(score);
       }
       else {
         leaderboard.add(score);
@@ -263,20 +231,6 @@ void mouseClicked() {
   if (screen == 1) {
     if (mouseX > 600 && mouseY> 680 && mouseX < 710 && mouseY < 750) {
       k.setN(input);
-      //k.start();
-      //image(map,0,0,800,800);
-      //b.setStartTime();
-      //Tried a 3 2 1 animation
-      /*
-      textSize(18);
-      textFont(font);
-      for (int i = 3; i > 0; i--) {
-        if (millis() > b.getStartTime() + 100000) {
-          b.setStartTime();
-          text("" + i, 400, 400);
-        }
-      }
-      */
       screen = 2;
     }
   }
@@ -294,8 +248,6 @@ void mouseClicked() {
   }
   if (screen == 5) {
     if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
-      //b.roadPixels();
-      //b.rockCoor();
       screen = 2;
     }
   }
@@ -371,9 +323,6 @@ void kartSelect() {
   if (mouseX > 242 && mouseY> 429 && mouseX < 332 && mouseY < 549) {
       k.setS(2);
   }
-  //if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
-  //    screen++;
-  //} next button
 }
 
 void mapSelect() {
@@ -386,7 +335,6 @@ void mapSelect() {
     line(0, a, width, a);
   }
   fill(255);
-  //image(select, 335, 690, 150, 70);
   textSize(18);
   textFont(font);
   text("Select A Map", 280, 68);
@@ -427,8 +375,6 @@ void leaderboard() {
     line(0, a, width, a);
   }
   fill(255);
-  //fill(255,255,255);
-  //rect(0,0,800,800);
   fill(0,0,0);
   textSize(30);
   textFont(font);
@@ -450,9 +396,5 @@ void leaderboard() {
     //println(leaderboard.get(a)[0]);
     text(a + 1 + "      " + name + "        " + leaderboard.get(a)[0] + " sec" + "        " + leaderboard.get(a)[1], 130, holdY + (a * 45));
   }
-  //text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
-  //text(name, 190, 250);
-  //text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
-  //text(k.getScore(), 520, 250);
   image(replay, 590, 680, 135, 60);
 }

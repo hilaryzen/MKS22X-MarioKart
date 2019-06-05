@@ -72,16 +72,12 @@ class Image{
     
     pushMatrix();
     
-    //translate(kart.getX(), kart.getY());
-    //rotate(angle);
-    
     translate(xcor, ycor);
     //scale(7);
     
     image(map, 0, 0, 800, 800);
     popMatrix();
-    //c = get((int)(startingPoint[0]),(int)(startingPoint[1]));
-    //translate(xcor, ycor);
+
     displayTime();
     //endRace(); //Tests if kart is at finish line
   }
@@ -98,30 +94,7 @@ class Image{
     popMatrix();
 
   }
-  /*void move() {
-    if (keyPressed()) {
-      if (key == 'w') {
-        ycor = ycor + speed;
-      }
-      if (key == 'a') {
-        xcor = xcor + speed;
-      }
-      if (key == 's') {
-        ycor = ycor - speed;
-      }
-      if (key == 'd') {
-        xcor = xcor - speed;
-      }
-      if (key == 'r') {
-        angle += 0.005;
-      }
-      if (key == 't') {
-        angle -= 0.005;
-      }
-      
-    }
-    
-  }*/
+
   
   void moveStraight() {
     xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));

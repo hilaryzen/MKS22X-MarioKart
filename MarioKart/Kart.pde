@@ -160,9 +160,6 @@ class Kart implements Collideable, Displayable {
   }
   
   void draw() {
-    //println(isOnRoad());
-    //rect(x- 15, y- 15, 10, 10);
-    //scale(7);
     pushMatrix();
     translate(55, 55);
     rotate(radians(360)-radians(direction));
@@ -254,42 +251,14 @@ class Kart implements Collideable, Displayable {
     miniX = 108.7;
     miniY = 7;
   }
-  /*void move() {
-    if (keyPressed()) {
-      if (key == 'w') {
-        y = y + speed;
-      }
-      if (key == 'a') {
-        x = x + speed;
-      }
-      if (key == 's') {
-        y = y - speed;
-      }
-      if (key == 'd') {
-        x = x - speed;
-      }
-      if (key == 'r') {
-        angle += 0.006;
-      }
-      if (key == 't') {
-        angle -= 0.006;
-      }
-    }
-    
-  }*/
-
   
   
   void turnRight() {
-    direction = direction - 10/ (4+(speed/3));
-    //xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
-    //ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
-    
+    direction = direction - 10/ (4+(speed/3)); 
   }
   
   void turnLeft() {
     direction = direction + 10/ (4+(speed/3));
-    
   }
   
   void placeOnMapX(float x) {
@@ -310,18 +279,3 @@ class Kart implements Collideable, Displayable {
  
 
 }
-
-/*
-class Player extends Kart {
-  int score;
-  
-  Player(int X, int Y) {
-    super(X, Y, 0, 0, 0, 0, "hey");
-    score = 0;
-  }
-  
-  int getScore() {
-    return score;
-  }
-}
-*/
