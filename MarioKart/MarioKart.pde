@@ -53,11 +53,11 @@ void setup() {
   //thingsToMove = new ArrayList<Moveable>();
   k = new Player(60, 60, 255, 255, 255, -1, "hey");
   miniK = new Player(60, 60, 255, 255, 255, 0, "hey");
-  c1 = new Computer(1, k);
+  //c1 = new Computer(1, k);
   b = new Image(0, 0, k);
   miniB = new Image(0, 0, k);
   thingsToDisplay.add(k);
-  thingsToDisplay.add(c1);
+  //thingsToDisplay.add(c1);
   //thingsToMove.add(b);
   //thingsToMove.add(a);
 }

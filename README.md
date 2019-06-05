@@ -75,7 +75,7 @@ Hilary: I fixed the game so that when the kart reaches the finish line a ending 
 
 Kayla: I started to get working on the obstacles.  In order to make displaying objects in the right places easier, I created a roadPixels() method that as its name suggests, saves the x and y coordinates for all the pixels on the road.  To start the obstacles, I chose to start with rocks.  I wrote rockCoor, displayObstacles and moveBackObs in order to get the rocks to display correctly in the right location regardless of the translations and rotations.
 
-Hilary: I started working on implementing the Player class and expanding the Computer class by writing a draw method for it.
+Hilary: I started working on implementing the Player class and expanding the Computer class in the computer branch. I wrote a draw method for Computer to display on the screen.
 
 5/31
 
@@ -105,4 +105,4 @@ Hilary: I worked on displaying the computer in relation to the player, using its
 
 Kayla: I fixed the faulty leaderboard (I kept on getting an out of memory error) and added another transition screen before the leaderboard. I also finished the shapes. Players can now choose between a racecar, kart, and car.
 
-Hilary: I created a path that the computer would follow, instead of picking random directions. Using the original image, I found the direction of the kart and where it would turn.
+Hilary: I created a path that the computer would follow, instead of picking random directions. Using the original image, I found the direction of the kart and where it would turn. However, I still had trouble with rotating and showing the computer on the minimap, so we decided not to include it in the game.
