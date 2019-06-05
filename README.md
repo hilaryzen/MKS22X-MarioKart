@@ -103,7 +103,6 @@ Hilary: I worked on displaying the computer in relation to the player, using its
 
 6/4
 
-Kayla: fixed faulty leaderboard - fixed out of memory error
-did shapes - racecar, kart, car
+Kayla: I fixed the faulty leaderboard (I kept on getting an out of memory error) and added another transition screen before the leaderboard. I also finished the shapes. Players can now choose between a racecar, kart, and car.
 
 Hilary: I created a path that the computer would follow, instead of picking random directions. Using the original image, I found the direction of the kart and where it would turn.
