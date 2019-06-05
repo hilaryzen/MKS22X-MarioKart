@@ -17,7 +17,7 @@ class Kart implements Collideable, Displayable {
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
     y = Y;
-    speed = 0.5;
+    speed = 1.3;
     direction = 90.0;
     fuel = 100;
     health = 100;
@@ -78,6 +78,14 @@ class Kart implements Collideable, Displayable {
   
   void setMapY(float newMap) {
     mapY = newMap;
+  }
+  
+  float getMiniX() {
+    return miniX;
+  }
+  
+  float getMiniY() {
+    return miniY;
   }
   
   float getSpeed() {

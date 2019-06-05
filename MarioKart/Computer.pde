@@ -20,24 +20,34 @@ class Computer extends Kart{
   }
   
   void draw() {
+    //pushMatrix();
+    //translate(55,55);
     //rotate(radians(360)-radians(direction));
-    x = p.getX() + (mapX - p.getMapX());
-    y = p.getY() + (mapY - p.getMapY());
+    //popMatrix();
+    float dX = mapX - p.getMapX();
+    float dY = mapY - p.getMapY();
+    x = p.getX() + (dX);
+    y = p.getY() + (dY);
+    //miniX = p.getMiniX() + (21/800) * dX;
+    //miniY = p.getMiniX() + (21/800) * dY;
     //shape = p.getS();
     fill(red, green, blue);
     strokeWeight(0);
     if (shape == 0) {
-      rect(x - 2.5, y - 7, 5, 14);
-      image(racecar, x - 7, y - 8, 14, 16);
+      rect(x-2.5, y-7, 5, 14);
+      image(racecar, x-7, y-8, 14, 16);
     }
     if (shape == 1) {
-      rect(x - 4, y - 8, 8, 16);
-      image(kart, x - 7, y - 8, 14, 16);
+      rect(x-4, y-8, 8, 16);
+      image(kart, x-7, y-8, 14, 16);
     }
     if (shape == 2) {
-      rect(x - 3, y - 8, 6, 16);
-      image(car, x - 7, y - 8, 14, 16);
+      rect(x-3, y-8, 6, 16);
+      image(car, x-7, y-8, 14, 16);
     }
+    //strokeWeight(0.5);
+    //rect(miniX - 0.1, miniY - 0.1, 0.2, 0.2);
+    //popMatrix();
     strokeWeight(1);
   }
   
@@ -98,7 +108,7 @@ class Computer extends Kart{
   }
   
   void path() {
-    if (mapX == 670 && mapY == 90) {
+    if ((int) mapX == 670 && (int) mapY == 90) {
       direction = 150;
     } else if ((int) mapX == 636 && (int) mapY == 70) {
       direction = 180;
@@ -181,7 +191,6 @@ class Computer extends Kart{
     mapY -= getSpeed() * sin(radians(getDirection()));
     miniX = miniX + ((speed/(800/21)) * cos(radians(direction)));
     miniY = miniY - ((speed/(800/21)) * sin(radians(direction)));
-    println("Direction: " + direction);
     println("mapX: " + mapX + " mapY: " + mapY);
     println("miniX: " + miniX + " miniY: " + miniY);
   }
@@ -189,7 +198,7 @@ class Computer extends Kart{
   void reset() {
     mapX = 670.0;
     mapY = 150.0;
-    speed = 1.3;
+    speed = 1;
     direction = 90.0;
     shape = p.getS();
   }
