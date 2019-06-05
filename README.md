@@ -3,7 +3,7 @@ APCS Semester 2 Final Project
 
 # Description
 
-Our game is a 2D version of MarioKart with an aerial view. You, the player, have to race their kart through a map using only the A key to turn left and the D key to turn right. Along the way, make sure to avoid the rocks, which will slow you down, and the water, which will kill you immediately and force you to restart. If you do bump into a rock, use the S key to back up and the A and D keys to turn, so that you avoid the rock. You earn points by staying on the road, and lose them when you go off the road onto the grass.
+Our game is a 2D racing game based off of MarioKart. Through an aerial view, you, the player, would have to race your kart through a map using only the A key to turn left and the D key to turn right. Along the way, you would encounter rocks that would stop you in your tracks.  If you do bump into one, hold the "s" key to back out and use the "a" and "d" keys to rotate out of the way. Straying off the path toward the grass would result in a reduction of speed and hitting the water will kill you immediately and force you to restart. As for your score, you can earn points by staying on the road, and lose them when you go off the road onto the grass.
 
 # How to Run
 
