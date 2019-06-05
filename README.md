@@ -3,7 +3,11 @@ APCS Semester 2 Final Project
 
 # Description
 
+Our game is a 2D version of MarioKart with an aerial view. You, the player, have to race their kart through a map using only the A key to turn left and the D key to turn right. Along the way, make sure to avoid the rocks, which will slow you down, and the water, which will kill you immediately and force you to restart. If you do bump into a rock, use the S key to back up and the A and D keys to turn, so that you avoid the rock. You earn points by staying on the road, and lose them when you go off the road onto the grass.
+
 # How to Run
+
+Run one of the Processing files in the MarioKart folder. You will be able to choose your kart's color, shape, and name before being thrown into the race.
 
 # Development Log
 
@@ -95,7 +99,11 @@ Hilary: I wrote a second version of randomDirection, where the computer tries to
 
 Kayla: I finished the mini map and now users can track their position on the map whenever during the game.  I also altered the leaderboard so that users can compete against themselves even when there are currently no enemies.  Players can focus on improving their times. (scores are displayed but the rankings are organized by times only).
 
-6/4 
+Hilary: I worked on displaying the computer in relation to the player, using its coordinates on a normal map. However, the randomDirection method wasn't working in the same way, and I also had trouble finding the right speed for the kart and adjusting its coordinates.
+
+6/4
 
 Kayla: fixed faulty leaderboard - fixed out of memory error
 did shapes - racecar, kart, car
+
+Hilary: I created a path that the computer would follow, instead of picking random directions. Using the original image, I found the direction of the kart and where it would turn.
