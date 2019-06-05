@@ -12,6 +12,7 @@ class Computer extends Kart {
     mapX = 670.0;
     mapY = 150.0;
     direction = 90.0;
+    speed = 1;
   }
   
   void draw() {

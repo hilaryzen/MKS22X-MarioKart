@@ -17,7 +17,7 @@ class Kart implements Displayable {
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
     y = Y;
-    speed = 1;
+    speed = 0.5;
     direction = 90.0;
     fuel = 100;
     health = 100;

@@ -167,7 +167,7 @@ class Computer{
       mapY += (2) * sin(radians(direction));
     }
     */
-    mapX += (0.25) * cos(radians(direction));
-    mapY -= (0.25) * sin(radians(direction));
+    mapX += (1) * cos(radians(direction));
+    mapY -= (1) * sin(radians(direction));
   }
 }
