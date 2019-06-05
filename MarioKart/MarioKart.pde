@@ -1,7 +1,7 @@
 PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
-Image b;
-Player k;
-Computer c1;
+Image b, miniB;
+Player k, miniK;
+Computer c1, miniC;
 int screen = 0;
 PFont font;
 String input = "";
@@ -21,6 +21,10 @@ interface Moveable {
 
 ArrayList<Displayable> thingsToDisplay = new ArrayList<Displayable>(); //from group lab
 //ArrayList<Moveable> thingsToMove;
+
+interface Collideable {
+  boolean isTouching(Obstacle o);
+}
 
 void setup() {
   size(800,800);
@@ -43,8 +47,11 @@ void setup() {
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
   k = new Player(60, 60, 255, 255, 255, 0, "hey");
+  miniK = new Player(60, 60, 255, 255, 255, 0, "hey");
   c1 = new Computer(1, k);
+  miniC = new Computer(1, k);
   b = new Image(0, 0, k, c1);
+  miniB = new Image(0, 0, k, c1);
   thingsToDisplay.add(k);
   thingsToDisplay.add(c1);
   //thingsToMove.add(b);
@@ -62,6 +69,9 @@ void draw() {
     mapSelect();
     b.reset();
     k.reset();
+    miniK.reset();
+    c1.reset();
+    miniC.reset();
   }
   else if (screen == 3) {
     //println(b.getY());
@@ -69,33 +79,46 @@ void draw() {
     //c1.randomDirection2();
     c1.move();
     col = get((int)((b.getX() * -1) + 60),(int)((b.getY() * -1) + 60));
-    move();
-    //c1.randomDirection2();
+    k.placeOnMapX(((b.getX() * -1) + 60));
+    k.placeOnMapY(((b.getY() * -1) + 60));
+    //println((b.getX() * -1) + " " +(b.getY() * -1) + 60);
     b.draw();
+    
     //k.draw();
     for (Displayable d : thingsToDisplay) {
       d.draw();
     }
+    //k.draw();
+    b.displayObstacles();
+    miniB.displayMini();
+    miniK.displayMini();
+    //b.displayTime();
     
     //k.draw();
-    //move();
+    move();
     if (b.endRace()) {
       screen = 6; //ending screen
     }
-    /*
     if (k.isOnWater(col)) {
-      k.setColor(0, 0, 255); //Blue kart
+      ////k.setColor(0, 0, 255); //Blue kart
       b.endRace();
       screen = 5;
     }
     else if (k.isOnRoad(col)) {
-      k.setColor(0, 255, 0); //Green kart
-      k.setSpeed(1.6);
+      //k.setColor(0, 255, 0); //Green kart
+      k.setSpeed(2.8);
+      miniK.setSpeed(2.8);
     } else {
-      k.setColor(255,0, 0); //Red kart
-      k.setSpeed(0.9);
+      ///k.setColor(255,0, 0); //Red kart
+      k.setSpeed(1.2);
+      miniK.setSpeed(1.2);
     }
-    */
+    for (Rock d : b.getRockCoor()) {
+      if (k.isTouching(d)) {
+        k.setSpeed(0);
+        miniK.setSpeed(0);
+      }
+    }
     //println(k.isOnRoad(map.get((int)(680),(int)(250))));
   }
   else if (screen == 5) {
@@ -104,13 +127,19 @@ void draw() {
   else if (screen == 6) {
     //endingScreen();
     int currentTime = millis();
+    
     while (millis() - currentTime < 3000) {
       //endingScreen();
-      fill(255,0,0);
-      textSize(30);
-      textFont(font);
-      text("YOU WON!", 320, 340);
+      
     }
+    fill(255,0,0);
+    textSize(30);
+    textFont(font);
+    text("YOU WON!", 320, 340);
+    screen = 7;
+    
+  }
+  else if (screen == 7) {
     leaderboard();
   }
 
@@ -121,13 +150,14 @@ void draw() {
   }
   for (Moveable thing : thingsToMove) {
     thing.move();
-    //thing.draw();
+    //thing.draw();is
   }*/
 }
 
 void move() {
   if (k.isRacing()) {
     b.moveStraight();
+    miniK.moveStraight();
     if (k.isOnRoad(col)) {
       k.setScore(1);
     } else {
@@ -159,17 +189,26 @@ void keyPressed() {
     }
     if (key == 'a') {
       k.turnLeft();
+      miniK.turnLeft();
     }
     if (key == 's') {
-      b.moveBack();
+      
       if (k.isOnRoad(col)) {
         k.setScore(1);
+        k.setSpeed(1.6);
+        miniK.setSpeed(1.6);
       } else {
         k.setScore(-1);
+        k.setSpeed(1);
+        miniK.setSpeed(1);
       }
+      b.moveBack();
+      miniK.moveBackMini();
+      b.moveBackObs();
     }
     if (key == 'd') {
       k.turnRight();
+      miniK.turnRight();
     }
   }
   
@@ -216,6 +255,10 @@ void mouseClicked() {
   }
   if (screen == 2) {
     if (mouseX > 50 && mouseY> 135 && mouseX < 220 && mouseY < 305) {
+      b.resetRock();
+      b.roadPixels();
+      b.rockCoor();
+      
       k.start();
       image(map,0,0,800,800);
       b.setStartTime();
@@ -223,6 +266,13 @@ void mouseClicked() {
     }
   }
   if (screen == 5) {
+    if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
+      //b.roadPixels();
+      //b.rockCoor();
+      screen = 2;
+    }
+  }
+  if (screen == 7) {
     if (mouseX > 590 && mouseY> 680 && mouseX < 725 && mouseY < 740) {
       screen = 2;
     }
@@ -345,25 +395,36 @@ void endingScreen() {
 }
 
 void leaderboard() {
-  fill(255,255,255);
-  rect(0,0,800,800);
+  int c = 0;
+  for (int a = 0; a < height; a++) {
+    if (c < 255) {
+      stroke(c, 110, 255, 50);
+      c += 1;
+    }
+    line(0, a, width, a);
+  }
+  fill(255);
+  //fill(255,255,255);
+  //rect(0,0,800,800);
   fill(0,0,0);
   textSize(30);
   textFont(font);
   int place = k.getPlace();
   if (place == 1) {
-    text("You got 1st place!", 250, 80);
+    text("You got 1st place!", 235, 80);
   } else if (place == 2) {
-    text("You got 2nd place!", 250, 80);
+    text("You got 2nd place!", 235, 80);
   } else if (place == 3) {
-    text("You got 3rd place!", 250, 80);
+    text("You got 3rd place!", 235, 80);
   } else {
-    text("You got " + place + "th place!", 250, 80);
+    text("You got " + place + "th place!", 235, 80);
   }
-  text("LEADERBOARD", 260, 200);
+  textSize(35);
+  text("LEADERBOARD", 300, 170);
   String name = k.getName(); 
-  text("1 ", 150, 250);
-  text(name, 250, 250);
-  text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
-  text(k.getScore(), 450, 250);
+  text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
+  //text(name, 190, 250);
+  //text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
+  //text(k.getScore(), 520, 250);
+  image(replay, 590, 680, 135, 60);
 }

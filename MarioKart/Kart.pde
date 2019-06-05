@@ -1,7 +1,6 @@
-class Kart implements Displayable {
-  float x;
-  float y;
-  float mapX, mapY;
+class Kart implements Collideable, Displayable {
+  float x, mapX, miniX;
+  float y, mapY, miniY;
   float speed;
   float direction;
   int fuel;
@@ -12,7 +11,8 @@ class Kart implements Displayable {
   String name;
   int endingTime;
   boolean racing;
-  int place;
+  boolean bottom = false;
+  int place; 
   
   Kart(float X, float Y, int r, int g, int b, int s, String n) {
     x = X - 5;
@@ -30,6 +30,8 @@ class Kart implements Displayable {
     racing = false;
     mapX = 665.0;
     mapY = 150.0;
+    miniX = 108.7;
+    miniY = 7;
   }
   
   void setColor(int r, int g, int b) {
@@ -173,8 +175,20 @@ class Kart implements Displayable {
       return true;
     }
     return false;
+  }
   
-    
+  boolean isOnBottom() {
+    if ((mapX > 192 && mapX < 279) && (mapY > 510 && mapY < 528)) {
+      return true;
+    }
+    return false;
+  }
+  
+  boolean isOut() {
+    if ((mapX > 192 && mapX < 279) && (mapY > 561 && mapY < 569)) {
+      return true;
+    }
+    return false;
   }
   
   void draw() {
@@ -185,9 +199,24 @@ class Kart implements Displayable {
     translate(55, 55);
     rotate(radians(360)-radians(direction));
     strokeWeight(1);
-    fill(red, green, blue);
-    rect(-5, -5, 10, 10);
-    println("Kart  mapX: " + mapX + " mapY: " + mapY);
+    //println("Kart  mapX: " + mapX + " mapY: " + mapY);
+    if (bottom == false) {
+      fill(red, green, blue);
+      if (isOnBottom()) {
+        bottom = true;
+       }
+    }
+    else {
+      fill(red, green, blue, 0);
+      if (isOut()) {
+        bottom = false;
+        //fill(red, green, blue);
+      }
+    }
+    
+    
+    //tint(255, 127);
+    rect(-4, -5, 8, 10);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
@@ -202,6 +231,25 @@ class Kart implements Displayable {
     angle+= 0.63;
   }
   
+  void displayMini() {
+    pushMatrix();
+    translate(miniX, miniY);
+    //rotate(radians(360)-radians(direction));
+    strokeWeight(0.5);
+    rect(-0.1, -0.1, 0.2, 0.2);
+    popMatrix();
+  }
+  
+  void moveBackMini() {
+    miniX = miniX + ((speed/(800/21)) * sin(radians(direction)));
+    miniY = miniY + ((speed/(800/21)) * cos(radians(direction)));
+  }
+  
+  void moveStraight() {
+    miniX = miniX - ((speed/(800/21)) * sin(radians(direction)));
+    miniY = miniY - ((speed/(800/21)) * cos(radians(direction)));
+  }
+  
   void reset() {
     x = 55;
     y = 60;
@@ -212,6 +260,8 @@ class Kart implements Displayable {
     score = 0;
     racing = false;
     angle = 0;
+    miniX = 108.7;
+    miniY = 7;
   }
   /*void move() {
     if (keyPressed()) {
@@ -241,16 +291,19 @@ class Kart implements Displayable {
   
   void turnRight() {
     direction = direction - 10/ (4+(speed/3));
-    x = x + (speed/4 * sin(radians(direction+90)));
-    y = y + (speed/4 * cos(radians(direction+90)));
+    
+    //x = x + (speed/4 * sin(radians(direction+90)));
+    //y = y + (speed/4 * cos(radians(direction+90)));
     mapX += (speed/4 * sin(radians(direction + 90)));
     mapY += (speed/4 * cos(radians(direction+90)));
+    //xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
+    //ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
   }
   
   void turnLeft() {
     direction = direction + 10/ (4+(speed/3));
-    x = x + (speed/4 * sin(radians(direction-90)));
-    y = y + (speed/4 * cos(radians(direction-90)));
+    //x = x + (speed/4 * sin(radians(direction-90)));
+    //y = y + (speed/4 * cos(radians(direction-90)));
     mapX += (speed/4 * sin(radians(direction - 90)));
     mapY += (speed/4 * cos(radians(direction-90)));
   }
@@ -266,5 +319,22 @@ class Kart implements Displayable {
       return angle;
     }
   }
+  
+  void placeOnMapX(float x) {
+    mapX = x;
+  }
+  
+  void placeOnMapY(float y) {
+    mapY = y;
+  }
+  
+  boolean isTouching(Obstacle b) {
+    if (dist(mapX - 5, mapY - 5, b.getStartX(), b.getStartY()) < 9.6) {
+    //if ((abs(mapX - b.getStartX()) < 9.5) && (((mapY - b.getStartY()) < 9.5) || (mapY - b.getStartY()) > -9.5)) {
+      return true;
+    }
+    return false;
+  }
+ 
 
 }

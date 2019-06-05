@@ -1,4 +1,4 @@
-class Obstacle {
+class Obstacle implements Collideable{
   float x;
   float y;
   
@@ -9,6 +9,18 @@ class Obstacle {
   
   void draw() {
     
+  }
+  
+  float getStartX() {
+    return x;
+  }
+  
+  float getStartY() {
+    return y;
+  }
+  
+  boolean isTouching(Obstacle b) {
+    return true;
   }
 }
 
@@ -23,4 +35,42 @@ class Tree extends Obstacle {
   void draw() {
     image(tree, x, y, 50, 50);
   }
+}
+
+class Rock extends Obstacle {
+  PImage rock;
+  float xcor, ycor;
+  
+  Rock(float x, float y) {
+    super(x, y);
+    xcor = x;
+    ycor = y;
+    rock = loadImage("rock.png");
+  }
+  
+  float getStartX() {
+    return xcor;
+  }
+  
+  float getStartY() {
+    return ycor;
+  }
+  
+  void changeX(float change) {
+    x += change;
+  }
+  
+  void changeY(float change) {
+    y += change;
+  }
+  
+  void draw() {
+    pushMatrix();
+    translate(x, y);
+    translate(-680 + 60, -150 + 60);
+    image(rock, -5, -5, 10, 10);
+    popMatrix();
+    
+  }
+  
 }

@@ -69,4 +69,27 @@ Hilary: I fixed the game so that when the kart reaches the finish line a ending 
 
 5/30
 
-Hilary: I started working on implementing the Player class and expanding the Computer class by writing a draw method for it. 
+Kayla: I started to get working on the obstacles.  In order to make displaying objects in the right places easier, I created a roadPixels() method that as its name suggests, saves the x and y coordinates for all the pixels on the road.  To start the obstacles, I chose to start with rocks.  I wrote rockCoor, displayObstacles and moveBackObs in order to get the rocks to display correctly in the right location regardless of the translations and rotations.
+
+Hilary: I started working on implementing the Player class and expanding the Computer class by writing a draw method for it.
+
+5/31
+
+Kayla: I added the Collideable interface and wrote the isTouching method.  If your kart touches a rock, the speed should be set to zero.  You can gain back your speed by clicking the "s" key.
+
+Hilary: I started working on random direction for the computer. To choose its path, the computer will test many different angles to find which directions keep them on the road. Out of those angle, the computer will then pick a random spot and move to it. I decided to add a left bound and a right bound, which limit the computer to only testing angles in front of it.
+
+6/1
+
+Kayla: I wrote the reset method so that when players die, the rocks would still be displaying in the right areas.  I also fixed the glitchy kart collisions so that the player would be stopped once he/she gets into a certain radius around the rock.  I wrote isOnBottom and started to play around with transparency for the overlapping intersection.
+
+Hilary: I continued trying to improve the randomDirection method by adding the mapX and mapY variables to Computer, which would track the kart's position on a normal map, without the translations. I aimed to use that to figure out the direction of the kart before translating it onto the screen, and used the Experiment folder to test it, but the method is still buggy. I also added methods to randomly pick a color for the computer, that is different from the Player.
+
+6/2
+Kayla: I added more details to the leaderboard screen and added the replay button there as well.  For the odd overlapping intersection, I got the transparency working.  I also got started on a little mini map that would help you keep track of your progress as you play.
+
+Hilary: I wrote a second version of randomDirection, where the computer tries to go as straight as possible. The method works in Experiment, without the transformations, and I'm still working on getting the method to work and the kart to display correctly in the actual game.
+
+6/3
+
+Kayla: mini map

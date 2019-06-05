@@ -2,12 +2,18 @@ PImage map;
 PFont font;
 int x;
 int y;
+<<<<<<< HEAD
 Computer c;
+=======
+Tree tree;
+Computer c1;
+>>>>>>> master
 
 void setup() {
   
   size(800,800);
   map = loadImage("easy copy.png");
+<<<<<<< HEAD
   c = new Computer(1);
   x = 670;
   y = 150;
@@ -24,15 +30,28 @@ void setup() {
   */
 }
 
+=======
+  x = 695;
+  y = 240;
+  c1 = new Computer(1);
+}
+
+
+>>>>>>> master
 void draw() {
   //scale(7);
   //pushMatrix();
   //translate(-650, -140);
   image(map, 0, 0, 800, 800);
+<<<<<<< HEAD
   //popMatrix();
   c.draw();
   
   //c.move();
+=======
+  c1.draw();
+  //tree.draw();
+>>>>>>> master
   
   /*
   color c = get(x,y);
@@ -41,15 +60,24 @@ void draw() {
   } else {
     fill (255, 0, 0); //Red kart
   }
+<<<<<<< HEAD
   
+=======
+  /*
+>>>>>>> master
   println("Red: " + red(c));
   println("Green: " + green(c));
   println("Blue: " + blue(c));
   */
   
   //rect(x, y, 10, 10);
+<<<<<<< HEAD
   println("X: " + x + " Y: " + y);
 }
+=======
+}
+
+>>>>>>> master
 
 void keyPressed() {
   if (key == 'w') {
@@ -68,6 +96,7 @@ void keyPressed() {
 }
 
 boolean isOnRoad(color c) {
+  /*
   if (red(c) < 220) {
     return false;
   } else if (green(c) < 200 || green(c) > 230) {
@@ -76,8 +105,17 @@ boolean isOnRoad(color c) {
     return false;
   }
   return true;
+  */
+  if (red(c) > 230 && red(c) < 250 && green(c) > 200 && green(c) < 230 && blue(c) > 135 && blue(c) < 160) {
+    return true;
+  } 
+  if (red(c) > 160 && red(c) < 195 && green(c) > 110 && green(c) < 150 && blue(c) > 0 && blue(c) < 30) {
+    return true;
+  } 
+  return false;
 }
 
+<<<<<<< HEAD
 boolean isOnRoad2(color c) {
   //Road: R = 244, G = 217, B = 149
   //Bridge: R = 184, G = 132, B = 21
@@ -105,6 +143,9 @@ void move() {
   c.move();
 }
 
+=======
+/*
+>>>>>>> master
 void leaderboard() {
   fill(255,255,255);
   rect(0,0,800,800);
@@ -114,3 +155,4 @@ void leaderboard() {
   text("#1", 390, 50);
   text("LEADERBOARD", 300, 100);
 }
+*/

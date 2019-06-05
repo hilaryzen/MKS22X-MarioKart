@@ -1,3 +1,5 @@
+import java.util.ArrayList; 
+
 class Image{
   float xcor;
   float ycor;
@@ -10,6 +12,9 @@ class Image{
   Kart kart;
   Computer computer;
   int kartsFinished;
+  ArrayList<Integer> roadPixelsX = new ArrayList<Integer>();
+  ArrayList<Integer> roadPixelsY = new ArrayList<Integer>();
+  ArrayList<Rock> rocks = new ArrayList<Rock>(10);
 
   
   Image(float x, float y, Kart a, Computer c){
@@ -83,7 +88,18 @@ class Image{
     //endRace(); //Tests if kart is at finish line
   }
   
-  
+  void displayMini() {
+    if (kart.getDirection() > 360) {
+      kart.setDirection(0);
+    }
+    pushMatrix();
+    translate(91, 3);
+    fill(255);
+    rect(-1, -1, 23, 23);
+    image(map, 0.5, 0.5, 21, 21);
+    popMatrix();
+
+  }
   /*void move() {
     if (keyPressed()) {
       if (key == 'w') {
@@ -155,5 +171,51 @@ class Image{
   void reset() {
     xcor = 0 - (startingPoint[0] - 60);
     ycor = 0 - (startingPoint[1]) + 60;
+  }
+  
+  void roadPixels() {
+    image(copy, 0, 0, 800, 800);
+    for (int r = 0; r < 800; r++) {
+      for (int c = 0; c < 800; c++) {
+        if (k.isOnRoad(get(c, r))) {
+          roadPixelsX.add(c);
+          roadPixelsY.add(r);
+        }
+      }
+    }
+  }
+  
+  void rockCoor() {
+    //rocks.clear();
+    for (int count = 0; count < 10; count++) {
+      int rand = int(random(roadPixelsX.size()));
+      rocks.add(count, new Rock(roadPixelsX.get(rand), roadPixelsY.get(rand)));
+    }
+  }
+  
+  ArrayList<Rock> getRockCoor() {
+    return rocks;
+  }
+  
+  void resetRock() {
+    rocks.clear();
+    roadPixelsX.clear();
+    roadPixelsY.clear();
+  }
+  
+  void moveBackObs() {
+    for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).changeX(-(kart.getSpeed() * sin(radians(kart.getDirection()))));
+      rocks.get(i).changeY(-(kart.getSpeed() * cos(radians(kart.getDirection()))));
+      //rocks.get(i).draw();
+    }
+  }
+  
+  void displayObstacles() {
+    for (int i = 0; i < rocks.size(); i ++) {
+      rocks.get(i).changeX((kart.getSpeed() * sin(radians(kart.getDirection()))));
+      rocks.get(i).changeY((kart.getSpeed() * cos(radians(kart.getDirection()))));
+      rocks.get(i).draw();
+    }
   }
 }

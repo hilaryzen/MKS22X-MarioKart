@@ -1,4 +1,5 @@
-class Computer extends Kart {
+class Computer extends Kart{
+  float[] xValues, yValues;
   int mapNum;
   float mapX, mapY;
   Player p;
@@ -12,7 +13,7 @@ class Computer extends Kart {
     mapX = 670.0;
     mapY = 150.0;
     direction = 90.0;
-    speed = 1;
+    speed = 1.3;
   }
   
   void draw() {
@@ -164,4 +165,12 @@ class Computer extends Kart {
     println("Direction: " + direction);
     println("mapX: " + mapX + " mapY: " + mapY);
   }
+  
+  void reset() {
+    mapX = 670.0;
+    mapY = 150.0;
+    speed = 1.3;
+    direction = 90.0;
+  }
+  
 }

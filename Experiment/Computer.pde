@@ -1,7 +1,11 @@
 class Computer{
   ArrayList<Float> directionValues;
   int mapNum;
+<<<<<<< HEAD
   float mapX, mapY;
+=======
+  int mapX, mapY;
+>>>>>>> master
   float direction;
   float rightBound;
   float leftBound;
@@ -10,14 +14,22 @@ class Computer{
     direction = 90.0;
     mapNum = map;
     directionValues = new ArrayList<Float>();
+<<<<<<< HEAD
     mapX = 670.0; //Original = 670
     mapY = 150.0; //Original = 150
+=======
+    mapX = 660;
+    mapY = 150;
+>>>>>>> master
   }
   
   void draw() {
     move();
     fill(0,0,0);
+<<<<<<< HEAD
     println("mapX: " + mapX + " mapY: " + mapY);
+=======
+>>>>>>> master
     rect(mapX, mapY, 10, 10);
   }
   
@@ -54,9 +66,15 @@ class Computer{
   }
   
   void randomDirection2() {
+<<<<<<< HEAD
     for (float i = 0.0; i < 90.0; i += 5.0) {
       int newX = (int) (mapX + 10 * cos(radians(direction + i)));
       int newY = (int) (mapY - 10 * sin(radians(direction + i)));
+=======
+    for (float i = 0.0; i < 180.0; i += 5.0) {
+      int newX = (int) (mapX + 5 * cos(radians(direction + i)));
+      int newY = (int) (mapY - 5 * sin(radians(direction + i)));
+>>>>>>> master
       int c = get(newX, newY);
       if (isOnRoad(c)) {
         direction += i;
@@ -64,8 +82,13 @@ class Computer{
         println(direction);
         return;
       } 
+<<<<<<< HEAD
       newX = (int) (mapX + 10 * cos(radians(direction - i)));
       newY = (int) (mapY - 10 * sin(radians(direction - i)));
+=======
+      newX = (int) (mapX + 5 * cos(radians(direction - i)));
+      newY = (int) (mapY - 5 * sin(radians(direction - i)));
+>>>>>>> master
       c = get(newX, newY);
       if (isOnRoad(c)) {
         direction -= i;
@@ -74,7 +97,10 @@ class Computer{
         return;
       } 
     }
+<<<<<<< HEAD
     println("Direction: " + direction);
+=======
+>>>>>>> master
   }
   
   float convertAngle(float angle) {
@@ -83,12 +109,17 @@ class Computer{
     } else if (angle >= 360) {
       return angle % 360.0;
     } else if (angle < 0) {
+<<<<<<< HEAD
       return angle + 360.0;
+=======
+      return (angle % 360.0) + 360.0;
+>>>>>>> master
     } else {
       return angle;
     }
   }
   
+<<<<<<< HEAD
   void path() {
     if (mapX == 670 && mapY == 90) {
       direction = 150;
@@ -154,6 +185,10 @@ class Computer{
   void move() {
     path();
     //randomDirection2();
+=======
+  void move() {
+    randomDirection2();
+>>>>>>> master
     /*
     if (direction >= 0) {
       //x += (1/4) * sin(radians(direction));
@@ -167,7 +202,12 @@ class Computer{
       mapY += (2) * sin(radians(direction));
     }
     */
+<<<<<<< HEAD
     mapX += (1) * cos(radians(direction));
     mapY -= (1) * sin(radians(direction));
+=======
+    mapX += (2) * cos(radians(direction));
+    mapY -= (2) * sin(radians(direction));
+>>>>>>> master
   }
 }
