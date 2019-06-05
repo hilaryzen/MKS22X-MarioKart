@@ -48,6 +48,10 @@ class Kart implements Collideable, Displayable {
     name = n;
   }
   
+  int getS() {
+    return shape;
+  }
+  
   void setS(int s) {
     shape = s;
   }
@@ -198,8 +202,8 @@ class Kart implements Collideable, Displayable {
     pushMatrix();
     translate(55, 55);
     rotate(radians(360)-radians(direction));
-    strokeWeight(1);
     //println("Kart  mapX: " + mapX + " mapY: " + mapY);
+    strokeWeight(0);
     if (bottom == false) {
       fill(red, green, blue);
       if (isOnBottom()) {
@@ -213,10 +217,21 @@ class Kart implements Collideable, Displayable {
         //fill(red, green, blue);
       }
     }
-    
-    
     //tint(255, 127);
-    rect(-4, -5, 8, 10);
+      
+    if (shape == 0) {
+      rect(-2.5, -7, 5, 14);
+      image(racecar, -7, -8, 14, 16);
+    }
+    if (shape == 1) {
+      rect(-4, -8, 8, 16);
+      image(kart, -7, -8, 14, 16);
+    }
+    if (shape == 2) {
+      rect(-3, -8, 6, 16);
+      image(car, -7, -8, 14, 16);
+    }
+    strokeWeight(1);
     popMatrix();
     //rect(x - 15, y - 15, 10, 10);
   }
@@ -226,7 +241,20 @@ class Kart implements Collideable, Displayable {
     translate(600, 400);
     rotate(radians(360)-radians(angle));
     fill(red, green, blue);
-    rect(-40, -40, 80, 80);
+    strokeWeight(0);
+    if (shape == 0) {
+      //rotate(-90);
+      rect(-19, -50, 38, 100);
+      image(racecar, -45, -60, 90, 120);
+    }
+    if (shape == 1) {
+      rect(-22, -57, 44, 114);
+      image(kart, -45, -60, 90, 120);
+    }
+    if (shape == 2) {
+      rect(-20, -57, 40, 114);
+      image(car, -45, -60, 90, 120);
+    }
     popMatrix();
     angle+= 0.63;
   }

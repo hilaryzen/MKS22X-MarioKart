@@ -1,4 +1,4 @@
-PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay;
+PImage map, mario, golden, start, cloud1, cloud2, sun, star, arrow, copy, select, replay, racecar, kart, car;
 Image b, miniB;
 Player k, miniK;
 Computer c1, miniC;
@@ -7,6 +7,9 @@ PFont font;
 String input = "";
 color col;
 int[][] colors = {{255, 18, 62}, {255, 126, 5}, {255, 243, 5}, {46, 255, 5}, {5, 255, 207}, {255, 93, 171}};
+ArrayList<Integer[]> leaderboard = new ArrayList<Integer[]>();
+int holdY;
+//Integer[] score; //= new Integer[2];
 
 interface Displayable {
   void draw();
@@ -42,11 +45,14 @@ void setup() {
   arrow = loadImage("arrow.png");
   select = loadImage("select.png");
   replay = loadImage("replay.png");
+  racecar = loadImage("racecar.png");
+  kart = loadImage("kart.png");
+  car = loadImage("car.png");
   startScreen();
   font = loadFont("ARCHRISTY-48.vlw");
   //thingsToDisplay = new ArrayList<Displayable>();
   //thingsToMove = new ArrayList<Moveable>();
-  k = new Player(60, 60, 255, 255, 255, 0, "hey");
+  k = new Player(60, 60, 255, 255, 255, -1, "hey");
   miniK = new Player(60, 60, 255, 255, 255, 0, "hey");
   c1 = new Computer(1, k);
   miniC = new Computer(1, k);
@@ -137,7 +143,8 @@ void draw() {
     textSize(30);
     textFont(font);
     text("YOU WON!", 320, 340);
-    screen = 7;
+    //fill(0);
+    text("Click l to view the leaderboard", 110, 670);
     
   }
   else if (screen == 7) {
@@ -212,7 +219,29 @@ void keyPressed() {
       miniK.turnRight();
     }
   }
-  
+  if (screen == 6) {
+    if (key == 'l') {
+      Integer[] score = {(k.getEndTime() - b.getStartTime()) / 1000, k.getScore()};
+      //score[0] = (k.getEndTime() - b.getStartTime()) / 1000;
+      //score[1] = k.getScore();
+      if ((leaderboard.size() != 0) && !(leaderboard.get(leaderboard.size() - 1)[0] < score[0])) {
+        for (int a = 0; a < leaderboard.size(); a++) {
+          if (leaderboard.get(a)[0] >= score[0]) {
+            leaderboard.add(a, score);
+            break;
+          }
+        }
+        //leaderboard.add(score);
+      }
+      else {
+        leaderboard.add(score);
+      }
+      /*for (int a = 0; a < leaderboard.size(); a++) {
+        println(leaderboard.get(a)[0]);
+      }*/
+      screen = 7;
+    }
+  }
 }
 
 void startScreen() {
@@ -314,6 +343,9 @@ void kartSelect() {
   rect(130, 250, 70, 70);
   fill(255, 93, 171);//pink/purple
   rect(220, 250, 70, 70);
+  image(racecar, 26, 429, 90, 120);
+  image(kart, 132, 429, 90, 120);
+  image(car, 242, 429, 90, 120);
   k.display();
   if (mouseX > 40 && mouseY> 160 && mouseX < 110 && mouseY < 230) {
       k.setColor(255, 18, 62); //red
@@ -338,6 +370,15 @@ void kartSelect() {
   if (mouseX > 220 && mouseY> 250 && mouseX < 290 && mouseY < 320) {
       k.setColor(255, 93, 171); //pink
       computerColor(5);
+  }
+  if (mouseX > 26 && mouseY> 429 && mouseX < 116 && mouseY < 549) {
+      k.setS(0);
+  }
+  if (mouseX > 132 && mouseY> 429 && mouseX < 222 && mouseY < 549) {
+      k.setS(1);
+  }
+  if (mouseX > 242 && mouseY> 429 && mouseX < 332 && mouseY < 549) {
+      k.setS(2);
   }
   //if (mouseX > 335 && mouseY> 690 && mouseX < 485 && mouseY < 760) {
   //    screen++;
@@ -422,8 +463,13 @@ void leaderboard() {
   }
   textSize(35);
   text("LEADERBOARD", 300, 170);
+  holdY = 250;
   String name = k.getName(); 
-  text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
+  for (int a = 0; a < leaderboard.size(); a++) {
+    //println(leaderboard.get(a)[0]);
+    text(a + 1 + "      " + name + "        " + leaderboard.get(a)[0] + " sec" + "        " + leaderboard.get(a)[1], 130, holdY + (a * 45));
+  }
+  //text("1" + "      " + name + "        " + (k.getEndTime() - b.getStartTime()) / 1000 + " sec" + "        " + k.getScore(), 130, 250);
   //text(name, 190, 250);
   //text((k.getEndTime() - b.getStartTime()) / 1000 + " sec", 350, 250);
   //text(k.getScore(), 520, 250);

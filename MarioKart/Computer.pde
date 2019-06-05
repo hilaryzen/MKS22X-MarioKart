@@ -16,14 +16,29 @@ class Computer extends Kart{
     miniY = 7;
     direction = 90.0;
     speed = 1.3;
+    shape = p.getS();
   }
   
   void draw() {
     //rotate(radians(360)-radians(direction));
     x = p.getX() + (mapX - p.getMapX());
     y = p.getY() + (mapY - p.getMapY());
+    //shape = p.getS();
     fill(red, green, blue);
-    rect(x, y, 10, 10);
+    strokeWeight(0);
+    if (shape == 0) {
+      rect(x - 2.5, y - 7, 5, 14);
+      image(racecar, x - 7, y - 8, 14, 16);
+    }
+    if (shape == 1) {
+      rect(x - 4, y - 8, 8, 16);
+      image(kart, x - 7, y - 8, 14, 16);
+    }
+    if (shape == 2) {
+      rect(x - 3, y - 8, 6, 16);
+      image(car, x - 7, y - 8, 14, 16);
+    }
+    strokeWeight(1);
   }
   
   void randomDirection() {
@@ -164,8 +179,11 @@ class Computer extends Kart{
     //println("X: " + x + " Y: " + y);
     mapX += getSpeed() * cos(radians(getDirection()));
     mapY -= getSpeed() * sin(radians(getDirection()));
+    miniX = miniX + ((speed/(800/21)) * cos(radians(direction)));
+    miniY = miniY - ((speed/(800/21)) * sin(radians(direction)));
     println("Direction: " + direction);
     println("mapX: " + mapX + " mapY: " + mapY);
+    println("miniX: " + miniX + " miniY: " + miniY);
   }
   
   void reset() {
@@ -173,6 +191,7 @@ class Computer extends Kart{
     mapY = 150.0;
     speed = 1.3;
     direction = 90.0;
+    shape = p.getS();
   }
   
 }
