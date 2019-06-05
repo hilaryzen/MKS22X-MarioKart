@@ -12,6 +12,8 @@ class Computer extends Kart{
     p = user;
     mapX = 670.0;
     mapY = 150.0;
+    miniX = 109.2;
+    miniY = 7;
     direction = 90.0;
     speed = 1.3;
   }
@@ -160,8 +162,8 @@ class Computer extends Kart{
     //x += (speed) * sin(radians(getDirection()));
     //y -= (speed) * cos(radians(getDirection()));
     //println("X: " + x + " Y: " + y);
-    mapX += (1) * cos(radians(getDirection()));
-    mapY -= (1) * sin(radians(getDirection()));
+    mapX += getSpeed() * cos(radians(getDirection()));
+    mapY -= getSpeed() * sin(radians(getDirection()));
     println("Direction: " + direction);
     println("mapX: " + mapX + " mapY: " + mapY);
   }

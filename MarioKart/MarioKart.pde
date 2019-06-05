@@ -92,6 +92,7 @@ void draw() {
     b.displayObstacles();
     miniB.displayMini();
     miniK.displayMini();
+    miniC.displayMini();
     //b.displayTime();
     
     //k.draw();

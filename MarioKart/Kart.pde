@@ -236,6 +236,7 @@ class Kart implements Collideable, Displayable {
     translate(miniX, miniY);
     //rotate(radians(360)-radians(direction));
     strokeWeight(0.5);
+    fill(red, green, blue);
     rect(-0.1, -0.1, 0.2, 0.2);
     popMatrix();
   }
@@ -294,8 +295,8 @@ class Kart implements Collideable, Displayable {
     
     //x = x + (speed/4 * sin(radians(direction+90)));
     //y = y + (speed/4 * cos(radians(direction+90)));
-    mapX += (speed/4 * sin(radians(direction + 90)));
-    mapY += (speed/4 * cos(radians(direction+90)));
+    //mapX += (speed/4 * sin(radians(direction + 90)));
+    //mapY += (speed/4 * cos(radians(direction+90)));
     //xcor = xcor + (kart.getSpeed() * sin(radians(kart.getDirection())));
     //ycor = ycor + (kart.getSpeed() * cos(radians(kart.getDirection())));
   }
@@ -304,8 +305,8 @@ class Kart implements Collideable, Displayable {
     direction = direction + 10/ (4+(speed/3));
     //x = x + (speed/4 * sin(radians(direction-90)));
     //y = y + (speed/4 * cos(radians(direction-90)));
-    mapX += (speed/4 * sin(radians(direction - 90)));
-    mapY += (speed/4 * cos(radians(direction-90)));
+    //mapX += (speed/4 * sin(radians(direction - 90)));
+    //mapY += (speed/4 * cos(radians(direction-90)));
   }
   
   float convertAngle(float angle) {
